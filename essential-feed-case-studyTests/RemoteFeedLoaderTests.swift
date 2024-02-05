@@ -1,5 +1,5 @@
 //
-//  RemoteFeedLoader.swift
+//  RemoteFeedLoaderTests.swift
 //  essential-feed-case-studyTests
 //
 //  Created by Julius on 30/01/2024.
