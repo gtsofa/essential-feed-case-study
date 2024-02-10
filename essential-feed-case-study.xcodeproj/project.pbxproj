@@ -54,6 +54,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C639BE5A2B77BBCC00B63C28 /* Feed Feature */ = {
+			isa = PBXGroup;
+			children = (
+				C6F1F5E32B68D870001DCC83 /* FeedItem.swift */,
+				C6F1F5E52B68D8B8001DCC83 /* FeedLoader.swift */,
+			);
+			path = "Feed Feature";
+			sourceTree = "<group>";
+		};
+		C639BE5B2B77BBF300B63C28 /* Feed API */ = {
+			isa = PBXGroup;
+			children = (
+				C699FE572B6AFCA400FD503C /* RemoteFeedLoader.swift */,
+				C639BE582B77BAEC00B63C28 /* HTTPClient.swift */,
+			);
+			path = "Feed API";
+			sourceTree = "<group>";
+		};
 		C6F1F5BF2B68D4CA001DCC83 = {
 			isa = PBXGroup;
 			children = (
@@ -75,10 +93,8 @@
 		C6F1F5CB2B68D4CB001DCC83 /* essential-feed-case-study */ = {
 			isa = PBXGroup;
 			children = (
-				C6F1F5E32B68D870001DCC83 /* FeedItem.swift */,
-				C6F1F5E52B68D8B8001DCC83 /* FeedLoader.swift */,
-				C699FE572B6AFCA400FD503C /* RemoteFeedLoader.swift */,
-				C639BE582B77BAEC00B63C28 /* HTTPClient.swift */,
+				C639BE5B2B77BBF300B63C28 /* Feed API */,
+				C639BE5A2B77BBCC00B63C28 /* Feed Feature */,
 			);
 			path = "essential-feed-case-study";
 			sourceTree = "<group>";
