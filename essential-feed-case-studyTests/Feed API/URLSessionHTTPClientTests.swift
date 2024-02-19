@@ -24,6 +24,7 @@ class URLSessionHTTPClient {
     }
     
     func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) {
+        // we should be testing the behaviour here not every interaction of the URLSession
         session.dataTask(with: url) { _, _, error in
             if let error = error {
                 completion(.failure(error))
@@ -74,8 +75,6 @@ final class URLSessionHTTPClientTests: XCTestCase {
     // MARK: - Helpers
     
     class HTTPSessionSpy: HTTPSession {
-        
-        var receivedURLs = [URL]()
         private var stubs = [URL: Stub]()
         
         //combine task + error i.e we can use a tuple or a struct
@@ -89,7 +88,6 @@ final class URLSessionHTTPClientTests: XCTestCase {
         }
         
         func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> HTTPSessionTask {
-            receivedURLs.append(url)
             //check if we have a stub
             guard let stub = stubs[url] else {
                 fatalError("Couldn't find a stub for the \(url)")
