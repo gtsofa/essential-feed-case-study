@@ -8,29 +8,6 @@
 import XCTest
 import essential_feed_case_study
 
-class URLSessionHTTPClient: HTTPClient {
-    let session: URLSession
-    struct UnExpectedValueRepresentation: Error {}
-    
-    init(session: URLSession = .shared) {
-        self.session = session
-    }
-    
-    func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) {
-        // we should be testing the behaviour here not every interaction of the URLSession
-        session.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-            } else if let data = data, let response = response as? HTTPURLResponse {
-                completion(.success(data, response))
-            } else {
-                completion(.failure(UnExpectedValueRepresentation()))
-            }
-           
-        }.resume()
-    }
-}
-
 final class URLSessionHTTPClientTests: XCTestCase {
     
     override func setUp() {
