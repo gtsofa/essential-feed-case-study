@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "7D8A31FC-F752-4BA3-987A-9361442779B4",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:essential-feed-case-study.xcodeproj",
+        "identifier" : "C6F1F5D02B68D4CB001DCC83",
+        "name" : "essential-feed-case-studyTests"
+      }
+    }
+  ],
+  "version" : 1
+}
