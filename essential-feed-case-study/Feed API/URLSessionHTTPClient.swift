@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import essential_feed_case_study
 
 public class URLSessionHTTPClient: HTTPClient {
     private let session: URLSession
