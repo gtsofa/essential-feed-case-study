@@ -17,7 +17,18 @@ class LocalFeedLoader {
     
     func save(_ items: [FeedItem]) {
         //need to invoke a mtd
-        store.deleteCachedFeed()
+        //deleteCachedFeed needs to tell us if it succeeded or not
+        // we can enforce this operation to sync or
+        // let the feed store run the work async
+        // let give it a closure and allow the work to run asynchronously in background queue
+        // not to block the interface (UI)
+        store.deleteCachedFeed { [unowned self] error in
+            if error == nil {
+                // store needs self
+                //it may generate memory leak
+                self.store.insert(items)
+            }
+        }
     }
 }
 
@@ -29,14 +40,28 @@ class FeedStore {
     var deleteCachedFeedCallCount = 0
     var insertCallCount = 0
     
+    // use typealias for readability
+    typealias DeletionCompletion = (Error?) -> Void
+    
+    private var deletionCompletions = [DeletionCompletion]()
     // mtd to be invoked in sut
     // implements the behavior we expect
-    func deleteCachedFeed() {
+    func deleteCachedFeed(completion: @escaping (Error?) -> Void) {
         deleteCachedFeedCallCount += 1
+        // then we capture the completions
+        deletionCompletions.append(completion)
     }
     
     func completeDeletion(with error: NSError, at index: Int = 0) {
-        
+        deletionCompletions[index](error)
+    }
+    
+    func completeDeletionSuccessfully(at index: Int = 0) {
+        deletionCompletions[index](nil)
+    }
+    
+    func insert(_ items: [FeedItem]) {
+        insertCallCount += 1
     }
 }
 
@@ -66,6 +91,16 @@ final class CacheFeedUseCaseTests: XCTestCase {
         store.completeDeletion(with: deletionError)
         
         XCTAssertEqual(store.insertCallCount, 0)
+    }
+    
+    func test_save_requestsNewCacheInsertionOnSuccessfulDeletion() {
+        let (sut, store) = makeSUT()
+        let items = [uniqueItem(), uniqueItem()]
+        
+        sut.save(items)
+        store.completeDeletionSuccessfully()
+        
+        XCTAssertEqual(store.insertCallCount, 1)
     }
     
     // MARK: - Helpers
