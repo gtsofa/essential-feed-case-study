@@ -145,8 +145,8 @@ final class CacheFeedUseCaseTests: XCTestCase {
         let (sut, store) = makeSUT()
         let items = [uniqueItem(), uniqueItem()]
         let deletionError = anyError()
-        
         let exp = expectation(description: "Wait for save completion")
+        
         var receivedError: Error?
         sut.save(items) { error in
             receivedError = error
