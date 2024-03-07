@@ -11,12 +11,15 @@ public final class LocalFeedLoader {
     private let store: FeedStore
     private let currentDate: () -> Date
     
+    // a litle abstraction
+    public typealias SaveResult = Error?
+    
     public init(store: FeedStore, currentDate: @escaping () -> Date) {
         self.store = store
         self.currentDate = currentDate
     }
     
-    public func save(_ items: [FeedItem], completion: @escaping (Error?) -> Void) {
+    public func save(_ items: [FeedItem], completion: @escaping (SaveResult) -> Void) {
         //need to invoke a mtd
         //deleteCachedFeed needs to tell us if it succeeded or not
         // we can enforce this operation to sync or
@@ -42,7 +45,7 @@ public final class LocalFeedLoader {
         // we need to check the order of those methods invocation as well - IMPORTANT
     }
     
-    private func cache(_ items: [FeedItem], with completion: @escaping(Error?) -> Void) {
+    private func cache(_ items: [FeedItem], with completion: @escaping(SaveResult) -> Void) {
         store.insert(items, timestamp: currentDate()) { [weak self] insertionError in
             guard self != nil else { return }
             
