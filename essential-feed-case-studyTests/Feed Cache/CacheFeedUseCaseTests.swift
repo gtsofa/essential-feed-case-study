@@ -24,7 +24,9 @@ class LocalFeedLoader {
         // let the feed store run the work async
         // let give it a closure and allow the work to run asynchronously in background queue
         // not to block the interface (UI)
-        store.deleteCachedFeed { [unowned self] error in
+        store.deleteCachedFeed { [weak self] error in
+            // check if instance has been deallocated return
+            guard let self = self else { return }
             if error == nil {
                 // store needs self
                 //it may generate memory leak
@@ -129,6 +131,19 @@ final class CacheFeedUseCaseTests: XCTestCase {
             store.completeDeletionSuccessfully()
             store.completeInsertionSuccessfully()
         })
+    }
+    
+    func test_save_doesNotDeliverDeletionErrorAfterSUTInstanceHasBeenDeallocated() {
+        let store = FeedStoreSpy()
+        var sut: LocalFeedLoader? = LocalFeedLoader(store: store, currentDate: Date.init)
+        var receivedResults = [Error?]()
+        
+        sut?.save([uniqueItem()]) {receivedResults.append($0)}
+        
+        sut = nil
+        store.completeDeletion(with: anyError())
+        
+        XCTAssertTrue(receivedResults.isEmpty)
     }
     
     // MARK: - Helpers
