@@ -34,16 +34,21 @@ class LocalFeedLoader {
                 // store needs self
                 //it may generate memory leak
 //                self.store.insert(items, timestamp: self.currentDate(), completion: completion)
-                self.store.insert(items, timestamp: self.currentDate()) { [weak self] insertionError in
-                    guard self != nil else { return }
-                    completion(insertionError)
-                }
+                self.cache(items, with: completion)
                 
             }
         }
         
         // We don't only need to check if the mtd was invoked
         // we need to check the order of those methods invocation as well - IMPORTANT
+    }
+    
+    private func cache(_ items: [FeedItem], with completion: @escaping(Error?) -> Void) {
+        store.insert(items, timestamp: currentDate()) { [weak self] insertionError in
+            guard self != nil else { return }
+            
+            completion(insertionError)
+        }
     }
 }
 // a helper class representing the framework side
