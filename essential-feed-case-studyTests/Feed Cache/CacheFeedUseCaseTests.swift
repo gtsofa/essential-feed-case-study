@@ -27,16 +27,18 @@ class LocalFeedLoader {
         store.deleteCachedFeed { [weak self] error in
             // check if instance has been deallocated return
             guard let self = self else { return }
-            if error == nil {
+            if let cacheDeletionError = error {
+                completion(cacheDeletionError)
+                
+            } else {
                 // store needs self
                 //it may generate memory leak
 //                self.store.insert(items, timestamp: self.currentDate(), completion: completion)
-                self.store.insert(items, timestamp: self.currentDate()) { [weak self] error in
+                self.store.insert(items, timestamp: self.currentDate()) { [weak self] insertionError in
                     guard self != nil else { return }
-                    completion(error)
+                    completion(insertionError)
                 }
-            } else {
-                completion(error)
+                
             }
         }
         
