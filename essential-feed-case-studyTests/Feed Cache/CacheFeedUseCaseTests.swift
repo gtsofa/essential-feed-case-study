@@ -8,63 +8,6 @@
 import XCTest
 import essential_feed_case_study
 
-class LocalFeedLoader {
-    let store: FeedStore
-    let currentDate: () -> Date
-    
-    init(store: FeedStore, currentDate: @escaping () -> Date) {
-        self.store = store
-        self.currentDate = currentDate
-    }
-    
-    func save(_ items: [FeedItem], completion: @escaping (Error?) -> Void) {
-        //need to invoke a mtd
-        //deleteCachedFeed needs to tell us if it succeeded or not
-        // we can enforce this operation to sync or
-        // let the feed store run the work async
-        // let give it a closure and allow the work to run asynchronously in background queue
-        // not to block the interface (UI)
-        store.deleteCachedFeed { [weak self] error in
-            // check if instance has been deallocated return
-            guard let self = self else { return }
-            if let cacheDeletionError = error {
-                completion(cacheDeletionError)
-                
-            } else {
-                // store needs self
-                //it may generate memory leak
-//                self.store.insert(items, timestamp: self.currentDate(), completion: completion)
-                self.cache(items, with: completion)
-                
-            }
-        }
-        
-        // We don't only need to check if the mtd was invoked
-        // we need to check the order of those methods invocation as well - IMPORTANT
-    }
-    
-    private func cache(_ items: [FeedItem], with completion: @escaping(Error?) -> Void) {
-        store.insert(items, timestamp: currentDate()) { [weak self] insertionError in
-            guard self != nil else { return }
-            
-            completion(insertionError)
-        }
-    }
-}
-// a helper class representing the framework side
-// to help us define the abstract interface teh use case needs for
-// its collaborator
-//making sure we don't leak framework details into the use case
-// turned into a protocol at the end
-protocol FeedStore {
-    // use typealias for readability
-    typealias DeletionCompletion = (Error?) -> Void
-    typealias InsertionCompletion = (Error?) -> Void
-    
-    func deleteCachedFeed(completion: @escaping DeletionCompletion)
-    func insert(_ items: [FeedItem], timestamp: Date, completion: @escaping InsertionCompletion)
-}
-
 final class CacheFeedUseCaseTests: XCTestCase {
     // w/o invoking any behaviour
     func test_init_doesNotMessageStoreUponCreation() {
