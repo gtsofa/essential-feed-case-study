@@ -1,15 +1,13 @@
 //
-//  LocalFeedItem.swift
+//  FeedItem.swift
 //  essential-feed-case-study
 //
-//  Created by Julius on 08/03/2024.
+//  Created by Julius on 30/01/2024.
 //
 
 import Foundation
 
-// DTO
-// to remove strong coupling between modules
-public struct LocalFeedItem: Equatable {
+public struct FeedImage: Equatable {
     public let id: UUID
     public let description: String?
     public let location: String?
