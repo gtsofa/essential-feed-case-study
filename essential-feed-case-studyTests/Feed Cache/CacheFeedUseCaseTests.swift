@@ -122,6 +122,9 @@ final class CacheFeedUseCaseTests: XCTestCase {
         XCTAssertEqual(year, 2024)
     }
     
+    // In our case, we use the Gregorian calendar for the business rules that are agnostic of the user's preferences (it doesn't matter the user's preferred calendar
+    //when calculating the cache age because, in this app, that's an internal business rule regardless of the user choices - the user doesn't even know about the cache age logic!).
+    
     // MARK: - Helpers
     
     // factory method
