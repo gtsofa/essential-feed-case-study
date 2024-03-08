@@ -19,7 +19,7 @@ public final class LocalFeedLoader {
         self.currentDate = currentDate
     }
     
-    public func save(_ items: [FeedItem], completion: @escaping (SaveResult) -> Void) {
+    public func save(_ feed: [FeedImage], completion: @escaping (SaveResult) -> Void) {
         //need to invoke a mtd
         //deleteCachedFeed needs to tell us if it succeeded or not
         // we can enforce this operation to sync or
@@ -36,7 +36,7 @@ public final class LocalFeedLoader {
                 // store needs self
                 //it may generate memory leak
 //                self.store.insert(items, timestamp: self.currentDate(), completion: completion)
-                self.cache(items, with: completion)
+                self.cache(feed, with: completion)
                 
             }
         }
@@ -45,8 +45,8 @@ public final class LocalFeedLoader {
         // we need to check the order of those methods invocation as well - IMPORTANT
     }
     
-    private func cache(_ items: [FeedItem], with completion: @escaping(SaveResult) -> Void) {
-        store.insert(items.toLocal(), timestamp: currentDate()) { [weak self] insertionError in
+    private func cache(_ feed: [FeedImage], with completion: @escaping(SaveResult) -> Void) {
+        store.insert(feed.toLocal(), timestamp: currentDate()) { [weak self] insertionError in
             guard self != nil else { return }
             
             completion(insertionError)
@@ -56,10 +56,10 @@ public final class LocalFeedLoader {
 
 // map [FeedItem] to [LocalFeedItem] to be used on the store
 
-private extension Array where Element == FeedItem {
-    func toLocal() -> [LocalFeedItem] {
+private extension Array where Element == FeedImage {
+    func toLocal() -> [LocalFeedImage] {
         return map {
-            LocalFeedItem(id: $0.id, description: $0.description, location: $0.location, imageURL: $0.imageURL)
+            LocalFeedImage(id: $0.id, description: $0.description, location: $0.location, url: $0.url)
         }
     }
 }
