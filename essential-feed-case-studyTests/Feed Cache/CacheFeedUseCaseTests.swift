@@ -112,6 +112,16 @@ final class CacheFeedUseCaseTests: XCTestCase {
         XCTAssertTrue(receivedResults.isEmpty)
     }
     
+    // classic example of gre
+    // if you need to make calculations based on the current gregorian calendar year (e.g., 2020), then you should explicitly use the gregorian calendar.
+    // Otherwise, you'll get wrong results. For instance, the current Buddhist calendar year is 2563.
+    // the Gregorian calendar was commonly used for business calculations
+    func test_currentYear() {
+        let year = Calendar(identifier: .gregorian).component(.year, from: Date())
+        
+        XCTAssertEqual(year, 2024)
+    }
+    
     // MARK: - Helpers
     
     // factory method
