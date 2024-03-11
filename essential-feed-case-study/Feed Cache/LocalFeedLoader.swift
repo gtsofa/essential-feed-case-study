@@ -23,18 +23,26 @@ public final class LocalFeedLoader {
     public func load(completion: @escaping (LoadResult) -> Void) {
         // invoke a method i.e message passing to an object
         // load command need to trigger a retrieve
-        store.retrieve { result in
+        store.retrieve { [unowned self] result in
             switch result {
             case let .failure(error):
                 completion(.failure(error))
                 
-            case let .found(feed, _):
+            case let .found(feed, timestamp) where self.validate(timestamp):
                 completion(.success(feed.toModels()))
                 
-            case .empty:
+            case .found, .empty:
                 completion(.success([]))
             }
         }
+    }
+    
+    private func validate(_ timestamp: Date) -> Bool {
+        let calendar = Calendar(identifier: .gregorian)
+        guard let maxCacheAge = calendar.date(byAdding: .day, value: 7, to: timestamp) else {
+            return false
+        }
+        return currentDate() < maxCacheAge
     }
     
     public func save(_ feed: [FeedImage], completion: @escaping (SaveResult) -> Void) {
