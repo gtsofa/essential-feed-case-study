@@ -19,6 +19,13 @@ public final class LocalFeedLoader {
         self.currentDate = currentDate
     }
     
+    public func load() {
+        // invoke a method i.e message passing to an object
+        // load command need to trigger a retrieve
+        store.retrieve()
+        
+    }
+    
     public func save(_ feed: [FeedImage], completion: @escaping (SaveResult) -> Void) {
         //need to invoke a mtd
         //deleteCachedFeed needs to tell us if it succeeded or not

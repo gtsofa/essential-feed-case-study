@@ -13,6 +13,7 @@ class FeedStoreSpy: FeedStore {
     enum ReceivedMessage: Equatable {
         case deleteCachedFeed
         case insert([LocalFeedImage], Date)
+        case retrieve
     }
     // combine all msgs
     private(set) var receivedMessages = [ReceivedMessage]()
@@ -52,5 +53,12 @@ class FeedStoreSpy: FeedStore {
     
     func completeInsertionSuccessfully(at index: Int = 0) {
         insertionCompletions[index](nil)
+    }
+    
+    // spy needs to implement the retrieve mtd
+    // inside the mtd we can append receivedmsgs so we can assert
+    // in our tests
+    func retrieve() {
+        receivedMessages.append(.retrieve)
     }
 }
