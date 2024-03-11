@@ -19,10 +19,10 @@ public final class LocalFeedLoader {
         self.currentDate = currentDate
     }
     
-    public func load() {
+    public func load(completion: @escaping (Error?) -> Void) {
         // invoke a method i.e message passing to an object
         // load command need to trigger a retrieve
-        store.retrieve()
+        store.retrieve(completion: completion)
         
     }
     
