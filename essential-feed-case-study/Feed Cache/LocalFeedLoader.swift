@@ -13,16 +13,21 @@ public final class LocalFeedLoader {
     
     // a litle abstraction
     public typealias SaveResult = Error?
+    public typealias LoadResult = LoadFeedResult
     
     public init(store: FeedStore, currentDate: @escaping () -> Date) {
         self.store = store
         self.currentDate = currentDate
     }
     
-    public func load(completion: @escaping (Error?) -> Void) {
+    public func load(completion: @escaping (LoadResult) -> Void) {
         // invoke a method i.e message passing to an object
         // load command need to trigger a retrieve
-        store.retrieve(completion: completion)
+        store.retrieve { error in
+            if let error = error {
+                completion(.failure(error))
+            }
+        }
         
     }
     
