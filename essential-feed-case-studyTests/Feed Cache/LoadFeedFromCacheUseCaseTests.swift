@@ -6,29 +6,71 @@
 //
 
 import XCTest
+import essential_feed_case_study
 
 final class LoadFeedFromCacheUseCaseTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    func test_init_doesNotMessageStoreUponCreation() {
+        let (_, store) = makeSUT()
+        
+        XCTAssertEqual(store.receivedMessages, [])
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    // MARK: - Helpers
+    
+    private func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #filePath,
+                         line: UInt = #line) -> (sut: LocalFeedLoader, store: FeedStoreSpy) {
+        let store = FeedStoreSpy()
+        let sut = LocalFeedLoader(store: store, currentDate: currentDate)
+        trackForMemoryLeaks(store, file: file, line: line)
+        trackForMemoryLeaks(sut, file: file, line: line)
+        return (sut, store)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    private class FeedStoreSpy: FeedStore {
+        
+        enum ReceivedMessage: Equatable {
+            case deleteCachedFeed
+            case insert([LocalFeedImage], Date)
+        }
+        // combine all msgs
+        private(set) var receivedMessages = [ReceivedMessage]()
+        
+        // use typealias for readability
+        typealias DeletionCompletion = (Error?) -> Void
+        typealias InsertionCompletion = (Error?) -> Void
+        
+        private var deletionCompletions = [DeletionCompletion]()
+        private var insertionCompletions = [InsertionCompletion]()
+        // mtd to be invoked in sut
+        // implements the behavior we expect
+        func deleteCachedFeed(completion: @escaping DeletionCompletion) {
+            // then we capture the completions
+            deletionCompletions.append(completion)
+            //incase of the above
+            receivedMessages.append(.deleteCachedFeed)
+        }
+        
+        func completeDeletion(with error: NSError, at index: Int = 0) {
+            deletionCompletions[index](error)
+        }
+        
+        func completeDeletionSuccessfully(at index: Int = 0) {
+            deletionCompletions[index](nil)
+        }
+        
+        func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping InsertionCompletion) {
+            insertionCompletions.append(completion)
+            // we capture items and timestam msgs :)
+            receivedMessages.append(.insert(feed, timestamp))
+        }
+        
+        func completeInsertion(with error: NSError, at index: Int = 0) {
+            insertionCompletions[index](error)
+        }
+        
+        func completeInsertionSuccessfully(at index: Int = 0) {
+            insertionCompletions[index](nil)
         }
     }
 
