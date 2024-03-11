@@ -7,6 +7,13 @@
 
 import Foundation
 
+//error, nil, found(with feedimages array)
+public enum RetrieveCachedFeedResult {
+    case empty
+    case found(feed: [LocalFeedImage], timestamp: Date)
+    case failure(Error)
+}
+
 // a helper class representing the framework side
 // to help us define the abstract interface teh use case needs for
 // its collaborator
@@ -16,7 +23,7 @@ public protocol FeedStore {
     // use typealias for readability
     typealias DeletionCompletion = (Error?) -> Void
     typealias InsertionCompletion = (Error?) -> Void
-    typealias RetrievalCompletion = (Error?) -> Void
+    typealias RetrievalCompletion = (RetrieveCachedFeedResult) -> Void
     
     func deleteCachedFeed(completion: @escaping DeletionCompletion)
     
