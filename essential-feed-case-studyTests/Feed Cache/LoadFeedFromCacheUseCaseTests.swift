@@ -47,6 +47,12 @@ final class LoadFeedFromCacheUseCaseTests: XCTestCase {
         
     }
     
+//    func test_load_deliversNoImagesOnEmptyCache() {
+//        let (sut, store) = makeSUT()
+//        
+//        sut.load {}
+//    }
+    
     // MARK: - Helpers
     
     private func makeSUT(currentDate: @escaping () -> Date = Date.init, file: StaticString = #filePath,
