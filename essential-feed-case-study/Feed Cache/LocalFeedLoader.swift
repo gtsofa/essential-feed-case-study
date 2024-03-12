@@ -23,7 +23,9 @@ public final class LocalFeedLoader {
     public func load(completion: @escaping (LoadResult) -> Void) {
         // invoke a method i.e message passing to an object
         // load command need to trigger a retrieve
-        store.retrieve { [unowned self] result in
+        store.retrieve { [weak self] result in
+            guard let self = self else { return }
+            
             switch result {
             case let .failure(error):
                 self.store.deleteCachedFeed { _ in } // delete msg
