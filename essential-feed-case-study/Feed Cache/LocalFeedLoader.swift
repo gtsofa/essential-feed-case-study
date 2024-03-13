@@ -12,10 +12,6 @@ public final class LocalFeedLoader {
     private let currentDate: () -> Date
     private let calendar = Calendar(identifier: .gregorian)
     
-    // a litle abstraction
-    public typealias SaveResult = Error?
-    public typealias LoadResult = LoadFeedResult
-    
     public init(store: FeedStore, currentDate: @escaping () -> Date) {
         self.store = store
         self.currentDate = currentDate
@@ -34,6 +30,8 @@ public final class LocalFeedLoader {
 }
     
 extension LocalFeedLoader: FeedLoader {
+    public typealias LoadResult = LoadFeedResult
+    
     public func load(completion: @escaping (LoadResult) -> Void) {
         // invoke a method i.e message passing to an object
         // load command need to trigger a retrieve
@@ -56,6 +54,9 @@ extension LocalFeedLoader: FeedLoader {
 
     
 extension LocalFeedLoader {
+    // a litle abstraction
+    public typealias SaveResult = Error?
+    
     public func save(_ feed: [FeedImage], completion: @escaping (SaveResult) -> Void) {
         //need to invoke a mtd
         //deleteCachedFeed needs to tell us if it succeeded or not
