@@ -33,7 +33,7 @@ public final class LocalFeedLoader {
     }
 }
     
-extension LocalFeedLoader {
+extension LocalFeedLoader: FeedLoader {
     public func load(completion: @escaping (LoadResult) -> Void) {
         // invoke a method i.e message passing to an object
         // load command need to trigger a retrieve
