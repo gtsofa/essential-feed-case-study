@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C637620F2BA1905F0074087B /* ValidateFeedCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C637620E2BA1905F0074087B /* ValidateFeedCacheUseCaseTests.swift */; };
 		C639BE592B77BAEC00B63C28 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C639BE582B77BAEC00B63C28 /* HTTPClient.swift */; };
 		C639BE5D2B77BC7100B63C28 /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C639BE5C2B77BC7100B63C28 /* FeedItemsMapper.swift */; };
 		C63EF9162B9F5FA800866848 /* LoadFeedFromCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63EF9152B9F5FA800866848 /* LoadFeedFromCacheUseCaseTests.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C637620E2BA1905F0074087B /* ValidateFeedCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateFeedCacheUseCaseTests.swift; sourceTree = "<group>"; };
 		C639BE582B77BAEC00B63C28 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		C639BE5C2B77BC7100B63C28 /* FeedItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsMapper.swift; sourceTree = "<group>"; };
 		C63EF9152B9F5FA800866848 /* LoadFeedFromCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFeedFromCacheUseCaseTests.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				C63EF9172B9F61E000866848 /* Helpers */,
 				C6406D4C2B984EB80028A925 /* CacheFeedUseCaseTests.swift */,
 				C63EF9152B9F5FA800866848 /* LoadFeedFromCacheUseCaseTests.swift */,
+				C637620E2BA1905F0074087B /* ValidateFeedCacheUseCaseTests.swift */,
 			);
 			path = "Feed Cache";
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C637620F2BA1905F0074087B /* ValidateFeedCacheUseCaseTests.swift in Sources */,
 				C6F1F5E22B68D697001DCC83 /* RemoteFeedLoaderTests.swift in Sources */,
 				C64056042B7F7A10006EFF18 /* URLSessionHTTPClientTests.swift in Sources */,
 				C63EF9192B9F620700866848 /* FeedStoreSpy.swift in Sources */,
