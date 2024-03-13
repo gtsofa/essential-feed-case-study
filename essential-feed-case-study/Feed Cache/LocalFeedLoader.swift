@@ -89,7 +89,10 @@ public final class LocalFeedLoader {
     public func validateCache() {
         // remember we only need to delete cached feed
         // only when there is error/failure(i.e cache is not valid)
-        store.retrieve { [unowned self] result in
+        store.retrieve { [weak self] result in
+            // check if self is still in memory before carrying on
+            guard let self = self else { return }
+            
             switch result {
             case .failure:
                 self.store.deleteCachedFeed { _ in }
