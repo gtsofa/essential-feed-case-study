@@ -35,7 +35,7 @@ public final class LocalFeedLoader {
                 
             case .found:
                 //found but not valid so delete it and complete
-                self.store.deleteCachedFeed { _ in }
+                //self.store.deleteCachedFeed { _ in }
                 completion(.success([]))
                 
             case .empty:
@@ -94,8 +94,12 @@ public final class LocalFeedLoader {
             case .failure:
                 self.store.deleteCachedFeed { _ in }
                 
-            default:
-                break
+            // we found a cache which is not valid so delete it
+            case let .found(_, timestamp) where !self.validate(timestamp):
+                self.store.deleteCachedFeed { _ in }
+                
+            // adding new cases to the result type will break
+            case .empty, .found: break
             }
         }
         
