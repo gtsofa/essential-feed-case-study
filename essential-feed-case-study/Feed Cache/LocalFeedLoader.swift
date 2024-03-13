@@ -10,6 +10,7 @@ import Foundation
 public final class LocalFeedLoader {
     private let store: FeedStore
     private let currentDate: () -> Date
+    private let calendar = Calendar(identifier: .gregorian)
     
     // a litle abstraction
     public typealias SaveResult = Error?
@@ -20,6 +21,19 @@ public final class LocalFeedLoader {
         self.currentDate = currentDate
     }
     
+    private var maxCacheAgeInDays: Int {
+        return 7
+    }
+    
+    private func validate(_ timestamp: Date) -> Bool {
+        guard let maxCacheAge = calendar.date(byAdding: .day, value: maxCacheAgeInDays, to: timestamp) else {
+            return false
+        }
+        return currentDate() < maxCacheAge
+    }
+}
+    
+extension LocalFeedLoader {
     public func load(completion: @escaping (LoadResult) -> Void) {
         // invoke a method i.e message passing to an object
         // load command need to trigger a retrieve
@@ -38,15 +52,10 @@ public final class LocalFeedLoader {
             }
         }
     }
+}
+
     
-    private func validate(_ timestamp: Date) -> Bool {
-        let calendar = Calendar(identifier: .gregorian)
-        guard let maxCacheAge = calendar.date(byAdding: .day, value: 7, to: timestamp) else {
-            return false
-        }
-        return currentDate() < maxCacheAge
-    }
-    
+extension LocalFeedLoader {
     public func save(_ feed: [FeedImage], completion: @escaping (SaveResult) -> Void) {
         //need to invoke a mtd
         //deleteCachedFeed needs to tell us if it succeeded or not
@@ -63,7 +72,7 @@ public final class LocalFeedLoader {
             } else {
                 // store needs self
                 //it may generate memory leak
-//                self.store.insert(items, timestamp: self.currentDate(), completion: completion)
+                //                self.store.insert(items, timestamp: self.currentDate(), completion: completion)
                 self.cache(feed, with: completion)
                 
             }
@@ -81,6 +90,9 @@ public final class LocalFeedLoader {
         }
     }
     
+}
+
+extension LocalFeedLoader {
     public func validateCache() {
         // remember we only need to delete cached feed
         // only when there is error/failure(i.e cache is not valid)
