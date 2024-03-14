@@ -7,26 +7,6 @@
 
 import Foundation
 
-// value object
-private final class FeedCachePolicy {
-    private init() {}
-    private static let calendar = Calendar(identifier: .gregorian)
-    
-    private static var maxCacheAgeInDays: Int {
-        return 7
-    }
-    
-    // Date type is a struct and it's immutable in this scope
-    static func validate(_ timestamp: Date, against date: Date) -> Bool {
-        guard let maxCacheAge = calendar.date(byAdding: .day, value: maxCacheAgeInDays, to: timestamp) else {
-            return false
-        }
-        //print("current>> \(currentDate())")//current>> 2024-03-14 11:06:44 +0000
-        print("maxCacheAge>>\(maxCacheAge)")//2024-03-14 11:06:45 +0000
-        return date < maxCacheAge
-    }
-}
-
 public final class LocalFeedLoader {
     private let store: FeedStore
     private let currentDate: () -> Date
