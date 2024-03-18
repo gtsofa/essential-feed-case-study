@@ -13,21 +13,35 @@ final class CodableFeedStore {
     typealias InsertionCompletion = (Error?) -> Void
     
     private struct Cache: Codable {
-        let feed: [LocalFeedImage]
+        let feed: [CodableFeedImage]
         let timestamp: Date
+        
+        var localFeed: [LocalFeedImage] {
+            return feed.map { $0.local}
+        }
+    }
+    
+    // mirror of localfeedimage to fix the codable conformance issue
+    private struct CodableFeedImage: Codable {
+        private let id: UUID
+        private let description: String?
+        private let location: String?
+        private let url: URL
+        
+        // map LocalFeedImage -> CodableFeedImage using initializer
+        init(_ image: LocalFeedImage) {
+            id = image.id
+            description = image.description
+            location = image.location
+            url = image.url
+        }
+        
+        var local: LocalFeedImage {
+            return LocalFeedImage(id: id, description: description, location: location, url: url)
+        }
     }
     
     private let storeURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("image-feed.store")
-    
-    func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping InsertionCompletion) {
-        // a successful insertion has a nil result (i.e has nil error)
-        // let insert and complete with nil error
-        let encoder = JSONEncoder()
-        let encoded = try! encoder.encode(Cache(feed: feed, timestamp: timestamp))
-        // write this data to disk
-        try! encoded.write(to: storeURL)
-        completion(nil)
-    }
     
     func retrieve(completion: @escaping RetrievalCompletion) {
         // retrieve data
@@ -37,8 +51,20 @@ final class CodableFeedStore {
         // we have data, so decode/unpack it and
         let decoder = JSONDecoder()
         let cache = try! decoder.decode(Cache.self, from: data)
-        completion(.found(feed: cache.feed, timestamp: cache.timestamp))
+        completion(.found(feed: cache.localFeed, timestamp: cache.timestamp))
         
+    }
+    
+    func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping InsertionCompletion) {
+        // a successful insertion has a nil result (i.e has nil error)
+        // let insert and complete with nil error
+        let encoder = JSONEncoder()
+        // we can map the feed with codablefeedimage
+        let cache = Cache(feed: feed.map(CodableFeedImage.init), timestamp: timestamp)
+        let encoded = try! encoder.encode(cache)
+        // write this data to disk
+        try! encoded.write(to: storeURL)
+        completion(nil)
     }
 }
 
