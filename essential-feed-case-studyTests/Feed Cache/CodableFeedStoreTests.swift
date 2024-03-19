@@ -160,28 +160,29 @@ final class CodableFeedStoreTests: XCTestCase {
         // retrieve twice
         sut.insert(feed, timestamp: timestamp) { insertionError in
             XCTAssertNil(insertionError, "Expeccted feed to be inserted successfully")
-           sut.retrieve {firstResult in
-               sut.retrieve { secondResult in
-                   switch (firstResult, secondResult) {
-                   case let (.found(expectedFeed, expectedTimestamp), .found(receivedFeed, receivedTimestamp)):
-                       XCTAssertEqual(receivedFeed, expectedFeed)
-                       XCTAssertEqual(receivedTimestamp, expectedTimestamp)
-                       
-                   default:
-                       XCTFail("Expected retrieving twice from non empty cache to deliver same found result with feed \(feed) timestamp \(timestamp) got \(firstResult) and \(secondResult) instead.")
-                   }
-                   exp.fulfill()
-               }
-           }
+            sut.retrieve {firstResult in
+                sut.retrieve { secondResult in
+                    switch (firstResult, secondResult) {
+                    case let (.found(expectedFeed, expectedTimestamp), .found(receivedFeed, receivedTimestamp)):
+                        XCTAssertEqual(receivedFeed, expectedFeed)
+                        XCTAssertEqual(receivedTimestamp, expectedTimestamp)
+                        
+                    default:
+                        XCTFail("Expected retrieving twice from non empty cache to deliver same found result with feed \(feed) timestamp \(timestamp) got \(firstResult) and \(secondResult) instead.")
+                    }
+                    exp.fulfill()
+                }
+            }
         }
         wait(for: [exp], timeout: 1.0)
     }
+    
     
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #filePath,
                          line: UInt = #line) -> CodableFeedStore {
-
+        
         let sut = CodableFeedStore(storeURL: testSpecificStoreURL())
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
