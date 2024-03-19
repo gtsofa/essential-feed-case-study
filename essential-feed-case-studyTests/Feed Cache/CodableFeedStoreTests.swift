@@ -131,10 +131,11 @@ final class CodableFeedStoreTests: XCTestCase {
     func test_retrieve_dleiversFailureOnRetrievalError() {
         //insert something
         //try to retrieve it and get an error
-        let sut = makeSUT()
+        let storeURL = testSpecificStoreURL()
+        let sut = makeSUT(storeURL: storeURL)
         
         // try to insert invalid data to a URL
-        try! "invalid data".write(to: testSpecificStoreURL(), atomically: false, encoding: .utf8)
+        try! "invalid data".write(to: storeURL, atomically: false, encoding: .utf8)
         
         // retrieve
         expect(sut, toRetrieve: .failure(anyNSError()))
@@ -143,7 +144,7 @@ final class CodableFeedStoreTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private func makeSUT(file: StaticString = #filePath,
+    private func makeSUT(storeURL: URL? = nil,  file: StaticString = #filePath,
                          line: UInt = #line) -> CodableFeedStore {
         
         let sut = CodableFeedStore(storeURL: testSpecificStoreURL())
