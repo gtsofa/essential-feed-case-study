@@ -9,6 +9,7 @@ import XCTest
 import essential_feed_case_study
 
 final class CodableFeedStore {
+    typealias DeletionCompletion = (Error?) -> Void
     typealias RetrievalCompletion = (RetrieveCachedFeedResult) -> Void
     typealias InsertionCompletion = (Error?) -> Void
     
@@ -45,6 +46,10 @@ final class CodableFeedStore {
     
     init(storeURL: URL) {
         self.storeURL = storeURL
+    }
+    
+    func deleteCachedFeed(completion: @escaping DeletionCompletion) {
+        completion(nil)
     }
     
     func retrieve(completion: @escaping RetrievalCompletion) {
@@ -192,6 +197,21 @@ final class CodableFeedStoreTests: XCTestCase {
         let insertionError = insert((feed, timestamp), to: sut)
         
         XCTAssertNotNil(insertionError, "Expected cache insertion to fail with an error")
+    }
+    
+    // DELETE specs
+    func test_delete_hasNoSideEffectsOnEmtpyCache() {
+        //delete the cache
+        //check there is no error
+        let sut = makeSUT()
+        let exp = expectation(description: "Wait for delete completion")
+        
+        sut.deleteCachedFeed { deletionError in
+            XCTAssertNil(deletionError, "Expected empty cache deletion to succeed")
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
+        expect(sut, toRetrieve: .empty)
     }
     
     // MARK: - Helpers
