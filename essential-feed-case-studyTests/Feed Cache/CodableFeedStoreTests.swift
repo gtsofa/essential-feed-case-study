@@ -142,6 +142,21 @@ final class CodableFeedStoreTests: XCTestCase {
         
     }
     
+    func test_retrieve_hasNoSideEffectsOnFailure() {
+        //insert something
+        //try to retrieve it and get an error
+        let storeURL = testSpecificStoreURL()
+        let sut = makeSUT(storeURL: storeURL)
+        
+        // try to insert invalid data to a URL
+        try! "invalid data".write(to: storeURL, atomically: false, encoding: .utf8)
+        
+        // retrieve twice does not delete the invalid data
+        // that's not the job for the codableFeedstore
+        expect(sut, toRetrieveTwice: .failure(anyNSError()))
+        
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(storeURL: URL? = nil,  file: StaticString = #filePath,
