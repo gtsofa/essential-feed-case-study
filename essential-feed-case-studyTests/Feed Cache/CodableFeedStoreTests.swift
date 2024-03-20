@@ -240,6 +240,7 @@ final class CodableFeedStoreTests: XCTestCase {
     
     func test_delete_deliversErrorOnDeletionError() {
         //try delete from a url that we do not have permission
+        //eg the system folder that we cannot delete
         let noDeletionPermissionURL = cachesDirectory()
         let sut = makeSUT(storeURL: noDeletionPermissionURL)
         
