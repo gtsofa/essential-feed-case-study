@@ -8,7 +8,7 @@
 import XCTest
 import essential_feed_case_study
 
-final class CodableFeedStore {
+final class CodableFeedStore: FeedStore {
     
     typealias DeletionCompletion = (Error?) -> Void
     typealias RetrievalCompletion = (RetrieveCachedFeedResult) -> Void
