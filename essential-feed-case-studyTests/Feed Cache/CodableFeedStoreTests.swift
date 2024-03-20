@@ -9,6 +9,7 @@ import XCTest
 import essential_feed_case_study
 
 final class CodableFeedStore {
+    
     typealias DeletionCompletion = (Error?) -> Void
     typealias RetrievalCompletion = (RetrieveCachedFeedResult) -> Void
     typealias InsertionCompletion = (Error?) -> Void
