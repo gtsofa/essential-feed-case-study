@@ -149,13 +149,39 @@ final class CodableFeedStoreTests: XCTestCase {
     func test_delete_deliversErrorOnDeletionError() {
         //try delete from a url that we do not have permission
         //eg the system folder that we cannot delete
-        let noDeletionPermissionURL = cachesDirectory()
-        let sut = makeSUT(storeURL: noDeletionPermissionURL)
+        let sut = makeSUT(storeURL: noDeletePermissionURL())
         
         let deletionError = deleteCache(from: sut)
         
         XCTAssertNotNil(deletionError, "Expected cache deletion to fail")
         expect(sut, toRetrieve: .empty)
+    }
+    
+    func test_storeSideEffects_runSerially() {
+        let sut = makeSUT()
+        //insert..delete..insert
+        var completeOperationsInOrder = [XCTestExpectation]()
+        
+        let op1 = expectation(description: "Operation 1")
+        sut.insert(uniqueImageFeed().local, timestamp: Date()) { _ in
+            completeOperationsInOrder.append(op1)
+            op1.fulfill()
+        }
+        
+        let op2 = expectation(description: "Operation 2")
+        sut.deleteCachedFeed { _ in
+            completeOperationsInOrder.append(op2)
+            op2.fulfill()
+        }
+        
+        let op3 = expectation(description: "Operation 3")
+        sut.insert(uniqueImageFeed().local, timestamp: Date()) { _ in
+            completeOperationsInOrder.append(op3)
+            op3.fulfill()
+        }
+        
+        waitForExpectations(timeout: 5.0)
+        XCTAssertEqual(completeOperationsInOrder, [op1, op2, op3], "Expected side-effects to run serially but operations finished in the wrong order")
     }
     
     // MARK: - Helpers
@@ -238,7 +264,12 @@ final class CodableFeedStoreTests: XCTestCase {
         
     }
     
+    private func noDeletePermissionURL() -> URL {
+        return FileManager.default.urls(for: .cachesDirectory, in: .systemDomainMask).first!
+    }
+    
     private func cachesDirectory() -> URL {
         return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+        //return FileManager.default.urls(for: .cachesDirectory, in: .systemDomainMask).first!
     }
 }
