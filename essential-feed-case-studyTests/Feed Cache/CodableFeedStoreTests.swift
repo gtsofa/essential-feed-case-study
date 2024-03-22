@@ -149,8 +149,7 @@ final class CodableFeedStoreTests: XCTestCase {
     func test_delete_deliversErrorOnDeletionError() {
         //try delete from a url that we do not have permission
         //eg the system folder that we cannot delete
-        let noDeletionPermissionURL = cachesDirectory()
-        let sut = makeSUT(storeURL: noDeletionPermissionURL)
+        let sut = makeSUT(storeURL: noDeletePermissionURL())
         
         let deletionError = deleteCache(from: sut)
         
@@ -265,7 +264,12 @@ final class CodableFeedStoreTests: XCTestCase {
         
     }
     
+    private func noDeletePermissionURL() -> URL {
+        return FileManager.default.urls(for: .cachesDirectory, in: .systemDomainMask).first!
+    }
+    
     private func cachesDirectory() -> URL {
         return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+        //return FileManager.default.urls(for: .cachesDirectory, in: .systemDomainMask).first!
     }
 }
