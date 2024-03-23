@@ -8,36 +8,7 @@
 import XCTest
 import essential_feed_case_study
 
-protocol FeedStoreSpecs {
-    
-    func test_retrieve_deliversEmptyOnEmptyCache()
-    func test_retrieveTwice_hasNoSideEffectsOnEmptyCache()
-    func test_retrieve_deliversFoundValuesOnNonEmptyCache()
-    func test_retrieve_hasNoSideEffectsOnNonEmptyCache()
-
-    func test_insert_overridesPreviouslyInsertedCacheValues()
-    
-    func test_delete_hasNoSideEffectsOnEmtpyCache()
-    func test_delete_emptiesPreviouslyInsertedCache()
-    func test_storeSideEffects_runSerially()
-    
-}
-
-protocol FailableRetrieveFeedStoreSpecs {
-    func test_retrieve_dleiversFailureOnRetrievalError()
-    func test_retrieve_hasNoSideEffectsOnFailure()
-}
-
-protocol FailableInsertFeedStoreSpecs {
-    func test_insert_deliversErrorOnInsertionError()
-    func test_insert_hasNoSideEffectsOnInsertionError()
-}
-
-protocol FailableDeleteFeedStoreSpecs {
-    func test_delete_deliversErrorOnDeletionError()
-}
-
-final class CodableFeedStoreTests: XCTestCase {
+final class CodableFeedStoreTests: XCTestCase, FailableFeedStoreSpecs {
     override func tearDown() {
         super.tearDown()
         undoStoreSideEffects()
