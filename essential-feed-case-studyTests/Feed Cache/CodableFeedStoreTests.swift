@@ -54,8 +54,7 @@ final class CodableFeedStoreTests: XCTestCase, FailableFeedStoreSpecs {
         // try to insert invalid data to a URL
         try! "invalid data".write(to: storeURL, atomically: false, encoding: .utf8)
         
-        // retrieve
-        expect(sut, toRetrieve: .failure(anyNSError()))
+        assertThatRetrieveDleiversFailureOnRetrievalError(on: sut)
         
     }
     
@@ -68,9 +67,7 @@ final class CodableFeedStoreTests: XCTestCase, FailableFeedStoreSpecs {
         // try to insert invalid data to a URL
         try! "invalid data".write(to: storeURL, atomically: false, encoding: .utf8)
         
-        // retrieve twice does not delete the invalid data
-        // that's not the job for the codableFeedstore
-        expect(sut, toRetrieveTwice: .failure(anyNSError()))
+        assertThatRetrieveHasNoSideEffectsOnFailure(on: sut)
         
     }
     //To non-empty cache overrides previous data with new data
