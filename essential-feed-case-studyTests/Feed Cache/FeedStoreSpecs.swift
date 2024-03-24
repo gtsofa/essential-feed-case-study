@@ -18,6 +18,7 @@ protocol FeedStoreSpecs {
     
     func test_delete_hasNoSideEffectsOnEmtpyCache()
     func test_delete_emptiesPreviouslyInsertedCache()
+    
     func test_storeSideEffects_runSerially()
     
 }
