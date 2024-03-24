@@ -151,11 +151,8 @@ final class CodableFeedStoreTests: XCTestCase, FailableFeedStoreSpecs {
         //try delete from a url that we do not have permission
         //eg the system folder that we cannot delete
         let sut = makeSUT(storeURL: noDeletePermissionURL())
-        
-        let deletionError = deleteCache(from: sut)
-        
-        XCTAssertNotNil(deletionError, "Expected cache deletion to fail")
-        expect(sut, toRetrieve: .empty)
+
+        assertThatDeleteDeliversErrorOnDeletionError(on: sut)
     }
     
     func test_delete_hasNoSideEffectsOnDeletionError() {
@@ -163,9 +160,7 @@ final class CodableFeedStoreTests: XCTestCase, FailableFeedStoreSpecs {
         //eg the system folder that we cannot delete
         let sut = makeSUT(storeURL: noDeletePermissionURL())
         
-        deleteCache(from: sut)
-        
-        expect(sut, toRetrieve: .empty)
+        assertThatDeleteHasNoSideEffectsOnDeletionError(on: sut)
     }
     
     func test_storeSideEffects_runSerially() {
