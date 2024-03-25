@@ -6,9 +6,30 @@
 //
 
 import XCTest
+import essential_feed_case_study
 
-final class CoreDataFeedStoreTests: XCTestCase {
-    func test_retrieve_deliversEmptyOnEmptyCache() {}
+final class CoreDataFeedStore: FeedStore {
+    public init() {}
+    
+    func deleteCachedFeed(completion: @escaping DeletionCompletion) {
+        
+    }
+    
+    func insert(_ feed: [essential_feed_case_study.LocalFeedImage], timestamp: Date, completion: @escaping InsertionCompletion) {
+        
+    }
+    
+    func retrieve(completion: @escaping RetrievalCompletion) {
+        completion(.empty)
+    }
+}
+
+final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
+    func test_retrieve_deliversEmptyOnEmptyCache() {
+        let sut = makeSUT()
+    
+        assertThatRetrieveDeliversEmptyOnEmptyCache(on: sut)
+    }
     
     func test_retrieveTwice_hasNoSideEffectsOnEmptyCache() {}
     
@@ -31,5 +52,14 @@ final class CoreDataFeedStoreTests: XCTestCase {
     func test_delete_emptiesPreviouslyInsertedCache() {}
     
     func test_storeSideEffects_runSerially() {}
+    
+    // MARK: - Helpers
+    
+    private func makeSUT(storeURL: URL? = nil, file: StaticString = #filePath,
+                         line: UInt = #line) -> FeedStore {
+        let sut = CoreDataFeedStore()
+        trackForMemoryLeaks(sut, file: file, line: line)
+        return sut
+    }
 
 }
