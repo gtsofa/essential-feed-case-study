@@ -52,6 +52,9 @@ final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
     }
     
     func test_delete_deliversNoErrorOnEmtpyCache() {
+        let sut = makeSUT()
+        
+        assertThatDeleteDeliversNoErrorOnEmtpyCache(on: sut)
     }
     
     func test_delete_hasNoSideEffectsOnEmtpyCache() {}
