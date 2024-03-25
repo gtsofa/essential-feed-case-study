@@ -51,7 +51,8 @@ final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
         assertThatInsertOverridesPreviouslyInsertedCacheValues(on: sut)
     }
     
-    func test_delete_deliversNoErrorOnEmtpyCache() {}
+    func test_delete_deliversNoErrorOnEmtpyCache() {
+    }
     
     func test_delete_hasNoSideEffectsOnEmtpyCache() {}
     
