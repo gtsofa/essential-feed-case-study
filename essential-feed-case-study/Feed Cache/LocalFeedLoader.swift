@@ -43,7 +43,7 @@ extension LocalFeedLoader: FeedLoader {
     
 extension LocalFeedLoader {
     // a litle abstraction
-    public typealias SaveResult = Error?
+    public typealias SaveResult = Result<Void, Error>
     
     public func save(_ feed: [FeedImage], completion: @escaping (SaveResult) -> Void) {
         //need to invoke a mtd
@@ -52,18 +52,19 @@ extension LocalFeedLoader {
         // let the feed store run the work async
         // let give it a closure and allow the work to run asynchronously in background queue
         // not to block the interface (UI)
-        store.deleteCachedFeed { [weak self] error in
+        store.deleteCachedFeed { [weak self] deletionResult in
             // check if instance has been deallocated return
             guard let self = self else { return }
-            if let cacheDeletionError = error {
-                completion(cacheDeletionError)
-                
-            } else {
+            
+            switch deletionResult {
+            case .success:
                 // store needs self
                 //it may generate memory leak
                 //                self.store.insert(items, timestamp: self.currentDate(), completion: completion)
                 self.cache(feed, with: completion)
                 
+            case let .failure(error):
+                completion(.failure(error))
             }
         }
         
@@ -72,10 +73,10 @@ extension LocalFeedLoader {
     }
     
     private func cache(_ feed: [FeedImage], with completion: @escaping(SaveResult) -> Void) {
-        store.insert(feed.toLocal(), timestamp: currentDate()) { [weak self] insertionError in
+        store.insert(feed.toLocal(), timestamp: currentDate()) { [weak self] insertionResult in
             guard self != nil else { return }
             
-            completion(insertionError)
+            completion(insertionResult)
         }
     }
     

@@ -18,11 +18,6 @@ class FeedStoreSpy: FeedStore {
     // combine all msgs
     private(set) var receivedMessages = [ReceivedMessage]()
     
-    // use typealias for readability
-    typealias DeletionCompletion = (Error?) -> Void
-    typealias InsertionCompletion = (Error?) -> Void
-    typealias RetrievalCompletion = (RetrievalResult) -> Void
-    
     private var deletionCompletions = [DeletionCompletion]()
     private var insertionCompletions = [InsertionCompletion]()
     private var retrievalCompletions = [RetrievalCompletion]()
@@ -36,11 +31,11 @@ class FeedStoreSpy: FeedStore {
     }
     
     func completeDeletion(with error: NSError, at index: Int = 0) {
-        deletionCompletions[index](error)
+        deletionCompletions[index](.failure(error))
     }
     
     func completeDeletionSuccessfully(at index: Int = 0) {
-        deletionCompletions[index](nil)
+        deletionCompletions[index](.success(()))
     }
     
     func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping InsertionCompletion) {
@@ -50,11 +45,11 @@ class FeedStoreSpy: FeedStore {
     }
     
     func completeInsertion(with error: NSError, at index: Int = 0) {
-        insertionCompletions[index](error)
+        insertionCompletions[index](.failure(error))
     }
     
     func completeInsertionSuccessfully(at index: Int = 0) {
-        insertionCompletions[index](nil)
+        insertionCompletions[index](.success(()))
     }
     
     // spy needs to implement the retrieve mtd
