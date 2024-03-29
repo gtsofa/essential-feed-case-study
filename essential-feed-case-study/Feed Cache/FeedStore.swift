@@ -7,10 +7,7 @@
 
 import Foundation
 
-public enum CachedFeed {
-    case empty
-    case found(feed: [LocalFeedImage], timestamp: Date)
-}
+public typealias CachedFeed = (feed: [LocalFeedImage], timestamp: Date)
 
 // a helper class representing the framework side
 // to help us define the abstract interface teh use case needs for
@@ -23,7 +20,7 @@ public protocol FeedStore {
     typealias InsertionCompletion = (Error?) -> Void
     
     //error, nil, found(with feedimages array)
-    typealias RetrievalResult = Result<CachedFeed, Error>
+    typealias RetrievalResult = Result<CachedFeed?, Error>
     typealias RetrievalCompletion = (RetrievalResult) -> Void
     
     /// The completion handler can be invoked in any thread.
