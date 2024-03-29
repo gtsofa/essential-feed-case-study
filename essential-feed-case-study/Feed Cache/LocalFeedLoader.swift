@@ -18,7 +18,7 @@ public final class LocalFeedLoader {
 }
     
 extension LocalFeedLoader: FeedLoader {
-    public typealias LoadResult = LoadFeedResult
+    public typealias LoadResult = FeedLoader.Result
     
     public func load(completion: @escaping (LoadResult) -> Void) {
         // invoke a method i.e message passing to an object

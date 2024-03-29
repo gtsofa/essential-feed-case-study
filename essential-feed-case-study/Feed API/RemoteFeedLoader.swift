@@ -22,7 +22,7 @@ public final class RemoteFeedLoader: FeedLoader {
         case invalidData
     }
     
-    public typealias Result = LoadFeedResult
+    public typealias Result = FeedLoader.Result
     
     public func load(completion: @escaping (Result) -> Void) {
         client.get(from: url) { [weak self] result in
