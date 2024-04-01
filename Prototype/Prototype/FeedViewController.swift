@@ -7,7 +7,14 @@
 
 import UIKit
 
+struct FeedImageViewModel {
+    let description: String?
+    let location: String?
+    let imageName: String // url from api:)
+}
+
 class FeedViewController: UITableViewController {
+    
 
     // MARK: - Table view data source
 
