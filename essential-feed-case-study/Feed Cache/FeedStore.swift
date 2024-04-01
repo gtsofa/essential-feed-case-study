@@ -7,12 +7,7 @@
 
 import Foundation
 
-//error, nil, found(with feedimages array)
-public enum RetrieveCachedFeedResult {
-    case empty
-    case found(feed: [LocalFeedImage], timestamp: Date)
-    case failure(Error)
-}
+public typealias CachedFeed = (feed: [LocalFeedImage], timestamp: Date)
 
 // a helper class representing the framework side
 // to help us define the abstract interface teh use case needs for
@@ -21,9 +16,15 @@ public enum RetrieveCachedFeedResult {
 // turned into a protocol at the end
 public protocol FeedStore {
     // use typealias for readability
-    typealias DeletionCompletion = (Error?) -> Void
-    typealias InsertionCompletion = (Error?) -> Void
-    typealias RetrievalCompletion = (RetrieveCachedFeedResult) -> Void
+    typealias DeletionResult = Result<Void, Error>
+    typealias DeletionCompletion = (DeletionResult) -> Void
+    
+    typealias InsertionResult = Result<Void, Error>
+    typealias InsertionCompletion = (InsertionResult) -> Void
+    
+    //error, nil, found(with feedimages array)
+    typealias RetrievalResult = Result<CachedFeed?, Error>
+    typealias RetrievalCompletion = (RetrievalResult) -> Void
     
     /// The completion handler can be invoked in any thread.
     /// Clients are responsible to dispatch to appropriate threads, if needed.
