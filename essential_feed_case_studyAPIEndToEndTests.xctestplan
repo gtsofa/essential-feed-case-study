@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "FE298C1B-03E0-48C8-BEF4-5D01222DD217",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:essential-feed-case-study.xcodeproj",
+        "identifier" : "C6B32F002B860D79009A108D",
+        "name" : "essential_feed_case_studyAPIEndToEndTests"
+      }
+    }
+  ],
+  "version" : 1
+}
