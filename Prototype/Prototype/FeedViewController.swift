@@ -16,11 +16,15 @@ struct FeedImageViewModel {
 class FeedViewController: UITableViewController {
     private var feed = [FeedImageViewModel]()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    private var viewAppeared = false
+    
+    override func viewIsAppearing(_ animated: Bool) {
+        if !viewAppeared {
+            refresh()
+            tableView.setContentOffset(CGPoint(x: 0, y: -tableView.contentInset.top), animated: false)
+            viewAppeared = true
+        }
         
-        refresh()
-        tableView.setContentOffset(CGPoint(x: 0, y: -tableView.contentInset.top), animated: false)
     }
     
     @IBAction func refresh() {
