@@ -6,9 +6,22 @@
 //
 
 import XCTest
+import UIKit
 
-class FeedViewController {
-    init(loader: FeedViewControllerTests.LoaderSpy) {}
+class FeedViewController: UIViewController {
+    private var loader: FeedViewControllerTests.LoaderSpy?
+    
+    convenience init(loader: FeedViewControllerTests.LoaderSpy) {
+        self.init()
+        self.loader = loader
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // invoke a method i.e to pass a message
+        loader?.load()
+        
+    }
 }
 
 final class FeedViewControllerTests: XCTestCase {
@@ -20,10 +33,26 @@ final class FeedViewControllerTests: XCTestCase {
         XCTAssertEqual(loader.loadCallCount, 0)
     }
     
+    // we are not testing the viewdidload mtd
+    // BUT we are testing what our implementation does when viewDidLoad mtd is called by UIKit
+    func test_viewDidLoad_loadsFeed() {
+        let loader = LoaderSpy()
+        
+        let sut = FeedViewController(loader: loader)
+        
+        sut.loadViewIfNeeded() // tell feedvc to load its view
+        
+        XCTAssertEqual(loader.loadCallCount, 1)
+    }
+    
     
     // MARK: - Helpers
     
     class LoaderSpy {
         private(set) var loadCallCount: Int = 0
+        
+        func load() {
+            loadCallCount += 1
+        }
     }
 }
