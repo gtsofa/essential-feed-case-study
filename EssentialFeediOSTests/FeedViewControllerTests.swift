@@ -73,7 +73,7 @@ final class FeedViewControllerTests: XCTestCase {
         
         // view is loaded only once
         // pull to refresh can be done more than once
-        sut.refreshControl?.simulatePullToRefresh()
+        sut.simulateUserInitiatedFeed()
         XCTAssertEqual(loader.loadCallCount, 3)
     }
     
@@ -163,6 +163,10 @@ extension UIRefreshControl {
 }
 
 private extension FeedViewController {
+//    var isShowingLoadingIndicator: Bool {
+//        
+//    }
+    
     func simulateUserInitiatedFeed() {
         refreshControl?.simulatePullToRefresh()
     }
