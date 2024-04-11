@@ -28,7 +28,7 @@ class FeedViewController: UITableViewController {
     
     @objc func load() {
         // invoke a method i.e to pass a message
-        loader?.load() { [weak self] in
+        loader?.load { [weak self] _ in
             self?.refreshControl?.endRefreshing()
         }
     }
@@ -76,7 +76,7 @@ final class FeedViewControllerTests: XCTestCase {
     // view did load should trigger the loading indicator(i.e show a loding spinner)
     func test_viewDidLoad_showsLoadingIndicator() {
         // pull to refresh > trigger loading view
-        let (sut, loader) = makeSUT()
+        let (sut, _) = makeSUT()
         
         sut.loadViewIfNeeded()
         
@@ -133,7 +133,7 @@ final class FeedViewControllerTests: XCTestCase {
 private extension UIRefreshControl {
     func simulatePullToRefresh() {
         allTargets.forEach { target in
-            sut.refreshControl?.actions(forTarget: target, forControlEvent: .valueChanged)?.forEach {
+            actions(forTarget: target, forControlEvent: .valueChanged)?.forEach {
                 (target as NSObject).perform(Selector($0))
             }
         }
