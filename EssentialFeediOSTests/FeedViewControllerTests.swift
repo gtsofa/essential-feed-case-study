@@ -114,6 +114,16 @@ final class FeedViewControllerTests: XCTestCase {
         
     }
     
+    // hide loading indicator on loader completion (pull to refresh)
+    func test_pullToRefresh_hidesLoadingIndicatorOnLoaderCompletion() {
+        let (sut, loader) = makeSUT()
+        
+        sut.simulateAppearance()
+        loader.completeFeedLoading()
+        
+        XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
+    }
+    
     // MARK: - Helper
     
     private func makeSUT(file: StaticString = #filePath,
