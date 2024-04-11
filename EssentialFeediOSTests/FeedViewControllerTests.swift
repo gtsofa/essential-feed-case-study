@@ -84,14 +84,14 @@ final class FeedViewControllerTests: XCTestCase {
         
         sut.loadViewIfNeeded() // viewDidLoad
         sut.replaceRefreshControlWithFakeForiOS17Support()
-        XCTAssertEqual(sut.refreshControl?.isRefreshing, false)//when view is loaded it's not refreshing yet
+        XCTAssertEqual(sut.isShowingLoadingIndicator, false)//when view is loaded it's not refreshing yet
         
         // trigger 'viewIsAppearing() mtd'
         // and check refreshing is true
         //sut.viewIsAppearing(false)
         sut.beginAppearanceTransition(true, animated: false) // UIkit triggers the transitions for exampel: test when view is appearing IE it will call viewWillAppear
         sut.endAppearanceTransition() // calls viewIsAppearing + viewDidAppear
-        XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
+        XCTAssertEqual(sut.isShowingLoadingIndicator, true)
     }
     
     // hide loading indicator when feed loading completes
@@ -101,7 +101,7 @@ final class FeedViewControllerTests: XCTestCase {
         
         //first load completes
         loader.completeFeedLoading()
-        XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
+        XCTAssertEqual(sut.isShowingLoadingIndicator, false)
     }
     
     // show loading indicator on pull to refresh
@@ -110,7 +110,7 @@ final class FeedViewControllerTests: XCTestCase {
         
         sut.simulateAppearance()
         
-        XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
+        XCTAssertEqual(sut.isShowingLoadingIndicator, true)
         
     }
     
@@ -121,7 +121,7 @@ final class FeedViewControllerTests: XCTestCase {
         sut.simulateAppearance()
         loader.completeFeedLoading()
         
-        XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
+        XCTAssertEqual(sut.isShowingLoadingIndicator, false)
     }
     
     // MARK: - Helper
@@ -163,9 +163,9 @@ extension UIRefreshControl {
 }
 
 private extension FeedViewController {
-//    var isShowingLoadingIndicator: Bool {
-//        
-//    }
+    var isShowingLoadingIndicator: Bool {
+        return refreshControl?.isRefreshing == true
+    }
     
     func simulateUserInitiatedFeed() {
         refreshControl?.simulatePullToRefresh()
