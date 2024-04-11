@@ -22,6 +22,7 @@ class FeedViewController: UITableViewController {
         // trigger the load
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
+        refreshControl?.beginRefreshing()
         load()
     }
     
@@ -67,6 +68,18 @@ final class FeedViewControllerTests: XCTestCase {
         // since a view can be loaded only once but pull to refresh can be done multiple times
         sut.refreshControl?.simulatePullToRefresh()
         XCTAssertEqual(loader.loadCallCount, 3)
+    }
+    
+    // show loading indicator while loading feed
+    func test_viewDidLoad_showsLoadingIndicator() {
+        // pull to refresh > trigger loading view
+        let (sut, loader) = makeSUT()
+        
+        sut.loadViewIfNeeded()
+        
+        //assert: refreshcontrol.isRefreshing = true!
+        //i.e showing the loading spinner
+        XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
     }
     
     
