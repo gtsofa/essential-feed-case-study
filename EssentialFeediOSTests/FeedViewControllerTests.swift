@@ -11,6 +11,8 @@ import essential_feed_case_study
 
 class FeedViewController: UITableViewController {
     private var loader: FeedLoader?
+    private var viewAppeared = false
+    //private var onViewIsAppearing: ((FeedViewController) -> Void)?
     
     convenience init(loader: FeedLoader) {
         self.init()
@@ -22,6 +24,15 @@ class FeedViewController: UITableViewController {
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
         load()
+    }
+    
+    override func viewIsAppearing(_ animated: Bool) {
+        super.viewIsAppearing(animated)
+        refreshControl?.beginRefreshing()
+        
+        if !viewAppeared {
+            viewAppeared = true
+        }
     }
     
     @objc private func load() {
@@ -63,6 +74,23 @@ final class FeedViewControllerTests: XCTestCase {
         XCTAssertEqual(loader.loadCallCount, 3)
     }
     
+    // show loading indicator while loading feed
+    // show loading indicator - behavior
+    func test_viewDidLoad_showsLoadingIndicator() {
+        let (sut, _) = makeSUT()
+        
+        sut.loadViewIfNeeded() // viewDidLoad
+        sut.replaceRefreshControlWithFakeForiOS17Support()
+        XCTAssertEqual(sut.refreshControl?.isRefreshing, false)//when view is loaded it's not refreshing yet
+        
+        // trigger 'viewIsAppearing() mtd'
+        // and check refreshing is true
+        //sut.viewIsAppearing(false)
+        sut.beginAppearanceTransition(true, animated: false) // UIkit triggers the transitions for exampel: test when view is appearing IE it will call viewWillAppear
+        sut.endAppearanceTransition() // calls viewIsAppearing + viewDidAppear
+        XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
+    }
+    
     // MARK: - Helper
     
     private func makeSUT(file: StaticString = #filePath,
@@ -90,5 +118,33 @@ extension UIRefreshControl {
                 (target as NSObject).perform(Selector($0))
             }
         }
+    }
+}
+
+private extension FeedViewController {
+    func replaceRefreshControlWithFakeForiOS17Support() {
+        let fake = FakeRefreshControl()
+        refreshControl?.allTargets.forEach { target in
+            refreshControl?.actions(forTarget: target, forControlEvent: .valueChanged)?.forEach { action in
+                fake.addTarget(target, action: Selector(action), for: .valueChanged)
+            }
+        }
+        refreshControl = fake
+    }
+}
+
+private class FakeRefreshControl: UIRefreshControl {
+    private var _isRefreshing = false
+    
+    override var isRefreshing: Bool {
+        _isRefreshing
+    }
+    
+    override func beginRefreshing() {
+        _isRefreshing = true
+    }
+    
+    override func endRefreshing() {
+        _isRefreshing = false
     }
 }
