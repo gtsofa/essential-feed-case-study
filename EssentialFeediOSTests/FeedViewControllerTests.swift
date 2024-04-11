@@ -28,7 +28,9 @@ class FeedViewController: UITableViewController {
     
     @objc func load() {
         // invoke a method i.e to pass a message
-        loader?.load() { _ in }
+        loader?.load() { [weak self] in
+            self?.refreshControl?.endRefreshing()
+        }
     }
 }
 
@@ -71,6 +73,7 @@ final class FeedViewControllerTests: XCTestCase {
     }
     
     // show loading indicator while loading feed
+    // view did load should trigger the loading indicator(i.e show a loding spinner)
     func test_viewDidLoad_showsLoadingIndicator() {
         // pull to refresh > trigger loading view
         let (sut, loader) = makeSUT()
@@ -80,6 +83,21 @@ final class FeedViewControllerTests: XCTestCase {
         //assert: refreshcontrol.isRefreshing = true!
         //i.e showing the loading spinner
         XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
+    }
+    
+    // hide loading indicator. How?
+    // when the view did load finishes/completes loading the feed
+    func test_viewDidLoad_hidesLoadingIndicatorOnLoaderCompletion() {
+        let (sut, loader) = makeSUT()
+        sut.loadViewIfNeeded()
+        
+        //loader completion
+//        sut.load { _ in
+//            //loader completes loading:
+//        }
+        // the loader should complete loading not the sut
+        loader.completeFeedLoading()
+        XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
     }
     
     
@@ -95,10 +113,19 @@ final class FeedViewControllerTests: XCTestCase {
     }
     
     class LoaderSpy: FeedLoader {
-        private(set) var loadCallCount: Int = 0
+        private var completions = [(FeedLoader.Result) -> Void]()
+        
+        var loadCallCount: Int {
+            return completions.count
+        }
         
         func load(completion: @escaping (FeedLoader.Result) -> Void) {
-            loadCallCount += 1
+        
+            completions.append(completion)
+        }
+        
+        func completeFeedLoading() {
+            completions[0](.success([]))
         }
     }
 }
