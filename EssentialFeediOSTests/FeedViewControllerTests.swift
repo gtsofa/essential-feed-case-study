@@ -60,7 +60,7 @@ final class FeedViewControllerTests: XCTestCase {
     }
     
     // reload feed (pull to refresh)
-    func test_pullToRefresh_loadsFeed() {
+    func test_userInitiatedFeedReload_loadsFeed() {
         //check reload behaviour
         let (sut, loader) = makeSUT()
         sut.loadViewIfNeeded()
@@ -68,7 +68,7 @@ final class FeedViewControllerTests: XCTestCase {
         // reload feed
         // refresh logic
         // trigger the refreshcontrol action which happens on a .valueChanged event
-        sut.refreshControl?.simulatePullToRefresh()
+        sut.simulateUserInitiatedFeed()
         XCTAssertEqual(loader.loadCallCount, 2)
         
         // view is loaded only once
@@ -105,7 +105,7 @@ final class FeedViewControllerTests: XCTestCase {
     }
     
     // show loading indicator on pull to refresh
-    func test_pullToRefresh_showsLoadingIndicator() {
+    func test_userInitiatedFeedReload_showsLoadingIndicator() {
         let (sut, _) = makeSUT()
         
         sut.simulateAppearance()
@@ -115,7 +115,7 @@ final class FeedViewControllerTests: XCTestCase {
     }
     
     // hide loading indicator on loader completion (pull to refresh)
-    func test_pullToRefresh_hidesLoadingIndicatorOnLoaderCompletion() {
+    func test_userInitiatedFeedReload_hidesLoadingIndicatorOnLoaderCompletion() {
         let (sut, loader) = makeSUT()
         
         sut.simulateAppearance()
@@ -163,6 +163,10 @@ extension UIRefreshControl {
 }
 
 private extension FeedViewController {
+    func simulateUserInitiatedFeed() {
+        refreshControl?.simulatePullToRefresh()
+    }
+    
     func simulateAppearance() {
         if !viewAppeared {
             loadViewIfNeeded()
