@@ -9,7 +9,7 @@ import XCTest
 import UIKit
 import essential_feed_case_study
 
-class FeedViewController: UIViewController {
+class FeedViewController: UITableViewController {
     private var loader: FeedLoader?
     
     convenience init(loader: FeedLoader) {
@@ -19,9 +19,15 @@ class FeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // trigger the load
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
+        load()
+    }
+    
+    @objc func load() {
         // invoke a method i.e to pass a message
         loader?.load() { _ in }
-        
     }
 }
 
@@ -43,6 +49,26 @@ final class FeedViewControllerTests: XCTestCase {
         XCTAssertEqual(loader.loadCallCount, 1)
     }
     
+    // manually reload feed (pull to refresh)
+    func test_pullToRefresh_reloadsFeed() {
+        // reloads view
+        
+        let (sut, loader) = makeSUT()
+        
+        sut.loadViewIfNeeded()
+        
+        //sut.relaods view?
+        // Do not test framework by scrolling the scroll view
+        // We want to trigger the refreshControl action which happens on .valueChange event
+        sut.refreshControl?.simulatePullToRefresh()
+        XCTAssertEqual(loader.loadCallCount, 2)
+        
+        // try pull to refresh more than once
+        // since a view can be loaded only once but pull to refresh can be done multiple times
+        sut.refreshControl?.simulatePullToRefresh()
+        XCTAssertEqual(loader.loadCallCount, 3)
+    }
+    
     
     // MARK: - Helpers
     
@@ -60,6 +86,16 @@ final class FeedViewControllerTests: XCTestCase {
         
         func load(completion: @escaping (FeedLoader.Result) -> Void) {
             loadCallCount += 1
+        }
+    }
+}
+
+private extension UIRefreshControl {
+    func simulatePullToRefresh() {
+        allTargets.forEach { target in
+            sut.refreshControl?.actions(forTarget: target, forControlEvent: .valueChanged)?.forEach {
+                (target as NSObject).perform(Selector($0))
+            }
         }
     }
 }
