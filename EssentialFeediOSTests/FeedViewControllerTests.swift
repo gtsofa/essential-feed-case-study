@@ -28,9 +28,10 @@ class FeedViewController: UITableViewController {
     
     override func viewIsAppearing(_ animated: Bool) {
         super.viewIsAppearing(animated)
-        refreshControl?.beginRefreshing()
+        //refreshControl?.beginRefreshing()
         
         if !viewAppeared {
+            refreshControl?.beginRefreshing()
             viewAppeared = true
         }
     }
@@ -103,6 +104,16 @@ final class FeedViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
     }
     
+    // show loading indicator on pull to refresh
+    func test_pullToRefresh_showsLoadingIndicator() {
+        let (sut, _) = makeSUT()
+        
+        sut.simulateAppearance()
+        
+        XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
+        
+    }
+    
     // MARK: - Helper
     
     private func makeSUT(file: StaticString = #filePath,
@@ -142,6 +153,15 @@ extension UIRefreshControl {
 }
 
 private extension FeedViewController {
+    func simulateAppearance() {
+        if !viewAppeared {
+            loadViewIfNeeded()
+            replaceRefreshControlWithFakeForiOS17Support()
+        }
+        beginAppearanceTransition(true, animated: false)
+        endAppearanceTransition()
+    }
+    
     func replaceRefreshControlWithFakeForiOS17Support() {
         let fake = FakeRefreshControl()
         refreshControl?.allTargets.forEach { target in
