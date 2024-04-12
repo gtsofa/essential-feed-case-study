@@ -44,37 +44,25 @@ class FeedViewController: UITableViewController {
 }
 
 final class FeedViewControllerTests: XCTestCase {
-    func test_init_doesNotLoadFeed() {
-        let (_, loader) = makeSUT()
-        
-        XCTAssertEqual(loader.loadCallCount, 0)
-    }
-    
-    //load feed behavior
-    func test_viewDidLoad_loadsFeed() {
+    func test_loadFeedActions_requestFeedFromLoader() {
         let (sut, loader) = makeSUT()
+        XCTAssertEqual(loader.loadCallCount, 0, "Expected no loading requests before view is loaded")
         
+        //load feed behavior
         sut.loadViewIfNeeded() // calls viewDidLoad()
+        XCTAssertEqual(loader.loadCallCount, 1, "Expected a loading request once view is loaded")
         
-        XCTAssertEqual(loader.loadCallCount, 1)
-    }
-    
-    // reload feed (pull to refresh)
-    func test_userInitiatedFeedReload_loadsFeed() {
-        //check reload behaviour
-        let (sut, loader) = makeSUT()
-        sut.loadViewIfNeeded()
-        
+        // reload feed (pull to refresh)
         // reload feed
         // refresh logic
         // trigger the refreshcontrol action which happens on a .valueChanged event
         sut.simulateUserInitiatedFeed()
-        XCTAssertEqual(loader.loadCallCount, 2)
+        XCTAssertEqual(loader.loadCallCount, 2, "Expected another loading request once a user initiates a load")
         
         // view is loaded only once
         // pull to refresh can be done more than once
         sut.simulateUserInitiatedFeed()
-        XCTAssertEqual(loader.loadCallCount, 3)
+        XCTAssertEqual(loader.loadCallCount, 3, "Expected a third loading request once a user initiates another load")
     }
     
     // show loading indicator while loading feed
