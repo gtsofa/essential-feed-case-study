@@ -56,12 +56,12 @@ final class FeedViewControllerTests: XCTestCase {
         // reload feed
         // refresh logic
         // trigger the refreshcontrol action which happens on a .valueChanged event
-        sut.simulateUserInitiatedFeed()
+        sut.simulateUserInitiatedFeedReload()
         XCTAssertEqual(loader.loadCallCount, 2, "Expected another loading request once a user initiates a load")
         
         // view is loaded only once
         // pull to refresh can be done more than once
-        sut.simulateUserInitiatedFeed()
+        sut.simulateUserInitiatedFeedReload()
         XCTAssertEqual(loader.loadCallCount, 3, "Expected a third loading request once a user initiates another load")
     }
     
@@ -155,7 +155,7 @@ private extension FeedViewController {
         return refreshControl?.isRefreshing == true
     }
     
-    func simulateUserInitiatedFeed() {
+    func simulateUserInitiatedFeedReload() {
         refreshControl?.simulatePullToRefresh()
     }
     
