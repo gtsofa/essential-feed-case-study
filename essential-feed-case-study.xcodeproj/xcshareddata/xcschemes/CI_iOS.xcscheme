@@ -46,11 +46,11 @@
             reference = "container:CI.xctestplan">
          </TestPlanReference>
          <TestPlanReference
-            reference = "container:EssentialFeedCacheIntegrationTests.xctestplan"
-            default = "YES">
+            reference = "container:EssentialFeedCacheIntegrationTests.xctestplan">
          </TestPlanReference>
          <TestPlanReference
-            reference = "container:EssentialFeediOS.xctestplan">
+            reference = "container:EssentialFeediOS.xctestplan"
+            default = "YES">
          </TestPlanReference>
       </TestPlans>
    </TestAction>
