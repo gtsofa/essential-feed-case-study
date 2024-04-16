@@ -9,8 +9,8 @@ import UIKit
 import essential_feed_case_study
 
 public protocol FeedImageDataLoader {
-    func loadImageData(from url: URL)
-    func cancelImageDataLoad(from url: URL)
+    func loadImageData(from url: URL) // hold states
+    func cancelImageDataLoad(from url: URL) // cancel the state
 }
 
 final public class FeedViewController: UITableViewController {
