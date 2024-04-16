@@ -125,7 +125,7 @@ final class FeedViewControllerTests: XCTestCase {
     }
     
     // cancel when image is out of screen
-    func test_feedImageView_loadsImageURLWhenVisiblex() {
+    func test_feedImageView_cancelsImageLoadingWhenNotVisibleAnymore() {
         let image0 = makeImage(url: URL(string: "https://url-0.com")!)
         let image1 = makeImage(url: URL(string: "https://url-1.com")!)
         let (sut, loader) = makeSUT()
