@@ -7,17 +7,10 @@
 
 import UIKit
 
-class FeedImageCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+public final class FeedImageCell: UITableViewCell {
+    // view elements
+    // create instances of the view elements
+    public let locationContainer = UIView()
+    public let locationLabel = UILabel()
+    public let descriptionLabel = UILabel()
 }
