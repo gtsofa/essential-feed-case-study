@@ -66,51 +66,22 @@ final class FeedViewControllerTests: XCTestCase {
         /// 1 element
         loader.completeFeedLoading(with: [image0], at: 0)
         XCTAssertEqual(sut.numberOfRenderedFeedImageViews(), 1)
-        
-        // check the tableview was rendered with the proper data
-        // feedimageview is a type of uitableviewcell
-        let view = sut.feedImageView(at: 0) as? FeedImageCell // view is of FeedImageCell type
-        //inspect the attributes of the view
-        // should not be nil
-        XCTAssertNotNil(view)
-        XCTAssertEqual(view?.isShowingLocation, true)//should be showing the location koz we gave it a location. i.e either show/hid location
-        XCTAssertEqual(view?.locationText, image0.location)// location text should be same as image location text
-        XCTAssertEqual(view?.descriptionText, image0.description)// description text should be same as image description text
+        assertThat(sut, hasViewConfiguredFor: image0, at: 0)
+
         
         // everytime you test collection; test: 1)zero case 2) 1 element case 3)many elements case
         /// many element case
         sut.simulateUserInitiatedFeedReload()
         loader.completeFeedLoading(with: [image0, image1, image2, image3])
         XCTAssertEqual(sut.numberOfRenderedFeedImageViews(), 4) // expect to render 4 images
+        //check the values for the images
+        assertThat(sut, hasViewConfiguredFor: image0, at: 0)
+        assertThat(sut, hasViewConfiguredFor: image1, at: 1)
+        assertThat(sut, hasViewConfiguredFor: image2, at: 2)
+        assertThat(sut, hasViewConfiguredFor: image3, at: 3)
         
-        //check the view was rendered with the proper data for image1
-        let view1 = sut.feedImageView(at: 1) as? FeedImageCell // i.e 2nd view which is same as 2nd cell
-        //inspect teh view attributes
-        XCTAssertNotNil(view1)
-        XCTAssertEqual(view1?.isShowingLocation, true)
-        XCTAssertEqual(view1?.locationText, image1.location)
-        XCTAssertEqual(view1?.descriptionText, image1.description)
-        
-        //check the view was rendered with the proper data for image2
-        let view2 = sut.feedImageView(at: 2) as? FeedImageCell // i.e 2nd view which is same as 2nd cell
-        //inspect teh view attributes
-        XCTAssertNotNil(view2)
-        XCTAssertEqual(view2?.isShowingLocation, false)
-        XCTAssertEqual(view2?.locationText, image2.location)
-        XCTAssertEqual(view2?.descriptionText, image2.description)
-        
-        //check the view was rendered with the proper data for image3
-        let view3 = sut.feedImageView(at: 3) as? FeedImageCell // i.e 3rd view which is on the 3rd row
-        //inspect teh view attributes
-        XCTAssertNotNil(view3)
-        XCTAssertEqual(view3?.isShowingLocation, false)
-        XCTAssertEqual(view3?.locationText, image3.location)
-        XCTAssertEqual(view3?.descriptionText, image3.description)
-        
-        
-
-        // check all the views but test will be longer so move the view inspection into a helper function
-        // something like `assertThat(sut, hasViewConfiguredFor: image0, at: 0)` for example
+        // check count
+        // check the values pattern :)
         
     }
 
@@ -126,6 +97,19 @@ final class FeedViewControllerTests: XCTestCase {
         return (sut, loader)
     }
     
+    private func assertThat(_ sut: FeedViewController, hasViewConfiguredFor image: FeedImage, at index: Int, file: StaticString = #filePath,
+                            line: UInt = #line) {
+        let view = sut.feedImageView(at: index)
+        // view is of FeedImageCell type
+        guard let cell = view as? FeedImageCell else {
+            return XCTFail("Expected \(FeedImageCell.self) instance, got \(String(describing: view)) instead", file: file, line: line)
+        }
+        
+        let shouldLocationBeVisible = (image.location != nil)
+        XCTAssertEqual(cell.isShowingLocation, shouldLocationBeVisible, "Expected 'isShowingLocation' to be \(shouldLocationBeVisible) for image view at index (\(index))", file: file, line: line) //should be showing the location koz we gave it a location. i.e either show/hid location
+        XCTAssertEqual(cell.locationText, image.location, "Expected location text to be \(String(describing: image.location)) for image view at index (\(index))", file: file, line: line) // location text should be same as image location text
+        XCTAssertEqual(cell.descriptionText, image.description, "Expected location text to be \(String(describing: image.description)) for image view at index (\(index))", file: file, line: line) //description text should be same as image description text
+    }
     
     
     private func makeImage(description: String? = nil, location: String? = nil, url: URL = URL(string: "http://any-url.com")!) -> FeedImage {
