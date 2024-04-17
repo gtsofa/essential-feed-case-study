@@ -82,8 +82,9 @@ final public class FeedViewController: UITableViewController {
         // we need a callback to receive the results and stop shimmering
         tasks[indexPath] = imageLoader?.loadImageData(from: cellModel.url) { [weak cell] result in
             let data = try? result.get()
-            cell?.feedImageView.image = data.map(UIImage.init) ?? nil // convert/map from 'data' to 'uiimage' or else set it to nil(fail to convert)
-            cell?.feedImageRetryButton.isHidden = (data != nil) // if there is data show button
+            let image = data.map(UIImage.init) ?? nil // convert/map from 'data' to 'uiimage' or else set it to nil(fail to convert)
+            cell?.feedImageView.image = image
+            cell?.feedImageRetryButton.isHidden = (image != nil) // if there is image show button
             cell?.feedImageContainer.stopShimmering()
         } // keep track of the state now
         return cell
