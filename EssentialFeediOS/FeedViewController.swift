@@ -75,12 +75,15 @@ final public class FeedViewController: UITableViewController {
         cell.descriptionLabel.text = cellModel.description // location text is data.description
         //set image to nil before start loading
         cell.feedImageView.image = nil
+        //control state for the retrybutton
+        cell.feedImageRetryButton.isHidden = true
         cell.feedImageContainer.startShimmering() // start shimmering before loading the image
         // store a task for a given indexpath
         // we need a callback to receive the results and stop shimmering
         tasks[indexPath] = imageLoader?.loadImageData(from: cellModel.url) { [weak cell] result in
             let data = try? result.get()
             cell?.feedImageView.image = data.map(UIImage.init) ?? nil // convert/map from 'data' to 'uiimage' or else set it to nil(fail to convert)
+            cell?.feedImageRetryButton.isHidden = (data != nil) // if there is data show button
             cell?.feedImageContainer.stopShimmering()
         } // keep track of the state now
         return cell
