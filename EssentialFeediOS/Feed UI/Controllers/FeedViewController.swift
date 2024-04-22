@@ -9,28 +9,42 @@ import UIKit
 import essential_feed_case_study
 
 public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching {
-    private var feedLoader: FeedLoader?
+    public var refreshController: FeedRefreshViewController?
     private var imageLoader: FeedImageDataLoader?
     private var isViewAppeared = false
     private var onViewIsAppearing: ((FeedViewController) -> Void)?
-    private var tableModel = [FeedImage]()
+    // use property observer to relaod table view
+    private var tableModel = [FeedImage]() {
+        didSet { tableView.reloadData()}
+    }
     private var tasks = [IndexPath: FeedImageDataLoaderTask]() // feedvc keeps track of this tasks in a dictionary
     
     public convenience init(feedLoader: FeedLoader, imageLoader: FeedImageDataLoader) {
         self.init()
-        self.feedLoader = feedLoader
+        self.refreshController = FeedRefreshViewController(feedLoader: feedLoader)
         self.imageLoader = imageLoader
     }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
+        
+        // set the refresh control
+        refreshControl = refreshController?.view
+        //on refresh -- we update the table model
+        refreshController?.onRefresh = { [weak self] feed in
+            self?.tableModel = feed
+        }
+        
+        // we need to tell the table view to repopulate
+        //refreshController?.addTarget(self, action: #selector(load), for: .valueChanged)
         tableView.prefetchDataSource = self
+        //refreshController?.refresh() // do not show uirefresh control warnings
         
         onViewIsAppearing = { vc in
+            vc.refreshControl?.beginRefreshing()
             vc.onViewIsAppearing = nil
-            vc.load()
+            //vc.refresh()
+            self.refreshController?.refresh()
         }
     }
     
@@ -38,19 +52,6 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
         super.viewIsAppearing(animated)
         
         onViewIsAppearing?(self)
-    }
-    
-    @objc private func load() {
-        refreshControl?.beginRefreshing()
-        feedLoader?.load { [weak self] result in
-            if let feed = try? result.get() {
-                //set tablemodel
-                self?.tableModel = feed //(try? result.get()) ?? []
-                //reload table view
-                self?.tableView.reloadData()
-            }
-            self?.refreshControl?.endRefreshing()
-        }
     }
     
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
