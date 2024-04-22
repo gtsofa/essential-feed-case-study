@@ -17,7 +17,8 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     private var tableModel = [FeedImage]() {
         didSet { tableView.reloadData()}
     }
-    private var tasks = [IndexPath: FeedImageDataLoaderTask]() // feedvc keeps track of this tasks in a dictionary
+    
+    private var cellControllers = [IndexPath: FeedImageCellController]()
     
     public convenience init(feedLoader: FeedLoader, imageLoader: FeedImageDataLoader) {
         self.init()
@@ -58,58 +59,35 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
         tableModel.count
     }
     
+    // cell creation/configuration
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellModel = tableModel[indexPath.row] // create a cell model
-        let cell = FeedImageCell() // create a cell
-        //configure the cell with the model
-        cell.locationContainer.isHidden = (cellModel.location == nil) // location container is hidden when data.location==nil
-        cell.locationLabel.text = cellModel.location// location text is data.location
-        cell.descriptionLabel.text = cellModel.description // location text is data.description
-        //set image to nil before start loading
-        cell.feedImageView.image = nil
-        //control state for the retrybutton
-        cell.feedImageRetryButton.isHidden = true
-        cell.feedImageContainer.startShimmering() // start shimmering before loading the image
-        // store a task for a given indexpath
-        // we need a callback to receive the results and stop shimmering
-        // internal closure for to include the onRetry logic
-        let loadImage = { [weak self, weak cell] in
-            guard let self = self else { return }
-            
-            self.tasks[indexPath] = self.imageLoader?.loadImageData(from: cellModel.url) { [weak cell] result in
-                let data = try? result.get()
-                let image = data.map(UIImage.init) ?? nil // convert/map from 'data' to 'uiimage' or else set it to nil(fail to convert)
-                cell?.feedImageView.image = image
-                cell?.feedImageRetryButton.isHidden = (image != nil) // if there is image show button
-                cell?.feedImageContainer.stopShimmering()
-            } // keep track of the state now
-        }
-        
-        cell.onRetry = loadImage
-        loadImage()
-        
-        return cell
+        return cellController(forRowAt: indexPath).view()
     }
     
     public override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         // tells imageloader to cancel an image data load from a url
         // cancel a task for agiven indexpath
-        cancelTask(forRowAt: indexPath)
+        removeCellController(forRowAt: indexPath)
     }
     
     public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         indexPaths.forEach {indexPath in
-            let cellModel = tableModel[indexPath.row]
-            tasks[indexPath] = imageLoader?.loadImageData(from: cellModel.url) { _ in }
+            cellController(forRowAt: indexPath).preload()
         }
     }
     
     public func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
-        indexPaths.forEach(cancelTask)
+        indexPaths.forEach(removeCellController)
     }
     
-    private func cancelTask(forRowAt indexPath: IndexPath) {
-        tasks[indexPath]?.cancel()
-        tasks[indexPath] = nil
+    private func cellController(forRowAt indexPath: IndexPath) -> FeedImageCellController {
+        let cellModel = tableModel[indexPath.row]
+        let cellController = FeedImageCellController(model: cellModel, imageLoader: imageLoader!)
+        cellControllers[indexPath] = cellController
+        return cellController
+    }
+    
+    private func removeCellController(forRowAt indexPath: IndexPath) {
+        cellControllers[indexPath] = nil
     }
 }
