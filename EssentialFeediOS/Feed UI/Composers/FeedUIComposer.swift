@@ -30,7 +30,7 @@ public final class FeedUIComposer {
             //map feedimages to cellcontrollers
             // feedvc expects [FeedImageCellController]
             controller?.tableModel = feed.map { model in
-                FeedImageCellController(viewModel: FeedImageViewModel(model: model, imageLoader: loader))
+                FeedImageCellController(viewModel: FeedImageViewModel(model: model, imageLoader: loader, imageTransformer: UIImage.init))
             }
         }
     }
