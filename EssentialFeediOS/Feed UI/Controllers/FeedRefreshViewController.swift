@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import essential_feed_case_study
 
 // feed ui refresh control creation & usage
 public final class FeedRefreshViewController: NSObject {
