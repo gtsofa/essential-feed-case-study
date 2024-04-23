@@ -10,31 +10,27 @@ import essential_feed_case_study
 
 // feed ui refresh control creation & usage
 public final class FeedRefreshViewController: NSObject {
-    public lazy var view: UIRefreshControl = {
-        let view = UIRefreshControl()
+    public lazy var view = binded(UIRefreshControl())
+    
+    private let viewModel: FeedViewModel
+    
+    init(viewModel: FeedViewModel) {
+        self.viewModel = viewModel
+    }
+    
+    @objc func refresh() {
+        viewModel.loadFeed()
+    }
+    
+    private func binded(_ view: UIRefreshControl) -> UIRefreshControl {
+        viewModel.onChange = { [weak self] viewModel in
+            if viewModel.isLoading {
+                self?.view.beginRefreshing()
+            } else {
+                self?.view.endRefreshing()
+            }
+        }
         view.addTarget(self, action: #selector(refresh), for: .valueChanged)
         return view
-    }()
-    
-    private let feedLoader: FeedLoader?
-    
-    init(feedLoader: FeedLoader? = nil) {
-        self.feedLoader = feedLoader
     }
-    
-    //var tableModel: [FeedImage]var tableModel: [FeedImage]
-    var onRefresh: (([FeedImage]) -> Void)?
-    @objc func refresh() {
-        view.beginRefreshing()
-        feedLoader?.load { [weak self] result in
-            if let feed = try? result.get() {
-                //set tablemodel//var tableModel: [FeedImage]
-                self?.onRefresh?(feed) //(try? result.get()) ?? []
-                //reload table view
-                //self?.tableView.reloadData()
-            }
-            self?.view.endRefreshing()
-        }
-    }
-    
 }
