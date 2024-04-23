@@ -13,13 +13,14 @@ public final class FeedUIComposer {
     // object creation
     public static func feedComposedWith(feedLoader: FeedLoader, imageLoader: FeedImageDataLoader) -> FeedViewController {
         //we have compositions of the types ie. refreshcontroller + feedimagecellcontroler
-        let refreshController = FeedRefreshViewController(feedLoader: feedLoader)
+        let feedViewModel = FeedViewModel(feedLoader: feedLoader)
+        let refreshController = FeedRefreshViewController(viewModel: feedViewModel)
         let feedController = FeedViewController(refreshController: refreshController)
         //on refresh -- we update the table model
         //refresh controller deletes [FeedImage]
         // we use the adapter pattern to help us compose unmatching apis
         // i.e transforms [FeedImage] -> Adapt -> [FeedImageCellController]
-        refreshController.onRefresh = adaptFeedToCellControllers(forwardingTo: feedController, loader: imageLoader)
+        feedViewModel.onFeedLoad = adaptFeedToCellControllers(forwardingTo: feedController, loader: imageLoader)
         
         return feedController
     }
@@ -29,7 +30,7 @@ public final class FeedUIComposer {
             //map feedimages to cellcontrollers
             // feedvc expects [FeedImageCellController]
             controller?.tableModel = feed.map { model in
-                FeedImageCellController(model: model, imageLoader: loader)
+                FeedImageCellController(viewModel: FeedImageViewModel(model: model, imageLoader: loader, imageTransformer: UIImage.init))
             }
         }
     }
