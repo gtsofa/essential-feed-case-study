@@ -8,7 +8,7 @@
 import Foundation
 import essential_feed_case_study
 
-protocol FeedLoadingView: class  {
+protocol FeedLoadingView  {
     func display(isLoading: Bool)
 }
 
@@ -28,7 +28,7 @@ final class FeedPresenter {
     
     //replace observable properties with the feedview protocol
     var feedView: FeedView?
-    weak var loadingView: FeedLoadingView?
+    var loadingView: FeedLoadingView?
 
     func loadFeed() {
         loadingView?.display(isLoading: true)
