@@ -8,6 +8,8 @@
 import Foundation
 import essential_feed_case_study
 
+//has no reference to the view
+// has properties and observers
 final class FeedViewModel {
     typealias Observer<T> = (T) -> Void
     
