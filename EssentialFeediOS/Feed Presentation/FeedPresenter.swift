@@ -29,19 +29,24 @@ final class FeedPresenter {
     typealias Observer<T> = (T) -> Void
     
     //replace observable properties with the feedview protocol
-    var feedView: FeedView?
-    var loadingView: FeedLoadingView?
+    private let feedView: FeedView
+    private let loadingView: FeedLoadingView
+    
+    init(feedView: FeedView, loadingView: FeedLoadingView) {
+        self.feedView = feedView
+        self.loadingView = loadingView
+    }
     
     func didStartLoadingFeed() {
-        loadingView?.display(FeedLoadingViewModel(isLoading: true)) // start loading feed
+        loadingView.display(FeedLoadingViewModel(isLoading: true)) // start loading feed
     }
     
     func didFinishLoadingFeed(with feed: [FeedImage]) {
-        feedView?.display(FeedViewModel(feed: feed)) // loaded feed
-        loadingView?.display(FeedLoadingViewModel(isLoading: false)) // finish loading feed
+        feedView.display(FeedViewModel(feed: feed)) // loaded feed
+        loadingView.display(FeedLoadingViewModel(isLoading: false)) // finish loading feed
     }
     
     func didFinishLoadingFeed(with error: Error) {
-        loadingView?.display(FeedLoadingViewModel(isLoading: false))
+        loadingView.display(FeedLoadingViewModel(isLoading: false))
     }
 }
