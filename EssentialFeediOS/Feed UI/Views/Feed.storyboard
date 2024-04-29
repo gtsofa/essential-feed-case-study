@@ -122,6 +122,11 @@ Location</string>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="2Zx-HA-86V" id="YBQ-u8-Xc6"/>
+                            <outlet property="delegate" destination="2Zx-HA-86V" id="tWt-lu-8Zj"/>
+                            <outlet property="prefetchDataSource" destination="2Zx-HA-86V" id="oQz-fd-ep7"/>
+                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Feed" id="WdS-C3-ATw"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="OSk-NF-K1I">

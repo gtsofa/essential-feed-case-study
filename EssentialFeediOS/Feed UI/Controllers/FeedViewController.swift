@@ -28,7 +28,7 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
         // set the refresh control
         //refreshControl = refreshController?.view // now done in storyboard
         // we need to tell the table view to repopulate
-        tableView.prefetchDataSource = self
+        //tableView.prefetchDataSource = self // move to storyboard
         //refreshController?.refresh() // do not show uirefresh control warnings
         
         onViewIsAppearing = { vc in
