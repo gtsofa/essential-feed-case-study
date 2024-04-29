@@ -8,7 +8,7 @@
 import UIKit
 
 public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching {
-    public var refreshController: FeedRefreshViewController?
+    @IBOutlet public var refreshController: FeedRefreshViewController?
     private var isViewAppeared = false
     private var onViewIsAppearing: ((FeedViewController) -> Void)?
     var tableModel = [FeedImageCellController]() {
@@ -20,7 +20,7 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
         super.viewDidLoad()
         
         // set the refresh control
-        refreshControl = refreshController?.view
+        //refreshControl = refreshController?.view // now done in storyboard
         // we need to tell the table view to repopulate
         tableView.prefetchDataSource = self
         //refreshController?.refresh() // do not show uirefresh control warnings
