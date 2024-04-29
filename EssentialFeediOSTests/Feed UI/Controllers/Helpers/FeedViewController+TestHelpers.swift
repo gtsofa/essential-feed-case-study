@@ -37,12 +37,15 @@ extension FeedViewController {
         return feedImageView(at: index) as? FeedImageCell // instantiate teh image view that is created from the data source taht should trigger an image url request
     }
     
-    func simulateFeedImageViewNotVisible(at row: Int) {
+    @discardableResult
+    func simulateFeedImageViewNotVisible(at row: Int) -> FeedImageCell? {
         let view = simulateFeedImageViewVisible(at: row) // simulate the view as visible
         
         let delegate = tableView.delegate // use the ableview delegate to notify 'didEndDisplay'
         let index = IndexPath(row: row, section: feedImagesSection)
         delegate?.tableView?(tableView, didEndDisplaying: view!, forRowAt: index)
+        
+        return view
     }
     
     func numberOfRenderedFeedImageViews() -> Int {
