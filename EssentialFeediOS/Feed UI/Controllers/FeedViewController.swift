@@ -7,8 +7,14 @@
 
 import UIKit
 
-public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching {
-    public var refreshController: FeedRefreshViewController?
+protocol FeedViewControllerDelegate {
+    func didRequestFeedRefresh()
+}
+
+public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching, FeedLoadingView {
+    //@IBOutlet public var refreshController: FeedRefreshViewController?
+    var delegate: FeedViewControllerDelegate?
+    
     private var isViewAppeared = false
     private var onViewIsAppearing: ((FeedViewController) -> Void)?
     var tableModel = [FeedImageCellController]() {
@@ -16,26 +22,33 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
         didSet { tableView.reloadData()}
     }
     
-    convenience init(refreshController: FeedRefreshViewController) {
-        self.init()
-        self.refreshController = refreshController
-        
-    }
-    
     public override func viewDidLoad() {
         super.viewDidLoad()
         
         // set the refresh control
-        refreshControl = refreshController?.view
+        //refreshControl = refreshController?.view // now done in storyboard
         // we need to tell the table view to repopulate
-        tableView.prefetchDataSource = self
+        //tableView.prefetchDataSource = self // move to storyboard
         //refreshController?.refresh() // do not show uirefresh control warnings
         
         onViewIsAppearing = { vc in
             vc.refreshControl?.beginRefreshing()
             vc.onViewIsAppearing = nil
             //vc.refresh()
-            self.refreshController?.refresh()
+            //self.refreshController?.refresh()
+            self.refresh()
+        }
+    }
+    
+    @IBAction private func refresh() {
+        delegate?.didRequestFeedRefresh()
+    }
+    
+    func display(_ viewModel: FeedLoadingViewModel) {
+        if viewModel.isLoading {
+            refreshControl?.beginRefreshing()
+        } else {
+            refreshControl?.endRefreshing()
         }
     }
     
@@ -51,7 +64,7 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     
     // cell creation/configuration
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return cellController(forRowAt: indexPath).view()
+        return cellController(forRowAt: indexPath).view(in: tableView)
     }
     
     public override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
