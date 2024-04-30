@@ -20,6 +20,7 @@ public final class FeedUIComposer {
         //let refreshController = feedController.refreshController! // set direct in storyboard
         feedController.delegate = presentationAdapter
         //eedController.refreshController = refreshController
+        feedController.title = FeedPresenter.title
         
         presentationAdapter.presenter = FeedPresenter(feedView: FeedViewAdapter(controller: feedController, imageLoader: imageLoader), loadingView: WeakRefVirtualProxy(feedController))
         //presenter.loadingView = WeakRefVirtualProxy(refreshController)
