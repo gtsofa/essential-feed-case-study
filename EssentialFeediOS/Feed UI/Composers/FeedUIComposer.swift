@@ -14,13 +14,7 @@ public final class FeedUIComposer {
     public static func feedComposedWith(feedLoader: FeedLoader, imageLoader: FeedImageDataLoader) -> FeedViewController {
         let presentationAdapter = FeedLoaderPresentationAdapter(feedLoader: feedLoader)
         
-        let bundle = Bundle(for: FeedViewController.self)
-        let storyboard = UIStoryboard(name: "Feed", bundle: bundle)
-        let feedController = storyboard.instantiateInitialViewController() as! FeedViewController
-        //let refreshController = feedController.refreshController! // set direct in storyboard
-        feedController.delegate = presentationAdapter
-        //eedController.refreshController = refreshController
-        feedController.title = FeedPresenter.title
+        let feedController = FeedViewController.makeWith(delegate: presentationAdapter, title: FeedPresenter.title)
         
         presentationAdapter.presenter = FeedPresenter(feedView: FeedViewAdapter(controller: feedController, imageLoader: imageLoader), loadingView: WeakRefVirtualProxy(feedController))
         //presenter.loadingView = WeakRefVirtualProxy(refreshController)
@@ -29,6 +23,20 @@ public final class FeedUIComposer {
         //refresh controller deletes [FeedImage]
         // we use the adapter pattern to help us compose unmatching apis
         // i.e transforms [FeedImage] -> Adapt -> [FeedImageCellController]
+        
+        return feedController
+    }
+}
+
+private extension FeedViewController {
+    static func makeWith(delegate: FeedViewControllerDelegate, title: String) -> FeedViewController {
+        let bundle = Bundle(for: FeedViewController.self)
+        let storyboard = UIStoryboard(name: "Feed", bundle: bundle)
+        let feedController = storyboard.instantiateInitialViewController() as! FeedViewController
+        //let refreshController = feedController.refreshController! // set direct in storyboard
+        feedController.delegate = delegate
+        //eedController.refreshController = refreshController
+        feedController.title = title
         
         return feedController
     }
