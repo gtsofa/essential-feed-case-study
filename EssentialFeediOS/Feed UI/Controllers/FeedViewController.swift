@@ -24,6 +24,7 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        title = FeedPresenter.title
         
         // set the refresh control
         //refreshControl = refreshController?.view // now done in storyboard
