@@ -22,6 +22,10 @@ extension FeedViewController {
         
     }
     
+    var errorMessage: String? {
+        return errorView.message
+    }
+    
     func simulateFeedImageViewNearVisible(at row: Int = 0) {
         let ds = tableView.prefetchDataSource
         let index = IndexPath(row: row, section: feedImagesSection)
