@@ -22,15 +22,7 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
         // Since not every operation will dispatch work in the background queue
         // eg inMemory-cache that returns immediately if something is in the cache
         didSet {
-            if Thread.isMainThread {
-                tableView.reloadData()
-            } else {
-                //Dispatch the work in the mainqueue before updating the UI
-                DispatchQueue.main.async { [weak self] in 
-                    self?.tableView.reloadData()
-                }
-            }
-            
+            tableView.reloadData()
         }
     }
     
@@ -57,12 +49,6 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     }
     
     func display(_ viewModel: FeedLoadingViewModel) {
-        guard Thread.isMainThread else {
-            return DispatchQueue.main.async { [weak self] in
-                self?.display(viewModel)
-            }
-        }
-        
         if viewModel.isLoading {
             refreshControl?.beginRefreshing()
         } else {
