@@ -19,7 +19,11 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     private var onViewIsAppearing: ((FeedViewController) -> Void)?
     var tableModel = [FeedImageCellController]() {
         // use property observer to relaod table view
-        didSet { tableView.reloadData()}
+        // Since not every operation will dispatch work in the background queue
+        // eg inMemory-cache that returns immediately if something is in the cache
+        didSet {
+            tableView.reloadData()
+        }
     }
     
     public override func viewDidLoad() {
