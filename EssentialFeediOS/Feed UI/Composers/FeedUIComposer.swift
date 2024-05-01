@@ -16,7 +16,7 @@ public final class FeedUIComposer {
         
         let feedController = FeedViewController.makeWith(delegate: presentationAdapter, title: FeedPresenter.title)
         
-        presentationAdapter.presenter = FeedPresenter(feedView: FeedViewAdapter(controller: feedController, imageLoader: imageLoader), loadingView: WeakRefVirtualProxy(feedController))
+        presentationAdapter.presenter = FeedPresenter(feedView: FeedViewAdapter(controller: feedController, imageLoader: MainQueueDispatchDecorator(decoratee: imageLoader)), loadingView: WeakRefVirtualProxy(feedController))
         //presenter.loadingView = WeakRefVirtualProxy(refreshController)
         //resenter.feedView = FeedViewAdapter(controller: feedController, imageLoader: imageLoader)
         //on refresh -- we update the table model
@@ -40,6 +40,17 @@ private class MainQueueDispatchDecorator<T> {
             return DispatchQueue.main.async(execute: completion)
         }
         completion()
+    }
+}
+
+extension MainQueueDispatchDecorator: FeedImageDataLoader where T == FeedImageDataLoader {
+    func loadImageData(from url: URL, completion: @escaping (FeedImageDataLoader.Result) -> Void) -> FeedImageDataLoaderTask {
+        //forward the decorated image loader msg
+        decoratee.loadImageData(from: url) { [weak self] result in
+            self?.dispatch {
+                completion(result)
+            }
+        }
     }
 }
 
