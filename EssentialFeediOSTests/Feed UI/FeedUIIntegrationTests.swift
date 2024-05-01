@@ -321,12 +321,15 @@ final class FeedUIIntegrationTests: XCTestCase {
         XCTAssertNil(view?.renderedImage, "Expected no rendered image when image load finishes after the view is not visible anymore")
     }
     
-    func test_errorView_doesNotRenderErrorOnLoad() {
-        let(sut, _) = makeSUT()
+    func test_loadFeedCompletion_rendersErrorMessageOnError() {
+        let(sut, loader) = makeSUT()
         
         sut.simulateAppearance()
         
         XCTAssertEqual(sut.errorMessage, nil)
+        
+        loader.completeFeedLoadingWithError(at: 0)
+        XCTAssertEqual(sut.errorMessage, localized("FEED_VIEW_CONNECTION_ERROR"))
     }
     
     // dispatch FeedLoader results to the MainThread
