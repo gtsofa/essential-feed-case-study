@@ -5,3 +5,5 @@
   Created by Julius on 03/05/2024.
   
 */
+"FEED_VIEW_TITLE" = "Το Feed μου";
+"FEED_VIEW_CONNECTION_ERROR" = "Δεν ήταν δυνατή η σύνδεση στο διακομιστή";
