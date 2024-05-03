@@ -50,7 +50,7 @@ final class FeedPresenter {
     }
     
     func didStartLoadingFeed() {
-        errorView.display(FeedErrorViewModel(message: nil)) //not show errorview instead show loading spinner
+        errorView.display(.noError) //not show errorview instead show loading spinner
         loadingView.display(FeedLoadingViewModel(isLoading: true)) // start loading feed
     }
     
