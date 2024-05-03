@@ -34,9 +34,9 @@ class FeedPresenter {
     private let errorView: FeedErrorView
     private let loadingView: FeedLoadingView
     
-    init(errorView: FeedErrorView, loadingView: FeedLoadingView) {
-        self.errorView = errorView
+    init(loadingView: FeedLoadingView, errorView: FeedErrorView) {
         self.loadingView = loadingView
+        self.errorView = errorView
     }
     
     func didStartLoadingFeed() {
@@ -68,7 +68,7 @@ final class FeedPresenterTests: XCTestCase {
     private func makeSUT(file: StaticString = #filePath,
                          line: UInt = #line) -> (sut: FeedPresenter, view: ViewSpy) {
         let view = ViewSpy()
-        let sut = FeedPresenter(errorView: view, loadingView: view)
+        let sut = FeedPresenter(loadingView: view, errorView: view)
         trackForMemoryLeaks(view, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         
@@ -76,19 +76,19 @@ final class FeedPresenterTests: XCTestCase {
     }
     
     private class ViewSpy: FeedLoadingView, FeedErrorView {
-        enum Message:Equatable {
+        enum Message:Hashable {
             case display(errorMessage: String?)
             case display(isLoading: Bool)
         }
         
-        private(set) var messages = [Message]()
+        private(set) var messages = Set<Message>()
         
         func display(_ viewModel: FeedErrorViewModel) {
-            messages.append(.display(errorMessage: viewModel.message))
+            messages.insert(.display(errorMessage: viewModel.message))
         }
         
         func display(_ viewModel: FeedLoadingViewModel) {
-            messages.append(.display(isLoading: viewModel.isLoading))
+            messages.insert(.display(isLoading: viewModel.isLoading))
         }
     }
 }
