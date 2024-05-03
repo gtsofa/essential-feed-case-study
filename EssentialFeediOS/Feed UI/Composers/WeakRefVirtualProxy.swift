@@ -5,6 +5,7 @@
 //  Created by Julius on 01/05/2024.
 //
 import UIKit
+import essential_feed_case_study
 
 final class WeakRefVirtualProxy<T: AnyObject> {
     private weak var object: T?
