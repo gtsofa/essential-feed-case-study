@@ -297,7 +297,6 @@
 		C6381BA92BD39E4600C7D737 /* Feed UI */ = {
 			isa = PBXGroup;
 			children = (
-				C695A1D92BD82E80005471AE /* Models */,
 				C6682F4D2BD6B30200FD88D3 /* Composers */,
 				C6AFA99B2BD3045100001E8C /* Views */,
 				C6AFA99A2BD3040800001E8C /* Controllers */,
@@ -424,13 +423,6 @@
 				C6381BAA2BD39E8E00C7D737 /* Feed UI */,
 			);
 			path = EssentialFeediOSTests;
-			sourceTree = "<group>";
-		};
-		C695A1D92BD82E80005471AE /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		C6A854152BE439C900DF18BD /* Helpers */ = {
