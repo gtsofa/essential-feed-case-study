@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import essential_feed_case_study
 
 final class FeedViewAdapter: FeedView {
     private weak var controller: FeedViewController?
