@@ -19,6 +19,7 @@
 		C62A08AD2BC6FC9C00FBA727 /* essential_feed_case_study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F1F5C92B68D4CB001DCC83 /* essential_feed_case_study.framework */; platformFilter = ios; };
 		C62A08AE2BC6FC9C00FBA727 /* essential_feed_case_study.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C6F1F5C92B68D4CB001DCC83 /* essential_feed_case_study.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C62A08B22BC6FE9E00FBA727 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B32EF72B849795009A108D /* XCTestCase+MemoryLeakTracking.swift */; };
+		C63110CB2BEA711F002E0604 /* FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6682F472BD591B900FD88D3 /* FeedImageDataLoader.swift */; };
 		C637620F2BA1905F0074087B /* ValidateFeedCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C637620E2BA1905F0074087B /* ValidateFeedCacheUseCaseTests.swift */; };
 		C63762112BA19E830074087B /* FeedCacheTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63762102BA19E830074087B /* FeedCacheTestHelpers.swift */; };
 		C63762132BA1A0720074087B /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63762122BA1A0720074087B /* SharedTestHelpers.swift */; };
@@ -39,7 +40,6 @@
 		C66114CF2BB4B519002D4579 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B32EF72B849795009A108D /* XCTestCase+MemoryLeakTracking.swift */; };
 		C66114D02BB4B73D002D4579 /* FeedCacheTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63762102BA19E830074087B /* FeedCacheTestHelpers.swift */; };
 		C66114D12BB4B770002D4579 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63762122BA1A0720074087B /* SharedTestHelpers.swift */; };
-		C6682F482BD591B900FD88D3 /* FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6682F472BD591B900FD88D3 /* FeedImageDataLoader.swift */; };
 		C6682F4C2BD6AB3900FD88D3 /* FeedImageCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6682F4B2BD6AB3900FD88D3 /* FeedImageCellController.swift */; };
 		C6682F4F2BD6B31700FD88D3 /* FeedUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6682F4E2BD6B31700FD88D3 /* FeedUIComposer.swift */; };
 		C67A3D942BC007FE00C5627D /* EssentialFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C67A3D8C2BC007F800C5627D /* EssentialFeediOS.framework */; };
@@ -318,6 +318,7 @@
 			children = (
 				C6F1F5E32B68D870001DCC83 /* FeedImage.swift */,
 				C6F1F5E52B68D8B8001DCC83 /* FeedLoader.swift */,
+				C6682F472BD591B900FD88D3 /* FeedImageDataLoader.swift */,
 			);
 			path = "Feed Feature";
 			sourceTree = "<group>";
@@ -389,7 +390,6 @@
 		C6682F462BD5919200FD88D3 /* Feed Image Loader */ = {
 			isa = PBXGroup;
 			children = (
-				C6682F472BD591B900FD88D3 /* FeedImageDataLoader.swift */,
 			);
 			path = "Feed Image Loader";
 			sourceTree = "<group>";
@@ -856,7 +856,6 @@
 				C627ABF82BE261C800DB217D /* FeedViewAdapter.swift in Sources */,
 				C629EEC32BE2D56E0018BE02 /* ErrorView.swift in Sources */,
 				C6A854192BE4D74900DF18BD /* UIRefreshControl+Helpers.swift in Sources */,
-				C6682F482BD591B900FD88D3 /* FeedImageDataLoader.swift in Sources */,
 				C6F209D22BCF05ED00508C9A /* UIView+shimmering.swift in Sources */,
 				C6565F442BC972D800603663 /* FeedViewController.swift in Sources */,
 				C627ABF62BE2615900DB217D /* WeakRefVirtualProxy.swift in Sources */,
@@ -921,6 +920,7 @@
 				C6C57B2F2BB2224300A22814 /* ManagedCache.swift in Sources */,
 				C6B32EFB2B85E747009A108D /* URLSessionHTTPClient.swift in Sources */,
 				C6A8542E2BE576E900DF18BD /* FeedErrorViewModel.swift in Sources */,
+				C63110CB2BEA711F002E0604 /* FeedImageDataLoader.swift in Sources */,
 				C6A8542C2BE5762E00DF18BD /* FeedLoadingViewModel.swift in Sources */,
 				C6E32E3B2BE81A6C00D42021 /* FeedImagePresenter.swift in Sources */,
 				C6C57B312BB222BF00A22814 /* ManagedFeedImage.swift in Sources */,
