@@ -287,13 +287,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C62E08CA2BDAC40200732D8E /* Feed Presentation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Feed Presentation";
-			sourceTree = "<group>";
-		};
 		C6381BA92BD39E4600C7D737 /* Feed UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,13 +380,6 @@
 			path = EssentialFeedCacheIntegrationTests;
 			sourceTree = "<group>";
 		};
-		C6682F462BD5919200FD88D3 /* Feed Image Loader */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Feed Image Loader";
-			sourceTree = "<group>";
-		};
 		C6682F4D2BD6B30200FD88D3 /* Composers */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,8 +396,6 @@
 		C67A3D8D2BC007F900C5627D /* EssentialFeediOS */ = {
 			isa = PBXGroup;
 			children = (
-				C62E08CA2BDAC40200732D8E /* Feed Presentation */,
-				C6682F462BD5919200FD88D3 /* Feed Image Loader */,
 				C6381BA92BD39E4600C7D737 /* Feed UI */,
 			);
 			path = EssentialFeediOS;
