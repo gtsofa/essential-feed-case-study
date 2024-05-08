@@ -154,12 +154,15 @@ final class RemoteFeedImageDataLoaderTests: XCTestCase {
     
     func test_loadImageDataFromURL_doesNotDeliverResultAfterCancellingTask() {
         let (sut, client) = makeSUT()
+        let nonEmptyData = Data("non-empty data".utf8)
         
         var receivedResults = [FeedImageDataLoader.Result]()
         let task = sut.loadImageData(from: anyURL()) { receivedResults.append($0)}
         task.cancel()
         
         client.complete(withStatusCode: 404, data: anyData())
+        client.complete(withStatusCode: 200, data: nonEmptyData)
+        client.complete(with: anyNSError())
         
         XCTAssertTrue(receivedResults.isEmpty, "Expected no received results after cancelling task")
     }
