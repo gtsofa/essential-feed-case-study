@@ -14,11 +14,6 @@ extension CoreDataFeedStore: FeedImageDataStore {
                 return try ManagedFeedImage.first(with: url, in: context)?.data
             })
         }
-        //        perform { context in
-        //            completion(Result {
-        //                return try ManagedFeedImage.first(with: url, in: context)?.data
-        //            })
-        //        }
     }
     
     public func insert(_ data: Data, for url: URL, completion: @escaping (FeedImageDataStore.InsertionResult) -> Void) {
@@ -28,11 +23,5 @@ extension CoreDataFeedStore: FeedImageDataStore {
             image.data = data
             try? context.save()
         }
-        //        perform { context in
-        //            guard let image = try? ManagedFeedImage.first(with: url, in: context) else { return }
-        //
-        //            image.data = data
-        //            try? context.save()
-        //        }
     }
 }
