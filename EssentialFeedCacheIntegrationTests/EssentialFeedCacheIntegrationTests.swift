@@ -56,6 +56,17 @@ final class EssentialFeedCacheIntegrationTests: XCTestCase {
         expect(feedLoaderToPerformLoad, toLoad: lastFeed)
     }
     
+    func test_validateFeedCache_deletesFeedSavedInADistantPast() {
+        let feed = uniqueImageFeed().models
+        let feedLoaderToPerformSave = makeFeedLoader(currentDate: .distantPast)
+        let feedLoaderToPerformValidation = makeFeedLoader(currentDate: Date())
+        
+        save(feed, with: feedLoaderToPerformSave)
+        validateCache(with: feedLoaderToPerformValidation)
+        
+        expect(feedLoaderToPerformSave, toLoad: [])
+    }
+    
     // MARK: - LocalFeedImageDataLoader Tests
     
     func test_loadImageData_deliversSavedDataOnASeparateInstance() {
@@ -91,11 +102,11 @@ final class EssentialFeedCacheIntegrationTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private func makeFeedLoader(file: StaticString = #filePath,
+    private func makeFeedLoader(currentDate: Date = Date(), file: StaticString = #filePath,
                          line: UInt = #line) -> LocalFeedLoader {
         let storeURL = testSpecificStoreURL()
         let store = try! CoreDataFeedStore(storeURL: storeURL)
-        let sut = LocalFeedLoader(store: store, currentDate: Date.init)
+        let sut = LocalFeedLoader(store: store, currentDate: { currentDate })
         trackForMemoryLeaks(store, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
@@ -127,6 +138,18 @@ final class EssentialFeedCacheIntegrationTests: XCTestCase {
         loader.save(data, for: url) { result in
             if case let Result.failure(error) = result {
                 XCTFail("Expected to save image data successfully, got error: \(error)", file: file, line: line)
+            }
+            saveExp.fulfill()
+        }
+        wait(for: [saveExp], timeout: 1.0)
+    }
+    
+    private func validateCache(with loader: LocalFeedLoader, file: StaticString = #file, line: UInt = #line) {
+        let saveExp = expectation(description: "Wait for save completion")
+        loader.validateCache() { result in
+            if case let Result.failure(error) = result {
+                XCTFail("Expected to validate feed successfully, got error: \(error)", file: file, line: line)
+                
             }
             saveExp.fulfill()
         }
