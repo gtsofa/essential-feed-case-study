@@ -83,7 +83,9 @@ extension LocalFeedLoader {
 }
 
 extension LocalFeedLoader {
-    public func validateCache() {
+    public typealias ValidationResult = Result<Void, Error>
+    
+    public func validateCache(completion: @escaping(ValidationResult) -> Void) {
         // remember we only need to delete cached feed
         // only when there is error/failure(i.e cache is not valid)
         store.retrieve { [weak self] result in
@@ -92,14 +94,15 @@ extension LocalFeedLoader {
             
             switch result {
             case .failure:
-                self.store.deleteCachedFeed { _ in }
+                self.store.deleteCachedFeed(completion: completion)
                 
             // we found a cache which is not valid so delete it
             case let .success(.some(cache)) where !FeedCachePolicy.validate(cache.timestamp, against: self.currentDate()):
-                self.store.deleteCachedFeed { _ in }
+                self.store.deleteCachedFeed(completion: completion)
                 
             // adding new cases to the result type will break
-            case .success: break
+            case .success:
+                completion(.success(()))
             }
         }
         
