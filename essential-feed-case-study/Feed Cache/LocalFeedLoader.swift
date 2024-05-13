@@ -98,7 +98,7 @@ extension LocalFeedLoader {
                 
             // we found a cache which is not valid so delete it
             case let .success(.some(cache)) where !FeedCachePolicy.validate(cache.timestamp, against: self.currentDate()):
-                self.store.deleteCachedFeed { _ in completion(.success(())) }
+                self.store.deleteCachedFeed(completion: completion)
                 
             // adding new cases to the result type will break
             case .success:
