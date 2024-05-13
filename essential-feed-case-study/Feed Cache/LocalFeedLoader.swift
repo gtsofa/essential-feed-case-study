@@ -85,7 +85,7 @@ extension LocalFeedLoader {
 extension LocalFeedLoader {
     public typealias ValidationResult = Result<Void, Error>
     
-    public func validateCache(completion: @escaping(ValidationResult) -> Void = { _ in }) {
+    public func validateCache(completion: @escaping(ValidationResult) -> Void) {
         // remember we only need to delete cached feed
         // only when there is error/failure(i.e cache is not valid)
         store.retrieve { [weak self] result in
