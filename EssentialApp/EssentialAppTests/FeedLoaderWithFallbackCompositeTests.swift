@@ -9,27 +9,30 @@ import XCTest
 import essential_feed_case_study
 
 class FeedLoaderWithFallbackComposite: FeedLoader {
-    init(remote: FeedLoader, local: FeedLoader) {}
+    private let primary: FeedLoader
+    
+    init(primary: FeedLoader, fallback: FeedLoader) {
+        self.primary = primary
+    }
     
     func load(completion: @escaping (FeedLoader.Result) -> Void) {
-        
+        primary.load(completion: completion)
     }
 }
+
 final class FeedLoaderWithFallbackCompositeTests: XCTestCase {
     func test_load_deliversPrimaryFeedOnPrimaryLoaderSuccess() {
         let primaryFeed = uniqueFeed()
         let fallbackFeed = uniqueFeed()
         let primaryLoader = LoaderStub(result: .success(primaryFeed))
         let fallbackLoader = LoaderStub(result: .success(fallbackFeed))
+        let sut = FeedLoaderWithFallbackComposite(primary: primaryLoader, fallback: fallbackLoader)
         
-        let sut = FeedLoaderWithFallbackComposite(remote: primaryLoader, local: fallbackLoader)
         let exp = expectation(description: "Wait for load completion")
-        
-        var remoteFeed: [FeedImage]?
         sut.load { result in
             switch result {
             case let .success(receivedFeed):
-                XCTAssertEqual(receivedFeed, remoteFeed)
+                XCTAssertEqual(receivedFeed, primaryFeed)
             case .failure:
                 XCTFail("Expected succesful load feed result, got \(result) instead")
             }
@@ -52,7 +55,7 @@ final class FeedLoaderWithFallbackCompositeTests: XCTestCase {
         }
         
         func load(completion: @escaping (FeedLoader.Result) -> Void) {
-            
+            completion(result)
         }
     }
 }
