@@ -20,6 +20,7 @@
 		C68EBEC32BF398170027569A /* essential_feed_case_study.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C68EBEC12BF398170027569A /* essential_feed_case_study.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C68EBEC62BF3981E0027569A /* EssentialFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C68EBEC52BF3981E0027569A /* EssentialFeediOS.framework */; };
 		C68EBEC72BF3981E0027569A /* EssentialFeediOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C68EBEC52BF3981E0027569A /* EssentialFeediOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C6EE85C22BF7F2AB004794F3 /* FeedImageDataLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EE85C12BF7F2AB004794F3 /* FeedImageDataLoaderWithFallbackComposite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		C68EBEA32BF370C20027569A /* EssentialAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C68EBEC12BF398170027569A /* essential_feed_case_study.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = essential_feed_case_study.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C68EBEC52BF3981E0027569A /* EssentialFeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssentialFeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6EE85C12BF7F2AB004794F3 /* FeedImageDataLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				C68EBE9B2BF370C10027569A /* LaunchScreen.storyboard */,
 				C68EBE9E2BF370C10027569A /* Info.plist */,
 				C6780A452BF6967600E02376 /* FeedLoaderWithFallbackComposite.swift */,
+				C6EE85C12BF7F2AB004794F3 /* FeedImageDataLoaderWithFallbackComposite.swift */,
 			);
 			path = EssentialApp;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				C68EBE912BF370BE0027569A /* AppDelegate.swift in Sources */,
 				C6780A462BF6967600E02376 /* FeedLoaderWithFallbackComposite.swift in Sources */,
 				C68EBE932BF370BE0027569A /* SceneDelegate.swift in Sources */,
+				C6EE85C22BF7F2AB004794F3 /* FeedImageDataLoaderWithFallbackComposite.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
