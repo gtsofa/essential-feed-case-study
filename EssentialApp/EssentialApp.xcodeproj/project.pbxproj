@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C62748E32BF6459700EBAF12 /* FeedLoaderWithFallbackCompositeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62748E22BF6459700EBAF12 /* FeedLoaderWithFallbackCompositeTests.swift */; };
 		C6780A462BF6967600E02376 /* FeedLoaderWithFallbackComposite.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6780A452BF6967600E02376 /* FeedLoaderWithFallbackComposite.swift */; };
+		C6780A482BF6A6A600E02376 /* FeedImageDataLoaderWithFallbackCompositeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6780A472BF6A6A600E02376 /* FeedImageDataLoaderWithFallbackCompositeTests.swift */; };
 		C68EBE912BF370BE0027569A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68EBE902BF370BE0027569A /* AppDelegate.swift */; };
 		C68EBE932BF370BE0027569A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68EBE922BF370BE0027569A /* SceneDelegate.swift */; };
 		C68EBE952BF370BE0027569A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68EBE942BF370BE0027569A /* ViewController.swift */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		C62748E22BF6459700EBAF12 /* FeedLoaderWithFallbackCompositeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderWithFallbackCompositeTests.swift; sourceTree = "<group>"; };
 		C6780A452BF6967600E02376 /* FeedLoaderWithFallbackComposite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderWithFallbackComposite.swift; sourceTree = "<group>"; };
+		C6780A472BF6A6A600E02376 /* FeedImageDataLoaderWithFallbackCompositeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderWithFallbackCompositeTests.swift; sourceTree = "<group>"; };
 		C68EBE8D2BF370BE0027569A /* EssentialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C68EBE902BF370BE0027569A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C68EBE922BF370BE0027569A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				C62748E22BF6459700EBAF12 /* FeedLoaderWithFallbackCompositeTests.swift */,
+				C6780A472BF6A6A600E02376 /* FeedImageDataLoaderWithFallbackCompositeTests.swift */,
 			);
 			path = EssentialAppTests;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6780A482BF6A6A600E02376 /* FeedImageDataLoaderWithFallbackCompositeTests.swift in Sources */,
 				C62748E32BF6459700EBAF12 /* FeedLoaderWithFallbackCompositeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
