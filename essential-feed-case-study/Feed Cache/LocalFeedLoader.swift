@@ -41,7 +41,7 @@ extension LocalFeedLoader: FeedLoader {
 }
 
     
-extension LocalFeedLoader {
+extension LocalFeedLoader: FeedCache {
     // a litle abstraction
     public typealias SaveResult = Result<Void, Error>
     
