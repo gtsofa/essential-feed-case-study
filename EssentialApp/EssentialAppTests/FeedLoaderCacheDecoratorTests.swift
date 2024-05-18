@@ -6,30 +6,71 @@
 //
 
 import XCTest
+import essential_feed_case_study
+
+class FeedLoaderCacheDecorator: FeedLoader {
+    private let decoratee: FeedLoader
+    
+    init(decoratee: FeedLoader) {
+        self.decoratee = decoratee
+    }
+    
+    func load(completion: @escaping (FeedLoader.Result) -> Void) {
+        decoratee.load(completion: completion)
+    }
+}
 
 final class FeedLoaderCacheDecoratorTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func test_load_deliversFeedOnLoaderSuccess() {
+        let feed = uniqueueFeed()
+        let loader = LoaderStub(result: .success(feed))
+        let sut = FeedLoaderCacheDecorator(decoratee: loader)
+        
+        expect(sut, toCompleteWith: .success(feed))
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func test_load_deliversErrorOnLoaderFailure() {
+        let loader = LoaderStub(result: .failure(anyNSError()))
+        let sut = FeedLoaderCacheDecorator(decoratee: loader)
+        
+        expect(sut, toCompleteWith: .failure(anyNSError()))
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    // MARK: - Helpers
+    
+    private func expect(_ sut: FeedLoader, toCompleteWith expectedResult: FeedLoader.Result, file: StaticString = #file, line: UInt = #line) {
+        let exp = expectation(description: "Wait for load completion")
+        sut.load { receivedResult in
+            switch (receivedResult, expectedResult) {
+            case let (.success(receivedFeed), .success(expectedFeed)):
+                XCTAssertEqual(receivedFeed, expectedFeed, file: file, line: line)
+                
+            case (.failure, .failure):
+                break
+                
+            default:
+                XCTFail("Expected \(expectedResult), got \(receivedResult) instead", file: file, line: line)
+            }
+            exp.fulfill()
         }
+        wait(for: [exp], timeout: 1.0)
+    }
+    
+    private func uniqueueFeed() -> [FeedImage] {
+        return [FeedImage(id: UUID(), description: "any", location: "any", url: anyURL())]
+    }
+    
+    private class LoaderStub: FeedLoader {
+        private let result: FeedLoader.Result
+        
+        init(result: FeedLoader.Result) {
+            self.result = result
+        }
+        
+        func load(completion: @escaping (FeedLoader.Result) -> Void) {
+            completion(result)
+        }
+        
     }
 
 }
