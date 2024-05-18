@@ -43,7 +43,7 @@ extension LocalFeedLoader: FeedLoader {
     
 extension LocalFeedLoader: FeedCache {
     // a litle abstraction
-    public typealias SaveResult = Result<Void, Error>
+    public typealias SaveResult = FeedCache.Result
     
     public func save(_ feed: [FeedImage], completion: @escaping (SaveResult) -> Void) {
         //need to invoke a mtd
