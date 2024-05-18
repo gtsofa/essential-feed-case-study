@@ -25,6 +25,7 @@
 		C6EE85C72BF7F4F5004794F3 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EE85C62BF7F4F5004794F3 /* SharedTestHelpers.swift */; };
 		C6EE85C92BF91224004794F3 /* FeedLoaderCacheDecoratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EE85C82BF91224004794F3 /* FeedLoaderCacheDecoratorTests.swift */; };
 		C6EE85CB2BF9190E004794F3 /* FeedLoaderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EE85CA2BF9190E004794F3 /* FeedLoaderStub.swift */; };
+		C6EE85CD2BF93087004794F3 /* XCTestCase+FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6EE85CC2BF93087004794F3 /* XCTestCase+FeedLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		C6EE85C62BF7F4F5004794F3 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 		C6EE85C82BF91224004794F3 /* FeedLoaderCacheDecoratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderCacheDecoratorTests.swift; sourceTree = "<group>"; };
 		C6EE85CA2BF9190E004794F3 /* FeedLoaderStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderStub.swift; sourceTree = "<group>"; };
+		C6EE85CC2BF93087004794F3 /* XCTestCase+FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FeedLoader.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				C6EE85C42BF7F3C3004794F3 /* XCTestCase+MemoryLeakTracking.swift */,
 				C6EE85C62BF7F4F5004794F3 /* SharedTestHelpers.swift */,
 				C6EE85CA2BF9190E004794F3 /* FeedLoaderStub.swift */,
+				C6EE85CC2BF93087004794F3 /* XCTestCase+FeedLoader.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6EE85C72BF7F4F5004794F3 /* SharedTestHelpers.swift in Sources */,
+				C6EE85CD2BF93087004794F3 /* XCTestCase+FeedLoader.swift in Sources */,
 				C6EE85C92BF91224004794F3 /* FeedLoaderCacheDecoratorTests.swift in Sources */,
 				C6780A482BF6A6A600E02376 /* FeedImageDataLoaderWithFallbackCompositeTests.swift in Sources */,
 				C62748E32BF6459700EBAF12 /* FeedLoaderWithFallbackCompositeTests.swift in Sources */,
