@@ -8,12 +8,6 @@
 import XCTest
 import essential_feed_case_study
 
-protocol FeedImageDataCache {
-    typealias SaveResult = Swift.Result<Void, Swift.Error>
-    
-    func save(_ data: Data, for url: URL, completion: @escaping (SaveResult) -> Void)
-}
-
 class FeedImageDataLoaderCacheDecorator: FeedImageDataLoader {
     private let decoratee: FeedImageDataLoader
     private let cache: FeedImageDataCache
