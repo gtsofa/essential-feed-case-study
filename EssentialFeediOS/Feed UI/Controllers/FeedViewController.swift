@@ -8,18 +8,17 @@
 import UIKit
 import essential_feed_case_study
 
-protocol FeedViewControllerDelegate {
+public protocol FeedViewControllerDelegate {
     func didRequestFeedRefresh()
 }
 
 public final class FeedViewController: UITableViewController, UITableViewDataSourcePrefetching, FeedLoadingView, FeedErrorView {
     //@IBOutlet public var refreshController: FeedRefreshViewController?
-    var delegate: FeedViewControllerDelegate?
     @IBOutlet private(set) public var errorView: ErrorView?
     
     private var isViewAppeared = false
     private var onViewIsAppearing: ((FeedViewController) -> Void)?
-    var tableModel = [FeedImageCellController]() {
+    private var tableModel = [FeedImageCellController]() {
         // use property observer to relaod table view
         // Since not every operation will dispatch work in the background queue
         // eg inMemory-cache that returns immediately if something is in the cache
@@ -27,6 +26,8 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
             tableView.reloadData()
         }
     }
+    
+    public var delegate: FeedViewControllerDelegate?
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +49,10 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     
     @IBAction private func refresh() {
         delegate?.didRequestFeedRefresh()
+    }
+    
+    public func display(_ cellControllers: [FeedImageCellController]) {
+        tableModel = cellControllers
     }
     
     public func display(_ viewModel: FeedErrorViewModel) {
