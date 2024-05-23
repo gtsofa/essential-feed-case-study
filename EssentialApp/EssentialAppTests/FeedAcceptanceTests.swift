@@ -16,7 +16,7 @@ final class FeedAcceptanceTests: XCTestCase {
         
         XCTAssertEqual(feed.numberOfRenderedFeedImageViews(), 2)
         XCTAssertEqual(feed.renderedFeedImageData(at: 0), makeImageData())
-        XCTAssertEqual(feed.renderedFeedImageData(at: 1), makeFeedData())
+        XCTAssertEqual(feed.renderedFeedImageData(at: 1), makeImageData())
     }
     
     // MARK: - Helpers
