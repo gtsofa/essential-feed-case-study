@@ -56,7 +56,7 @@ final class FeedSnapshotTests: XCTestCase {
         let bundle = Bundle(for: FeedViewController.self)
         let storyboard = UIStoryboard(name: "Feed", bundle: bundle)
         let controller = storyboard.instantiateInitialViewController() as! FeedViewController
-        
+        controller.simulateAppearance()
         return controller
     }
     
@@ -210,6 +210,36 @@ private extension FeedViewController {
         }
         display(cells)
     }
+    
+    func simulateAppearance() {
+        if !isViewLoaded {
+            loadViewIfNeeded()
+            prepareForFirstAppearance()
+            //replaceRefreshControlWithFakeForiOS17Support()
+        }
+        beginAppearanceTransition(true, animated: false)
+        endAppearanceTransition()
+    }
+    
+    private func prepareForFirstAppearance() {
+        setSmallFrameToPreventRenderingCells()
+        replaceRefreshControlWithFakeForiOS17Support()
+    }
+    
+    private func setSmallFrameToPreventRenderingCells() {
+        tableView.frame = CGRect(x: 0, y: 0, width: 390, height: 1)
+    }
+    
+    func replaceRefreshControlWithFakeForiOS17Support() {
+        let fake = FakeRefreshControl()
+        refreshControl?.allTargets.forEach{ target in
+            refreshControl?.actions(forTarget: target, forControlEvent:
+                    .valueChanged)?.forEach { action in
+                        fake.addTarget(target, action: Selector(action), for: .valueChanged)
+                    }
+        }
+        refreshControl = fake
+    }
 }
 
 private class ImageStub: FeedImageCellControllerDelegate {
@@ -231,6 +261,20 @@ private class ImageStub: FeedImageCellControllerDelegate {
     
     func didCancelImageRequest() {}
 
+}
+
+class FakeRefreshControl: UIRefreshControl {
+    private var _isRefreshing = false
+    
+    override var isRefreshing: Bool { _isRefreshing }
+    
+    override func beginRefreshing() {
+        _isRefreshing = true
+    }
+    
+    override func endRefreshing() {
+        _isRefreshing = false
+    }
 }
 
 
