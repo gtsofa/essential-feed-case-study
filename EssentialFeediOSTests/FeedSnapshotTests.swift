@@ -14,8 +14,6 @@ final class FeedSnapshotTests: XCTestCase {
         
         sut.display(emptyFeed())
         
-        //let snapshot = sut.snapshot()
-        
         record(snapshot: sut.snapshot(), named: "EMPTY_FEED")
     }
     
