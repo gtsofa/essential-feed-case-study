@@ -10,8 +10,9 @@ import essential_feed_case_study
 import EssentialFeediOS
 
 extension FeedUIIntegrationTests {
-    func assertThat(_ sut: FeedViewController, isRendering feed: [FeedImage], file: StaticString = #filePath,
-                            line: UInt = #line) {
+    func assertThat(_ sut: FeedViewController, isRendering feed: [FeedImage], file: StaticString = #filePath, line: UInt = #line) {
+        sut.view.enforceLayoutCycle() // force table view to layout
+        
         guard sut.numberOfRenderedFeedImageViews() == feed.count else {
             return XCTFail("Expected \(feed.count) images, got \(sut.numberOfRenderedFeedImageViews()) instead", file: file, line: line)
         }

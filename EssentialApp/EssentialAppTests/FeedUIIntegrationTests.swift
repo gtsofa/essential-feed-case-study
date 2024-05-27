@@ -92,6 +92,25 @@ final class FeedUIIntegrationTests: XCTestCase {
         
     }
     
+    func test_loadFeedCompletion_rendersSuccessfullyLoadedEmptyFeedAfterNonEmptyFeed() {
+        //we dont care about values in this test
+        let image0 = makeImage()
+        let image1 = makeImage()
+        let (sut, loader) = makeSUT()
+        
+        sut.simulateAppearance()//loadViewIfNeeded()
+        loader.completeFeedLoading(with: [image0, image1], at: 0)
+        assertThat(sut, isRendering: [image0, image1])
+
+        //if load again but we receive empty array of images
+        // it should not crash instead it should render an empty feed
+        sut.simulateUserInitiatedFeedReload()
+        loader.completeFeedLoading(with: [], at: 1)
+        assertThat(sut, isRendering: [])
+    }
+    
+    
+    
     func test_loadFeedCompletion_doesNotAlterCurrentRenderingStateOnError() {
         // load images
         // complete loading success
