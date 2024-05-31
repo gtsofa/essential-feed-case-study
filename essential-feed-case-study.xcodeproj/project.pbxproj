@@ -11,6 +11,7 @@
 		C6242B812BAF5DCE00043FCD /* XCTestCase+FeedStoreSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6242B802BAF5DCE00043FCD /* XCTestCase+FeedStoreSpecs.swift */; };
 		C629EEC32BE2D56E0018BE02 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C629EEC22BE2D56E0018BE02 /* ErrorView.swift */; };
 		C62A08AD2BC6FC9C00FBA727 /* essential_feed_case_study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6F1F5C92B68D4CB001DCC83 /* essential_feed_case_study.framework */; platformFilter = ios; };
+		C62A08AE2BC6FC9C00FBA727 /* essential_feed_case_study.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C6F1F5C92B68D4CB001DCC83 /* essential_feed_case_study.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C62A08B22BC6FE9E00FBA727 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B32EF72B849795009A108D /* XCTestCase+MemoryLeakTracking.swift */; };
 		C63110CB2BEA711F002E0604 /* FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6682F472BD591B900FD88D3 /* FeedImageDataLoader.swift */; };
 		C63110CD2BEA72C1002E0604 /* LoadFeedImageDataFromRemoteUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63110CC2BEA72C1002E0604 /* LoadFeedImageDataFromRemoteUseCaseTests.swift */; };
@@ -130,6 +131,20 @@
 			remoteInfo = "essential-feed-case-study";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C62A08B12BC6FC9C00FBA727 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C62A08AE2BC6FC9C00FBA727 /* essential_feed_case_study.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C603F1BD2BAF58CA00D80917 /* FeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStoreSpecs.swift; sourceTree = "<group>"; };
@@ -628,6 +643,7 @@
 				C67A3D882BC007F800C5627D /* Sources */,
 				C67A3D892BC007F800C5627D /* Frameworks */,
 				C67A3D8A2BC007F800C5627D /* Resources */,
+				C62A08B12BC6FC9C00FBA727 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
