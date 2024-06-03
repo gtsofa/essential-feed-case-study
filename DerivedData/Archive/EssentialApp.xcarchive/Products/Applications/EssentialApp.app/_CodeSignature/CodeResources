@@ -34,7 +34,7 @@
 		</data>
 		<key>Frameworks/EssentialFeediOS.framework/EssentialFeediOS</key>
 		<data>
-		1260IH+LIhGMnN3e0lhpehFg9Zs=
+		aDEMXuNdHPv7ltgpHf/4Dz7VKQQ=
 		</data>
 		<key>Frameworks/EssentialFeediOS.framework/Feed.storyboardc/2Zx-HA-86V-view-Z2H-yl-eS5.nib</key>
 		<data>
@@ -100,7 +100,7 @@
 		</dict>
 		<key>Frameworks/essential_feed_case_study.framework/essential_feed_case_study</key>
 		<data>
-		3BvcGyX/YsuYDnl4o6vMtRfc5jM=
+		bxclmsWrjHp9C+kkQMx6dTftogs=
 		</data>
 		<key>Frameworks/essential_feed_case_study.framework/pt-BR.lproj/Feed.strings</key>
 		<dict>
@@ -113,11 +113,11 @@
 		</dict>
 		<key>Info.plist</key>
 		<data>
-		ftgxHqFwxw68CE46uX41R9dXIos=
+		9gU+lAZh6pqnqP6mG9Moiq+zBrw=
 		</data>
 		<key>PkgInfo</key>
 		<data>
-		n57qDP4tZfLD1rCS43W0B4LQjzE=
+		f5jF0Q8N8QzXzntQyTSmqhC2Z9Y=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
@@ -179,7 +179,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			iyGJXe8ie3+m8/9/GR/RKzTzvrBxG9s2mhh2SEiFJVc=
+			aOmP+2j+/d7BqYnCpHlyRDL6DXO05zlnUXWRysCicus=
 			</data>
 		</dict>
 		<key>Frameworks/EssentialFeediOS.framework/Feed.storyboardc/2Zx-HA-86V-view-Z2H-yl-eS5.nib</key>
@@ -281,7 +281,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+yRWt9yESJQDZYvv5Y8jlcpFHUOsqnfJiISYBY3O5Q8=
+			VytpMOw9F/snmCX5gYKK6Ko0ztono3hXSRlr1TKT9YY=
 			</data>
 		</dict>
 		<key>Frameworks/essential_feed_case_study.framework/pt-BR.lproj/Feed.strings</key>
