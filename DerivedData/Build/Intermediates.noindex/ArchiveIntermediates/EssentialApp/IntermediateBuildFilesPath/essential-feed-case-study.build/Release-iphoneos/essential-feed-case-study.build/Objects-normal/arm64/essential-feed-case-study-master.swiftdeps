@@ -1,0 +1,63 @@
+version: "Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)"
+options: "f89f75ed431f15ec97e952b15ea5309ef6c756e036e1f0551ba6494e16a44650"
+build_start_time: [1717231473, 780106000]
+build_end_time: [1717231514, 766689000]
+inputs:
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed API/FeedItemsMapper.swift"
+  : [1717177951, 597565838]
+  "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed API/HTTPClient.swift": [1717177951, 597882819]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed API/Helpers/HTTPURLResponse+StatusCode.swift"
+  : [1717177951, 598359404]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed API/RemoteFeedImageDataLoader.swift"
+  : [1717177951, 598665991]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed API/RemoteFeedItem.swift"
+  : [1717177951, 599278233]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed API/RemoteFeedLoader.swift"
+  : [1717177951, 599643614]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed API/URLSessionHTTPClient.swift"
+  : [1717177951, 600013178]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed Cache/FeedCachePolicy.swift"
+  : [1717177951, 600512390]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed Cache/FeedImageDataStore.swift"
+  : [1717177951, 600825212]
+  "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed Cache/FeedStore.swift": [1717177951, 601122816]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed Cache/Infrastructure/CoreData/CoreDataFeedStore+FeedImageDataLoader.swift"
+  : [1717177951, 601855775]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed Cache/Infrastructure/CoreData/CoreDataFeedStore+FeedStore.swift"
+  : [1717177951, 602232605]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed Cache/Infrastructure/CoreData/CoreDataFeedStore.swift"
+  : [1717177951, 602579719]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed Cache/Infrastructure/CoreData/CoreDataHelpers.swift"
+  : [1717177951, 602895414]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed Cache/Infrastructure/CoreData/ManagedCache.swift"
+  : [1717177951, 607845540]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed Cache/Infrastructure/CoreData/ManagedFeedImage.swift"
+  : [1717177951, 608305685]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed Cache/LocalFeedImage.swift"
+  : [1717177951, 608799580]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed Cache/LocalFeedImageDataLoader.swift"
+  : [1717177951, 610092486]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed Cache/LocalFeedLoader.swift"
+  : [1717177951, 610774392]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed Feature/FeedCache.swift"
+  : [1717177951, 611921797]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed Feature/FeedImage.swift"
+  : [1717177951, 612337798]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed Feature/FeedImageDataCache.swift"
+  : [1717177951, 612625697]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed Feature/FeedImageDataLoader.swift"
+  : [1717177951, 612949295]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed Feature/FeedLoader.swift"
+  : [1717177951, 613263212]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed Presentation/FeedErrorViewModel.swift"
+  : [1717177951, 613793883]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed Presentation/FeedImagePresenter.swift"
+  : [1717177951, 614376250]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed Presentation/FeedImageViewModel.swift"
+  : [1717177951, 614686069]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed Presentation/FeedLoadingViewModel.swift"
+  : [1717177951, 615084998]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed Presentation/FeedPresenter.swift"
+  : [1717177951, 615389147]
+  ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed Presentation/FeedViewModel.swift"
+  : [1717177951, 615686276]

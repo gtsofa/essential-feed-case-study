@@ -1,0 +1,87 @@
+{
+  "buildCommand" : {
+    "command" : "build",
+    "skipDependencies" : false,
+    "style" : "buildAndRun"
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "6d3926b9d92a1b21050723a31e0ca70dfed968fc7a15ed6bb5b59eb68cc17ad5"
+    }
+  ],
+  "containerPath" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialApp/EssentialApp.xcworkspace",
+  "continueBuildingAfterErrors" : false,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "install",
+    "activeArchitecture" : "undefined_arch",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : true,
+      "platform" : "iphoneos",
+      "sdk" : "iphoneos17.2",
+      "sdkVariant" : "iphoneos",
+      "supportedArchitectures" : [
+        "armv4t",
+        "armv5",
+        "armv6",
+        "armv7",
+        "armv7f",
+        "armv7s",
+        "armv7k",
+        "arm64",
+        "arm64e"
+      ],
+      "targetArchitecture" : "undefined_arch"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Products",
+      "derivedDataPath" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Index.noindex/PrecompiledHeaders",
+      "pchPath" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Release",
+    "overrides" : {
+      "commandLine" : {
+        "table" : {
+          "SDKROOT" : "iphoneos17.2"
+        }
+      },
+      "synthesized" : {
+        "table" : {
+          "ACTION" : "install",
+          "ASSET_PACK_FOLDER_PATH" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/InstallationBuildProductsLocation/OnDemandResources",
+          "ASSETCATALOG_COMPILER_FLATTENED_APP_ICON_PATH" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/BuildProductsPath/ProductIcon.png",
+          "BITCODE_GENERATION_MODE" : "bitcode",
+          "COLOR_DIAGNOSTICS" : "YES",
+          "DEPLOYMENT_LOCATION" : "YES",
+          "DEPLOYMENT_POSTPROCESSING" : "YES",
+          "diagnostic_message_length" : "89",
+          "DSTROOT" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/InstallationBuildProductsLocation",
+          "EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE" : "NO",
+          "ENABLE_PREVIEWS" : "NO",
+          "ENABLE_SIGNATURE_AGGREGATION" : "YES",
+          "ENABLE_XOJIT_PREVIEWS" : "NO",
+          "INDEX_ENABLE_DATA_STORE" : "NO",
+          "MESSAGES_APPLICATION_EXTENSION_SUPPORT_FOLDER_PATH" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/BuildProductsPath/MessagesApplicationExtensionSupport",
+          "MESSAGES_APPLICATION_SUPPORT_FOLDER_PATH" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/BuildProductsPath/MessagesApplicationSupport",
+          "OBJROOT" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath",
+          "SHARED_PRECOMPS_DIR" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/PrecompiledHeaders",
+          "SIGNATURE_METADATA_FOLDER_PATH" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/BuildProductsPath/Signatures",
+          "SWIFT_STDLIB_TOOL_UNSIGNED_DESTINATION_DIR" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/BuildProductsPath/SwiftSupport",
+          "SYMROOT" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/BuildProductsPath",
+          "WATCHKIT_2_SUPPORT_FOLDER_PATH" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/BuildProductsPath/WatchKitSupport2"
+        }
+      }
+    }
+  },
+  "schemeCommand" : "archive",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}

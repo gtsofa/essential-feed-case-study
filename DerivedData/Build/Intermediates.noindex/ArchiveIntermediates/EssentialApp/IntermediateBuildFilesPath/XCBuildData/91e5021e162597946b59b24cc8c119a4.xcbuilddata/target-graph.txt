@@ -1,0 +1,7 @@
+Target dependency graph (3 targets)
+Target 'EssentialApp' in project 'EssentialApp'
+➜ Implicit dependency on target 'essential-feed-case-study' in project 'essential-feed-case-study' via file 'essential_feed_case_study.framework' in build phase 'Link Binary'
+➜ Implicit dependency on target 'EssentialFeediOS' in project 'essential-feed-case-study' via file 'EssentialFeediOS.framework' in build phase 'Link Binary'
+Target 'EssentialFeediOS' in project 'essential-feed-case-study'
+➜ Explicit dependency on target 'essential-feed-case-study' in project 'essential-feed-case-study'
+Target 'essential-feed-case-study' in project 'essential-feed-case-study' (no dependencies)
