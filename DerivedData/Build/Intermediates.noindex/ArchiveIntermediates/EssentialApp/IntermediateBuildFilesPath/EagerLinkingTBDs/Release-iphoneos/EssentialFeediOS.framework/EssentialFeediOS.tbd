@@ -1,0 +1,155 @@
+{
+  "main_library": {
+    "exported_symbols": [
+      {
+        "data": {
+          "global": [
+            "_$s16EssentialFeediOS23FeedImageCellControllerCMm",
+            "_$s16EssentialFeediOS23FeedImageCellControllerCMn",
+            "_$s16EssentialFeediOS13FeedImageCellC5style15reuseIdentifierACSo011UITableViewF5StyleV_SSSgtcfC",
+            "_$s16EssentialFeediOS13FeedImageCellC17locationContainerSo6UIViewCSgvg",
+            "_$s16EssentialFeediOS9ErrorViewC5frameACSo6CGRectV_tcfC",
+            "_$s16EssentialFeediOS9ErrorViewC5labelSo7UILabelCSgvs",
+            "_$s16EssentialFeediOS13FeedImageCellC04feedE4ViewSo07UIImageH0CSgvpfi",
+            "_$s16EssentialFeediOS23FeedImageCellControllerC7displayyy25essential_feed_case_study0dE9ViewModelVySo7UIImageCGF",
+            "_$s16EssentialFeediOS18FeedViewControllerC05errorE0AA05ErrorE0CSgvpfi",
+            "_$s16EssentialFeediOS13FeedImageCellCN",
+            "_$s16EssentialFeediOS9ErrorViewCMa",
+            "_$s16EssentialFeediOS9ErrorViewC7messageSSSgvs",
+            "_$s16EssentialFeediOS9ErrorViewC5labelSo7UILabelCSgvM",
+            "_$s16EssentialFeediOS18FeedViewControllerC7nibName6bundleACSSSg_So8NSBundleCSgtcfC",
+            "_$s16EssentialFeediOS26FeedViewControllerDelegateMp",
+            "_$s16EssentialFeediOS18FeedViewControllerC8delegateAA0deF8Delegate_pSgvpfi",
+            "_$sSo6UIViewC16EssentialFeediOSE12isShimmeringSbvpMV",
+            "_$s16EssentialFeediOS18FeedViewControllerC8delegateAA0deF8Delegate_pSgvs",
+            "_$s16EssentialFeediOS13FeedImageCellC04feedE9ContainerSo6UIViewCSgvg",
+            "_$s16EssentialFeediOS23FeedImageCellControllerCfD",
+            "_$s16EssentialFeediOS18FeedViewControllerC5coderACSgSo7NSCoderC_tcfC",
+            "_$s16EssentialFeediOS13FeedImageCellCMn",
+            "_$s16EssentialFeediOS23FeedImageCellControllerC8delegateAcA0defG8Delegate_p_tcfC",
+            "_$s16EssentialFeediOS18FeedViewControllerC7displayyy25essential_feed_case_study0d5ErrorE5ModelVF",
+            "_$s16EssentialFeediOS13FeedImageCellC5coderACSgSo7NSCoderC_tcfc",
+            "_$s16EssentialFeediOS18FeedViewControllerC18loadingControllers33_71006459F02836CEDDE0CD222858E165LLSDy10Foundation9IndexPathVAA0d9ImageCellF0CGvpfi",
+            "_$s16EssentialFeediOS13FeedImageCellC04feedE9ContainerSo6UIViewCSgvpWvd",
+            "_$s16EssentialFeediOS23FeedImageCellControllerCfd",
+            "_$s16EssentialFeediOS18FeedViewControllerC7nibName6bundleACSSSg_So8NSBundleCSgtcfc",
+            "_$s16EssentialFeediOS9ErrorViewC5labelSo7UILabelCSgvpMV",
+            "_$s16EssentialFeediOS18FeedViewControllerC25essential_feed_case_study0d7LoadingE0AAWP",
+            "_$s16EssentialFeediOS9ErrorViewC7messageSSSgvM",
+            "_$s16EssentialFeediOS18FeedViewControllerC5coderACSgSo7NSCoderC_tcfc",
+            "_$s16EssentialFeediOS18FeedViewControllerCMa",
+            "_$s16EssentialFeediOS9ErrorViewCfD",
+            "_$s16EssentialFeediOS18FeedViewControllerC25essential_feed_case_study0d5ErrorE0AAWP",
+            "_$s16EssentialFeediOS18FeedViewControllerC5styleACSo07UITableE5StyleV_tcfc",
+            "_$s16EssentialFeediOS9ErrorViewCMn",
+            "_$s16EssentialFeediOS13FeedImageCellC16descriptionLabelSo7UILabelCSgvpMV",
+            "_$s16EssentialFeediOS13FeedImageCellC04feedE9ContainerSo6UIViewCSgvpMV",
+            "_$s16EssentialFeediOS13FeedImageCellC16descriptionLabelSo7UILabelCSgvpWvd",
+            "_$s16EssentialFeediOS23FeedImageCellControllerCMa",
+            "_$s16EssentialFeediOS18FeedViewControllerC02isE8Appeared33_71006459F02836CEDDE0CD222858E165LLSbvpfi",
+            "_$s16EssentialFeediOS13FeedImageCellCfD",
+            "_$s16EssentialFeediOS13FeedImageCellC17locationContainerSo6UIViewCSgvpMV",
+            "_$s16EssentialFeediOS13FeedImageCellC04feedE9ContainerSo6UIViewCSgvpfi",
+            "_$s16EssentialFeediOS13FeedImageCellC13locationLabelSo7UILabelCSgvpWvd",
+            "_$s16EssentialFeediOS13FeedImageCellC04feedE4ViewSo07UIImageH0CSgvpWvd",
+            "_$s16EssentialFeediOS13FeedImageCellC17locationContainerSo6UIViewCSgvpWvd",
+            "_$s16EssentialFeediOS13FeedImageCellC5style15reuseIdentifierACSo011UITableViewF5StyleV_SSSgtcfc",
+            "_$s16EssentialFeediOS18FeedViewControllerC15viewIsAppearingyySbF",
+            "_$s16EssentialFeediOS18FeedViewControllerC05tableE0_12cellForRowAtSo07UITableE4CellCSo0lE0C_10Foundation9IndexPathVtF",
+            "_$s16EssentialFeediOS13FeedImageCellC17locationContainerSo6UIViewCSgvpfi",
+            "_$s16EssentialFeediOS18FeedViewControllerC5styleACSo07UITableE5StyleV_tcfC",
+            "_$s16EssentialFeediOS31FeedImageCellControllerDelegateTL",
+            "_EssentialFeediOSVersionNumber",
+            "_$s16EssentialFeediOS13FeedImageCellC04feedE4ViewSo07UIImageH0CSgvg",
+            "_$s16EssentialFeediOS18FeedViewControllerC8delegateAA0deF8Delegate_pSgvg",
+            "_$s16EssentialFeediOS13FeedImageCellC04feedE11RetryButtonSo8UIButtonCSgvg",
+            "_$s16EssentialFeediOS18FeedViewControllerC05tableE0_21numberOfRowsInSectionSiSo07UITableE0C_SitF",
+            "_$s16EssentialFeediOS18FeedViewControllerCN",
+            "_$s16EssentialFeediOS13FeedImageCellCMa",
+            "_$s16EssentialFeediOS9ErrorViewC7messageSSSgvg",
+            "_$s16EssentialFeediOS18FeedViewControllerC21viewDidLayoutSubviewsyyF",
+            "_$s16EssentialFeediOS9ErrorViewCN",
+            "_$s16EssentialFeediOS18FeedViewControllerC02onE11IsAppearing33_71006459F02836CEDDE0CD222858E165LLyACcSgvpfi",
+            "_$sSo6UIViewC16EssentialFeediOSE12isShimmeringSbvg",
+            "_$s16EssentialFeediOS23FeedImageCellControllerCN",
+            "_$s16EssentialFeediOS18FeedViewControllerC10tableModel33_71006459F02836CEDDE0CD222858E165LLSayAA0d9ImageCellF0CGvpfi",
+            "_$s16EssentialFeediOS31FeedImageCellControllerDelegateMp",
+            "_$s16EssentialFeediOS18FeedViewControllerC05tableE0_14prefetchRowsAtySo07UITableE0C_Say10Foundation9IndexPathVGtF",
+            "_$s16EssentialFeediOS13FeedImageCellC04feedE11RetryButtonSo8UIButtonCSgvpfi",
+            "_$s16EssentialFeediOS9ErrorViewC7messageSSSgvpMV",
+            "_$s16EssentialFeediOS9ErrorViewC5frameACSo6CGRectV_tcfc",
+            "_$s16EssentialFeediOS13FeedImageCellC04feedE11RetryButtonSo8UIButtonCSgvpMV",
+            "_$s16EssentialFeediOS9ErrorViewC5coderACSgSo7NSCoderC_tcfC",
+            "_$s16EssentialFeediOS13FeedImageCellC16descriptionLabelSo7UILabelCSgvpfi",
+            "_$s16EssentialFeediOS18FeedViewControllerC05tableE0_26cancelPrefetchingForRowsAtySo07UITableE0C_Say10Foundation9IndexPathVGtF",
+            "_$s16EssentialFeediOS26FeedViewControllerDelegateTL",
+            "_$s16EssentialFeediOS9ErrorViewC5labelSo7UILabelCSgvg",
+            "_$s16EssentialFeediOS13FeedImageCellC13locationLabelSo7UILabelCSgvg",
+            "_$s16EssentialFeediOS9ErrorViewC5labelSo7UILabelCSgvpfi",
+            "_$s16EssentialFeediOS13FeedImageCellC13locationLabelSo7UILabelCSgvpMV",
+            "_$s16EssentialFeediOS18FeedViewControllerC8delegateAA0deF8Delegate_pSgvM",
+            "_$s16EssentialFeediOS9ErrorViewC5coderACSgSo7NSCoderC_tcfc",
+            "_$s16EssentialFeediOS18FeedViewControllerC05tableE0_16didEndDisplaying8forRowAtySo07UITableE0C_So0nE4CellC10Foundation9IndexPathVtF",
+            "_$s16EssentialFeediOS18FeedViewControllerC25essential_feed_case_study0d7LoadingE0AAMc",
+            "_$s16EssentialFeediOS18FeedViewControllerC7displayyySayAA0d9ImageCellF0CGF",
+            "_$s16EssentialFeediOS23FeedImageCellControllerC8delegateAcA0defG8Delegate_p_tcfc",
+            "_$s16EssentialFeediOS13FeedImageCellC7onRetryyycSgvpfi",
+            "_$s16EssentialFeediOS18FeedViewControllerCfD",
+            "_$s16EssentialFeediOS18FeedViewControllerC05errorE0AA05ErrorE0CSgvpMV",
+            "_$s16EssentialFeediOS18FeedViewControllerC8delegateAA0deF8Delegate_pSgvpWvd",
+            "_$s16EssentialFeediOS23FeedImageCellControllerC25essential_feed_case_study0dE4ViewAAMc",
+            "_$s16EssentialFeediOS18FeedViewControllerC05errorE0AA05ErrorE0CSgvpWvd",
+            "_$s16EssentialFeediOS13FeedImageCellC16descriptionLabelSo7UILabelCSgvg",
+            "_$s16EssentialFeediOS13FeedImageCellC5coderACSgSo7NSCoderC_tcfC",
+            "_$s16EssentialFeediOS18FeedViewControllerC05errorE0AA05ErrorE0CSgvg",
+            "_$s16EssentialFeediOS13FeedImageCellC04feedE11RetryButtonSo8UIButtonCSgvpWvd",
+            "_$s16EssentialFeediOS9ErrorViewC5labelSo7UILabelCSgvpWvd",
+            "_$s16EssentialFeediOS13FeedImageCellC13locationLabelSo7UILabelCSgvpfi",
+            "_$s16EssentialFeediOS18FeedViewControllerC25essential_feed_case_study0d5ErrorE0AAMc",
+            "_$s16EssentialFeediOS18FeedViewControllerC11viewDidLoadyyF",
+            "_$s16EssentialFeediOS18FeedViewControllerC7displayyy25essential_feed_case_study0d7LoadingE5ModelVF",
+            "_EssentialFeediOSVersionString",
+            "_$s16EssentialFeediOS18FeedViewControllerCMn",
+            "_$sSo6UIViewC16EssentialFeediOSE12isShimmeringSbvM",
+            "_$s16EssentialFeediOS23FeedImageCellControllerC4cell33_1243AC0D92AF31FEC40BA6CB5110E945LLAA0deF0CSgvpfi",
+            "_$s16EssentialFeediOS9ErrorViewC12awakeFromNibyyF",
+            "_$s16EssentialFeediOS23FeedImageCellControllerC8delegateAcA0defG8Delegate_p_tcfCTq",
+            "_$s16EssentialFeediOS18FeedViewControllerC8delegateAA0deF8Delegate_pSgvpMV",
+            "_$s16EssentialFeediOS13FeedImageCellC04feedE4ViewSo07UIImageH0CSgvpMV",
+            "_$sSo6UIViewC16EssentialFeediOSE12isShimmeringSbvs",
+            "_$s16EssentialFeediOS23FeedImageCellControllerC25essential_feed_case_study0dE4ViewAAWP"
+          ],
+          "objc_class": [
+            "_TtC16EssentialFeediOS9ErrorView",
+            "_TtC16EssentialFeediOS18FeedViewController",
+            "_TtC16EssentialFeediOS13FeedImageCell"
+          ]
+        }
+      }
+    ],
+    "flags": [
+      {
+        "attributes": [
+          "not_app_extension_safe"
+        ]
+      }
+    ],
+    "install_names": [
+      {
+        "name": "@rpath/EssentialFeediOS.framework/EssentialFeediOS"
+      }
+    ],
+    "swift_abi": [
+      {
+        "abi": 7
+      }
+    ],
+    "target_info": [
+      {
+        "min_deployment": "17.2",
+        "target": "arm64-ios"
+      }
+    ]
+  },
+  "tapi_tbd_version": 5
+}

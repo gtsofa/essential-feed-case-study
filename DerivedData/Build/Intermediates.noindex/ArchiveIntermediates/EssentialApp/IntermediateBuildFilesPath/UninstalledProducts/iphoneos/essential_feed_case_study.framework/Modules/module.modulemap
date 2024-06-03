@@ -1,0 +1,4 @@
+framework module essential_feed_case_study {
+  header "essential_feed_case_study-Swift.h"
+  requires objc
+}

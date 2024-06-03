@@ -1,0 +1,80 @@
+{
+  "" : {
+    "const-values" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/EssentialApp-master.swiftconstvalues",
+    "dependencies" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/EssentialApp-master.d",
+    "diagnostics" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/EssentialApp-master.dia",
+    "emit-module-dependencies" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/EssentialApp-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/EssentialApp-master-emit-module.dia",
+    "swift-dependencies" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/EssentialApp-master.swiftdeps"
+  },
+  "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "index-unit-output-path" : "/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/GeneratedAssetSymbols.o"
+  },
+  "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialApp/EssentialApp/AppDelegate.swift" : {
+    "index-unit-output-path" : "/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/AppDelegate.o",
+    "llvm-bc" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/AppDelegate.bc",
+    "object" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/AppDelegate.o"
+  },
+  "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialApp/EssentialApp/FeedImageDataLoaderCacheDecorator.swift" : {
+    "index-unit-output-path" : "/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/FeedImageDataLoaderCacheDecorator.o",
+    "llvm-bc" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/FeedImageDataLoaderCacheDecorator.bc",
+    "object" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/FeedImageDataLoaderCacheDecorator.o"
+  },
+  "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialApp/EssentialApp/FeedImageDataLoaderPresentationAdapter.swift" : {
+    "index-unit-output-path" : "/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/FeedImageDataLoaderPresentationAdapter.o",
+    "llvm-bc" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/FeedImageDataLoaderPresentationAdapter.bc",
+    "object" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/FeedImageDataLoaderPresentationAdapter.o"
+  },
+  "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialApp/EssentialApp/FeedImageDataLoaderWithFallbackComposite.swift" : {
+    "index-unit-output-path" : "/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/FeedImageDataLoaderWithFallbackComposite.o",
+    "llvm-bc" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/FeedImageDataLoaderWithFallbackComposite.bc",
+    "object" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/FeedImageDataLoaderWithFallbackComposite.o"
+  },
+  "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialApp/EssentialApp/FeedLoaderCacheDecorator.swift" : {
+    "index-unit-output-path" : "/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/FeedLoaderCacheDecorator.o",
+    "llvm-bc" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/FeedLoaderCacheDecorator.bc",
+    "object" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/FeedLoaderCacheDecorator.o"
+  },
+  "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialApp/EssentialApp/FeedLoaderPresentationAdapter.swift" : {
+    "index-unit-output-path" : "/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/FeedLoaderPresentationAdapter.o",
+    "llvm-bc" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/FeedLoaderPresentationAdapter.bc",
+    "object" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/FeedLoaderPresentationAdapter.o"
+  },
+  "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialApp/EssentialApp/FeedLoaderWithFallbackComposite.swift" : {
+    "index-unit-output-path" : "/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/FeedLoaderWithFallbackComposite.o",
+    "llvm-bc" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/FeedLoaderWithFallbackComposite.bc",
+    "object" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/FeedLoaderWithFallbackComposite.o"
+  },
+  "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialApp/EssentialApp/FeedUIComposer.swift" : {
+    "index-unit-output-path" : "/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/FeedUIComposer.o",
+    "llvm-bc" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/FeedUIComposer.bc",
+    "object" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/FeedUIComposer.o"
+  },
+  "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialApp/EssentialApp/FeedViewAdapter.swift" : {
+    "index-unit-output-path" : "/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/FeedViewAdapter.o",
+    "llvm-bc" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/FeedViewAdapter.bc",
+    "object" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/FeedViewAdapter.o"
+  },
+  "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialApp/EssentialApp/MainQueueDispatchDecorator.swift" : {
+    "index-unit-output-path" : "/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/MainQueueDispatchDecorator.o",
+    "llvm-bc" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/MainQueueDispatchDecorator.bc",
+    "object" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/MainQueueDispatchDecorator.o"
+  },
+  "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialApp/EssentialApp/SceneDelegate.swift" : {
+    "index-unit-output-path" : "/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/SceneDelegate.o",
+    "llvm-bc" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/SceneDelegate.bc",
+    "object" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/SceneDelegate.o"
+  },
+  "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialApp/EssentialApp/ViewController.swift" : {
+    "index-unit-output-path" : "/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/ViewController.o",
+    "llvm-bc" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/ViewController.bc",
+    "object" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/ViewController.o"
+  },
+  "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialApp/EssentialApp/WeakRefVirtualProxy.swift" : {
+    "index-unit-output-path" : "/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/WeakRefVirtualProxy.o",
+    "llvm-bc" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/WeakRefVirtualProxy.bc",
+    "object" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/Objects-normal/arm64/WeakRefVirtualProxy.o"
+  }
+}

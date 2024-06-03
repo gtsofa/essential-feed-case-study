@@ -1,0 +1,60 @@
+{
+  "" : {
+    "const-values" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/EssentialFeediOS-master.swiftconstvalues",
+    "dependencies" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/EssentialFeediOS-master.d",
+    "diagnostics" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/EssentialFeediOS-master.dia",
+    "emit-module-dependencies" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/EssentialFeediOS-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/EssentialFeediOS-master-emit-module.dia",
+    "swift-dependencies" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/EssentialFeediOS-master.swiftdeps"
+  },
+  "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "index-unit-output-path" : "/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/GeneratedAssetSymbols.o"
+  },
+  "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialFeediOS/Feed UI/Controllers/FeedImageCellController.swift" : {
+    "index-unit-output-path" : "/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/FeedImageCellController.o",
+    "llvm-bc" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/FeedImageCellController.bc",
+    "object" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/FeedImageCellController.o"
+  },
+  "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialFeediOS/Feed UI/Controllers/FeedViewController.swift" : {
+    "index-unit-output-path" : "/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/FeedViewController.o",
+    "llvm-bc" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/FeedViewController.bc",
+    "object" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/FeedViewController.o"
+  },
+  "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialFeediOS/Feed UI/Views/ErrorView.swift" : {
+    "index-unit-output-path" : "/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/ErrorView.o",
+    "llvm-bc" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/ErrorView.bc",
+    "object" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/ErrorView.o"
+  },
+  "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialFeediOS/Feed UI/Views/FeedImageCell.swift" : {
+    "index-unit-output-path" : "/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/FeedImageCell.o",
+    "llvm-bc" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/FeedImageCell.bc",
+    "object" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/FeedImageCell.o"
+  },
+  "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialFeediOS/Feed UI/Views/Helpers/UIImageView+Animations.swift" : {
+    "index-unit-output-path" : "/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/UIImageView+Animations.o",
+    "llvm-bc" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/UIImageView+Animations.bc",
+    "object" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/UIImageView+Animations.o"
+  },
+  "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialFeediOS/Feed UI/Views/Helpers/UIRefreshControl+Helpers.swift" : {
+    "index-unit-output-path" : "/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/UIRefreshControl+Helpers.o",
+    "llvm-bc" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/UIRefreshControl+Helpers.bc",
+    "object" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/UIRefreshControl+Helpers.o"
+  },
+  "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialFeediOS/Feed UI/Views/Helpers/UITableView+dequeueing.swift" : {
+    "index-unit-output-path" : "/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/UITableView+dequeueing.o",
+    "llvm-bc" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/UITableView+dequeueing.bc",
+    "object" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/UITableView+dequeueing.o"
+  },
+  "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialFeediOS/Feed UI/Views/Helpers/UITableView+HeaderSizing.swift" : {
+    "index-unit-output-path" : "/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/UITableView+HeaderSizing.o",
+    "llvm-bc" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/UITableView+HeaderSizing.bc",
+    "object" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/UITableView+HeaderSizing.o"
+  },
+  "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialFeediOS/Feed UI/Views/Helpers/UIView+shimmering.swift" : {
+    "index-unit-output-path" : "/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/UIView+shimmering.o",
+    "llvm-bc" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/UIView+shimmering.bc",
+    "object" : "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/Objects-normal/arm64/UIView+shimmering.o"
+  }
+}
