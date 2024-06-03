@@ -9,10 +9,10 @@
 	<key>provisioningProfiles</key>
 	<dict>
 		<key>gtsofa.com.EssentialAppCaseStudyG</key>
-		<string>profile</string>
+		<string>Essential App Case Study (iOS Distri)</string>
 	</dict>
 	<key>signingCertificate</key>
-	<string>iPhone Distribution</string>
+	<string>Julius Nyule</string>
 	<key>signingStyle</key>
 	<string>manual</string>
 	<key>stripSwiftSymbols</key>
