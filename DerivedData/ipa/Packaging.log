@@ -1,0 +1,428 @@
+2024-06-03 21:42:32 +0000 [MT] Initial pipeline context: <IDEDistributionProcessingPipelineContext: 0x7f857e71d810; archive(resolved)="<IDEArchive: 0x6000031e2700>", distributionTask(resolved)="2", distributionDestination(resolved)="1", distributionMethod(resolved)="<IDEDistributionMethodiOSAppStoreDistribution: 0x600001717b40>", team(resolved)="<IDEProvisioningBasicTeam: 0x6000014d9960; teamID='TJD4WCXHKT', teamName='(null)'>">
+	Chain (16, self inclusive):
+	<IDEDistributionProcessingPipelineContext: 0x7f857e71d810; archive = "<IDEArchive: 0x6000031e2700>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600001717b40>", team="<IDEProvisioningBasicTeam: 0x6000014d9960; teamID='TJD4WCXHKT', teamName='(null)'>">
+	<IDEDistributionProcessingPipelineContext: 0x7f857c0f6170; archive = "<IDEArchive: 0x6000031e2700>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600001717b40>", team="<IDEProvisioningBasicTeam: 0x6000014d9960; teamID='TJD4WCXHKT', teamName='(null)'>">
+	<IDEDistributionContext: 0x7f857c0f14f0; archive = "<IDEArchive: 0x6000031e2700>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600001717b40>", team="<IDEProvisioningBasicTeam: 0x6000014d9960; teamID='TJD4WCXHKT', teamName='(null)'>">
+	<IDEDistributionContext: 0x7f857c0d7960; archive = "<IDEArchive: 0x6000031e2700>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600001717b40>", team="<IDEProvisioningBasicTeam: 0x6000014d9960; teamID='TJD4WCXHKT', teamName='(null)'>">
+	<IDEDistributionContext: 0x7f857e708ee0; archive = "<IDEArchive: 0x6000031e2700>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600001717b40>", team="<IDEProvisioningBasicTeam: 0x6000014d9960; teamID='TJD4WCXHKT', teamName='(null)'>">
+	<IDEDistributionContext: 0x7f857c0d7030; archive = "<IDEArchive: 0x6000031e2700>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600001717b40>", team="<IDEProvisioningBasicTeam: 0x6000014d9960; teamID='TJD4WCXHKT', teamName='(null)'>">
+	<IDEDistributionContext: 0x7f857e708080; archive = "<IDEArchive: 0x6000031e2700>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600001717b40>", team="<IDEProvisioningBasicTeam: 0x6000014d9960; teamID='TJD4WCXHKT', teamName='(null)'>">
+	<IDEDistributionContext: 0x7f857c284db0; archive = "<IDEArchive: 0x6000031e2700>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600001717b40>", team="<IDEProvisioningBasicTeam: 0x6000014d9960; teamID='TJD4WCXHKT', teamName='(null)'>">
+	<IDEDistributionContext: 0x7f857c283770; archive = "<IDEArchive: 0x6000031e2700>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600001717b40>", team="<IDEProvisioningBasicTeam: 0x6000014d9960; teamID='TJD4WCXHKT', teamName='(null)'>">
+	<IDEDistributionContext: 0x7f857c3fd080; archive = "<IDEArchive: 0x6000031e2700>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600001717b40>", team="<IDEProvisioningBasicTeam: 0x6000014d9960; teamID='TJD4WCXHKT', teamName='(null)'>">
+	<IDEDistributionContext: 0x7f857c3f9bd0; archive = "<IDEArchive: 0x6000031e2700>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600001717b40>", team="<IDEProvisioningBasicTeam: 0x6000014d9960; teamID='TJD4WCXHKT', teamName='(null)'>">
+	<IDEDistributionContext: 0x7f857c3f9220; archive = "<IDEArchive: 0x6000031e2700>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600001717b40>", team="<IDEProvisioningBasicTeam: 0x6000014d9960; teamID='TJD4WCXHKT', teamName='(null)'>">
+	<IDEDistributionContext: 0x7f857c3f7780; archive = "<IDEArchive: 0x6000031e2700>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600001717b40>", team="<IDEProvisioningBasicTeam: 0x6000014d9960; teamID='TJD4WCXHKT', teamName='(null)'>">
+	<IDEDistributionContext: 0x7f857c3f7350; archive = "<IDEArchive: 0x6000031e2700>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600001717b40>", team="(null)">
+	<IDEDistributionContext: 0x7f857b743d50; archive = "<IDEArchive: 0x6000031e2700>", distributionMethod="<IDEDistributionMethodiOSAppStoreDistribution: 0x600001717b40>", team="(null)">
+	<IDEDistributionContext: 0x7f857c0c54b0; archive = "<IDEArchive: 0x6000031e2700>", distributionMethod="(null)", team="(null)">
+</IDEDistributionProcessingPipelineContext: 0x7f857e71d810>
+2024-06-03 21:42:32 +0000 [MT] Processing step: IDEDistributionCreateDestRootStep
+2024-06-03 21:42:32 +0000 [MT] Processing step: IDEDistributionCopyItemStep
+2024-06-03 21:42:32 +0000 [MT] Running /usr/bin/ditto '-V' '/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app' '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root/Payload/EssentialApp.app'
+2024-06-03 21:42:32 +0000  >>> Copying /Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app 
+2024-06-03 21:42:32 +0000  copying file ./_CodeSignature/CodeResources ... 
+2024-06-03 21:42:32 +0000  9540 bytes for ./_CodeSignature/CodeResources
+2024-06-03 21:42:32 +0000  copying file ./AppIcon60x60@2x.png ... 
+2024-06-03 21:42:32 +0000  5932 bytes for ./AppIcon60x60@2x.png
+2024-06-03 21:42:32 +0000  copying file ./Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib ... 
+2024-06-03 21:42:32 +0000  1225 bytes for ./Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib
+2024-06-03 21:42:32 +0000  copying file ./Base.lproj/LaunchScreen.storyboardc/UINavigationController-THY-K6-9G0.nib ... 
+2024-06-03 21:42:32 +0000  1653 bytes for ./Base.lproj/LaunchScreen.storyboardc/UINavigationController-THY-K6-9G0.nib
+2024-06-03 21:42:32 +0000  copying file ./Base.lproj/LaunchScreen.storyboardc/Info.plist ... 
+2024-06-03 21:42:32 +0000  276 bytes for ./Base.lproj/LaunchScreen.storyboardc/Info.plist
+2024-06-03 21:42:32 +0000  copying file ./Assets.car ... 
+2024-06-03 21:42:32 +0000  296664 bytes for ./Assets.car
+2024-06-03 21:42:32 +0000  copying file ./AppIcon76x76@2x~ipad.png ... 
+2024-06-03 21:42:32 +0000  11345 bytes for ./AppIcon76x76@2x~ipad.png
+2024-06-03 21:42:32 +0000  copying file ./Frameworks/essential_feed_case_study.framework/_CodeSignature/CodeResources ... 
+2024-06-03 21:42:32 +0000  3803 bytes for ./Frameworks/essential_feed_case_study.framework/_CodeSignature/CodeResources
+2024-06-03 21:42:32 +0000  copying file ./Frameworks/essential_feed_case_study.framework/el.lproj/Feed.strings ... 
+2024-06-03 21:42:32 +0000  203 bytes for ./Frameworks/essential_feed_case_study.framework/el.lproj/Feed.strings
+2024-06-03 21:42:32 +0000  copying file ./Frameworks/essential_feed_case_study.framework/en.lproj/Feed.strings ... 
+2024-06-03 21:42:32 +0000  134 bytes for ./Frameworks/essential_feed_case_study.framework/en.lproj/Feed.strings
+2024-06-03 21:42:32 +0000  copying file ./Frameworks/essential_feed_case_study.framework/FeedStore.momd/FeedStore.omo ... 
+2024-06-03 21:42:32 +0000  4616 bytes for ./Frameworks/essential_feed_case_study.framework/FeedStore.momd/FeedStore.omo
+2024-06-03 21:42:32 +0000  copying file ./Frameworks/essential_feed_case_study.framework/FeedStore.momd/VersionInfo.plist ... 
+2024-06-03 21:42:32 +0000  584 bytes for ./Frameworks/essential_feed_case_study.framework/FeedStore.momd/VersionInfo.plist
+copying file ./Frameworks/essential_feed_case_study.framework/FeedStore.momd/FeedStore 2.mom ... 
+2024-06-03 21:42:32 +0000  2246 bytes for ./Frameworks/essential_feed_case_study.framework/FeedStore.momd/FeedStore 2.mom
+2024-06-03 21:42:32 +0000  copying file ./Frameworks/essential_feed_case_study.framework/FeedStore.momd/FeedStore.mom ... 
+2024-06-03 21:42:32 +0000  2336 bytes for ./Frameworks/essential_feed_case_study.framework/FeedStore.momd/FeedStore.mom
+2024-06-03 21:42:32 +0000  copying file ./Frameworks/essential_feed_case_study.framework/pt-BR.lproj/Feed.strings ... 
+2024-06-03 21:42:32 +0000  189 bytes for ./Frameworks/essential_feed_case_study.framework/pt-BR.lproj/Feed.strings
+2024-06-03 21:42:32 +0000  copying file ./Frameworks/essential_feed_case_study.framework/essential_feed_case_study ... 
+2024-06-03 21:42:32 +0000  185824 bytes for ./Frameworks/essential_feed_case_study.framework/essential_feed_case_study
+2024-06-03 21:42:32 +0000  copying file ./Frameworks/essential_feed_case_study.framework/Info.plist ... 
+2024-06-03 21:42:32 +0000  775 bytes for ./Frameworks/essential_feed_case_study.framework/Info.plist
+2024-06-03 21:42:32 +0000  copying file ./Frameworks/EssentialFeediOS.framework/_CodeSignature/CodeResources ... 
+2024-06-03 21:42:32 +0000  2824 bytes for ./Frameworks/EssentialFeediOS.framework/_CodeSignature/CodeResources
+2024-06-03 21:42:32 +0000  copying file ./Frameworks/EssentialFeediOS.framework/EssentialFeediOS ... 
+2024-06-03 21:42:32 +0000  119280 bytes for ./Frameworks/EssentialFeediOS.framework/EssentialFeediOS
+2024-06-03 21:42:32 +0000  copying file ./Frameworks/EssentialFeediOS.framework/Assets.car ... 
+2024-06-03 21:42:32 +0000  25663 bytes for ./Frameworks/EssentialFeediOS.framework/Assets.car
+2024-06-03 21:42:32 +0000  copying file ./Frameworks/EssentialFeediOS.framework/Info.plist ... 
+2024-06-03 21:42:32 +0000  762 bytes for ./Frameworks/EssentialFeediOS.framework/Info.plist
+2024-06-03 21:42:32 +0000  copying file ./Frameworks/EssentialFeediOS.framework/Feed.storyboardc/UITableViewController-2Zx-HA-86V.nib ... 
+2024-06-03 21:42:32 +0000  1402 bytes for ./Frameworks/EssentialFeediOS.framework/Feed.storyboardc/UITableViewController-2Zx-HA-86V.nib
+2024-06-03 21:42:32 +0000  copying file ./Frameworks/EssentialFeediOS.framework/Feed.storyboardc/2Zx-HA-86V-view-Z2H-yl-eS5.nib ... 
+2024-06-03 21:42:32 +0000  13879 bytes for ./Frameworks/EssentialFeediOS.framework/Feed.storyboardc/2Zx-HA-86V-view-Z2H-yl-eS5.nib
+2024-06-03 21:42:32 +0000  copying file ./Frameworks/EssentialFeediOS.framework/Feed.storyboardc/Info.plist ... 
+2024-06-03 21:42:32 +0000  273 bytes for ./Frameworks/EssentialFeediOS.framework/Feed.storyboardc/Info.plist
+2024-06-03 21:42:32 +0000  copying file ./embedded.mobileprovision ... 
+2024-06-03 21:42:32 +0000  12443 bytes for ./embedded.mobileprovision
+2024-06-03 21:42:32 +0000  copying file ./Info.plist ... 
+2024-06-03 21:42:32 +0000  1056 bytes for ./Info.plist
+2024-06-03 21:42:32 +0000  copying file ./EssentialApp ... 
+2024-06-03 21:42:32 +0000  140496 bytes for ./EssentialApp
+2024-06-03 21:42:32 +0000  copying file ./PkgInfo ... 
+2024-06-03 21:42:32 +0000  8 bytes for ./PkgInfo
+2024-06-03 21:42:32 +0000 [MT] /usr/bin/ditto exited with 0
+2024-06-03 21:42:32 +0000 [MT] Processing step: IDEDistributionEmbedProfileStep
+2024-06-03 21:42:32 +0000 [MT] Skipping profile for item: <IDEDistributionItem: 0x6000031e6a00; bundleID='gtsofa.com.EssentialFeediOS', path='<DVTFilePath:0x600003a0dc80:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/Frameworks/EssentialFeediOS.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000036a1fe0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600002019bc0; name='Apple Development: Julius Nyule (BYPS945A69)', hash='61CFC2F156820963FBEB37D348E627AF37585EEC', serialNumber='77AA459CB260C45A20367F96ACFB30F9', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-30 13:51:22 +0000''>', entitlements='(null)', teamID='TJD4WCXHKT', identifier='gtsofa.com.EssentialFeediOS', executablePath='<DVTFilePath:0x600003e5c540:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/Frameworks/EssentialFeediOS.framework/EssentialFeediOS'>', hardenedRuntime='0'>'>
+2024-06-03 21:42:32 +0000 [MT] Skipping profile for item: <IDEDistributionItem: 0x6000031905a0; bundleID='gtsofa.com.essential-feed-case-study', path='<DVTFilePath:0x600003a02880:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/Frameworks/essential_feed_case_study.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60000355fde0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600002011140; name='Apple Development: Julius Nyule (BYPS945A69)', hash='61CFC2F156820963FBEB37D348E627AF37585EEC', serialNumber='77AA459CB260C45A20367F96ACFB30F9', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-30 13:51:22 +0000''>', entitlements='(null)', teamID='TJD4WCXHKT', identifier='gtsofa.com.essential-feed-case-study', executablePath='<DVTFilePath:0x600003b50d80:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/Frameworks/essential_feed_case_study.framework/essential_feed_case_study'>', hardenedRuntime='0'>'>
+2024-06-03 21:42:32 +0000 [MT] Processing step: IDEDistributionInfoPlistStep
+2024-06-03 21:42:32 +0000 [MT] Skipping Info.plist step because item: <IDEDistributionItem: 0x6000031e6a00; bundleID='gtsofa.com.EssentialFeediOS', path='<DVTFilePath:0x600003a0dc80:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/Frameworks/EssentialFeediOS.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000036a1fe0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600002011140; name='Apple Development: Julius Nyule (BYPS945A69)', hash='61CFC2F156820963FBEB37D348E627AF37585EEC', serialNumber='77AA459CB260C45A20367F96ACFB30F9', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-30 13:51:22 +0000''>', entitlements='(null)', teamID='TJD4WCXHKT', identifier='gtsofa.com.EssentialFeediOS', executablePath='<DVTFilePath:0x600003e5c540:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/Frameworks/EssentialFeediOS.framework/EssentialFeediOS'>', hardenedRuntime='0'>'> is a framework or embedded in a framework.
+2024-06-03 21:42:32 +0000 [MT] Skipping Info.plist step because item: <IDEDistributionItem: 0x6000031905a0; bundleID='gtsofa.com.essential-feed-case-study', path='<DVTFilePath:0x600003a02880:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/Frameworks/essential_feed_case_study.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60000355fde0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600002019bc0; name='Apple Development: Julius Nyule (BYPS945A69)', hash='61CFC2F156820963FBEB37D348E627AF37585EEC', serialNumber='77AA459CB260C45A20367F96ACFB30F9', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-30 13:51:22 +0000''>', entitlements='(null)', teamID='TJD4WCXHKT', identifier='gtsofa.com.essential-feed-case-study', executablePath='<DVTFilePath:0x600003b50d80:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/Frameworks/essential_feed_case_study.framework/essential_feed_case_study'>', hardenedRuntime='0'>'> is a framework or embedded in a framework.
+2024-06-03 21:42:32 +0000 [MT] Skipping setting DTXcodeBuildDistribution because toolsBuildVersionName was nil.
+2024-06-03 21:42:32 +0000 [MT] Processing step: IDEDistributionItemRemovalStep
+2024-06-03 21:42:32 +0000 [MT] Processing step: IDEDistributionAppThinningPlistStep
+2024-06-03 21:42:32 +0000 [MT] Skipping step: IDEDistributionAppThinningPlistStep because it said so
+2024-06-03 21:42:32 +0000 [MT] Processing step: IDEDistributionCompileBitcodeStep
+2024-06-03 21:42:32 +0000 [MT] Skipping step: IDEDistributionCompileBitcodeStep because it said so
+2024-06-03 21:42:32 +0000 [MT] Processing step: IDEDistributionCodeSlimmingStep
+2024-06-03 21:42:32 +0000 [MT] Processing step: IDEDistributionCopyBCSymbolMapsStep
+2024-06-03 21:42:32 +0000 [MT] Processing step: IDEDistributionSymbolsStep
+2024-06-03 21:42:32 +0000 [MT] Processing symbols for EssentialFeediOS.framework
+2024-06-03 21:42:32 +0000 [MT] Running /usr/bin/rsync '-8aPhhE' '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root/Payload/EssentialApp.app/Frameworks/EssentialFeediOS.framework' '--link-dest' '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root/Payload/EssentialApp.app/Frameworks' '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk'
+2024-06-03 21:42:32 +0000  building file list ... 
+2024-06-03 21:42:32 +0000   0 files...2024-06-03 21:42:32 +0000  10 files to consider
+2024-06-03 21:42:32 +0000  EssentialFeediOS.framework/
+2024-06-03 21:42:32 +0000  EssentialFeediOS.framework/Feed.storyboardc/
+EssentialFeediOS.framework/_CodeSignature/
+2024-06-03 21:42:32 +0000  rsync: link "/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/EssentialFeediOS.framework/_CodeSignature/CodeResources" => /var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root/Payload/EssentialApp.app/Frameworks/EssentialFeediOS.framework/_CodeSignature/CodeResources failed: Operation not permitted (1)
+2024-06-03 21:42:32 +0000  EssentialFeediOS.framework/_CodeSignature/CodeResources
+2024-06-03 21:42:32 +0000  
+2024-06-03 21:42:32 +0000  sent 399 bytes  received 44 bytes  886.00 bytes/sec
+total size is 160.24K  speedup is 370.39
+2024-06-03 21:42:32 +0000 [MT] /usr/bin/rsync exited with 0
+2024-06-03 21:42:32 +0000 [MT] Running /usr/bin/rsync '-8aPhhE' '/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/dSYMs/' '--link-dest' '/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/dSYMs/' '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk'
+2024-06-03 21:42:32 +0000  building file list ... 
+2024-06-03 21:42:32 +0000   0 files...2024-06-03 21:42:32 +0000  28 files to consider
+2024-06-03 21:42:32 +0000  ./
+2024-06-03 21:42:32 +0000  EssentialApp.app.dSYM/
+EssentialApp.app.dSYM/Contents/
+EssentialApp.app.dSYM/Contents/Resources/
+2024-06-03 21:42:32 +0000  EssentialApp.app.dSYM/Contents/Resources/DWARF/
+EssentialApp.app.dSYM/Contents/Resources/Relocations/
+EssentialApp.app.dSYM/Contents/Resources/Relocations/aarch64/
+EssentialFeediOS.framework.dSYM/
+EssentialFeediOS.framework.dSYM/Contents/
+EssentialFeediOS.framework.dSYM/Contents/Resources/
+EssentialFeediOS.framework.dSYM/Contents/Resources/DWARF/
+EssentialFeediOS.framework.dSYM/Contents/Resources/Relocations/
+EssentialFeediOS.framework.dSYM/Contents/Resources/Relocations/aarch64/
+essential_feed_case_study.framework.dSYM/
+essential_feed_case_study.framework.dSYM/Contents/
+essential_feed_case_study.framework.dSYM/Contents/Resources/
+essential_feed_case_study.framework.dSYM/Contents/Resources/DWARF/
+essential_feed_case_study.framework.dSYM/Contents/Resources/Relocations/
+essential_feed_case_study.framework.dSYM/Contents/Resources/Relocations/aarch64/
+2024-06-03 21:42:32 +0000  
+2024-06-03 21:42:32 +0000  sent 995 bytes  received 134 bytes  2.21K bytes/sec
+total size is 3.77M  speedup is 3505.55
+2024-06-03 21:42:32 +0000 [MT] /usr/bin/rsync exited with 0
+2024-06-03 21:42:32 +0000 [MT] Writing /var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Symbols/75E0F3AE-D9A0-3A77-B200-4C8E4248F42C.symbols
+2024-06-03 21:42:32 +0000 [MT] Processing symbols for essential_feed_case_study.framework
+2024-06-03 21:42:32 +0000 [MT] Running /usr/bin/rsync '-8aPhhE' '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root/Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework' '--link-dest' '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root/Payload/EssentialApp.app/Frameworks' '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk'
+2024-06-03 21:42:32 +0000  building file list ... 
+2024-06-03 21:42:32 +0000   0 files...2024-06-03 21:42:32 +0000  16 files to consider
+2024-06-03 21:42:32 +0000  essential_feed_case_study.framework/
+2024-06-03 21:42:32 +0000  essential_feed_case_study.framework/FeedStore.momd/
+essential_feed_case_study.framework/_CodeSignature/
+rsync: link "/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/essential_feed_case_study.framework/_CodeSignature/CodeResources" => /var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root/Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework/_CodeSignature/CodeResources failed: Operation not permitted (1)
+2024-06-03 21:42:32 +0000  essential_feed_case_study.framework/_CodeSignature/CodeResources
+essential_feed_case_study.framework/el.lproj/
+2024-06-03 21:42:32 +0000  essential_feed_case_study.framework/en.lproj/
+essential_feed_case_study.framework/pt-BR.lproj/
+2024-06-03 21:42:32 +0000  
+2024-06-03 21:42:32 +0000  sent 537 bytes  received 62 bytes  1.17K bytes/sec
+total size is 196.01K  speedup is 335.08
+2024-06-03 21:42:32 +0000 [MT] /usr/bin/rsync exited with 0
+2024-06-03 21:42:32 +0000 [MT] Running /usr/bin/rsync '-8aPhhE' '/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/dSYMs/' '--link-dest' '/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/dSYMs/' '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk'
+2024-06-03 21:42:32 +0000  building file list ... 
+2024-06-03 21:42:32 +0000   0 files...2024-06-03 21:42:32 +0000  28 files to consider
+2024-06-03 21:42:32 +0000  ./
+2024-06-03 21:42:32 +0000  EssentialApp.app.dSYM/
+EssentialApp.app.dSYM/Contents/
+EssentialApp.app.dSYM/Contents/Resources/
+EssentialApp.app.dSYM/Contents/Resources/DWARF/
+EssentialApp.app.dSYM/Contents/Resources/Relocations/
+EssentialApp.app.dSYM/Contents/Resources/Relocations/aarch64/
+EssentialFeediOS.framework.dSYM/
+EssentialFeediOS.framework.dSYM/Contents/
+EssentialFeediOS.framework.dSYM/Contents/Resources/
+EssentialFeediOS.framework.dSYM/Contents/Resources/DWARF/
+EssentialFeediOS.framework.dSYM/Contents/Resources/Relocations/
+EssentialFeediOS.framework.dSYM/Contents/Resources/Relocations/aarch64/
+essential_feed_case_study.framework.dSYM/
+essential_feed_case_study.framework.dSYM/Contents/
+essential_feed_case_study.framework.dSYM/Contents/Resources/
+essential_feed_case_study.framework.dSYM/Contents/Resources/DWARF/
+2024-06-03 21:42:32 +0000  essential_feed_case_study.framework.dSYM/Contents/Resources/Relocations/
+essential_feed_case_study.framework.dSYM/Contents/Resources/Relocations/aarch64/
+2024-06-03 21:42:32 +0000  
+sent 1.02K bytes  received 188 bytes  2.42K bytes/sec
+2024-06-03 21:42:32 +0000  total size is 3.77M  speedup is 3199.49
+2024-06-03 21:42:32 +0000 [MT] /usr/bin/rsync exited with 0
+2024-06-03 21:42:32 +0000 [MT] Writing /var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Symbols/62EDCD37-4C4D-32C5-9C84-FF96E681CE10.symbols
+2024-06-03 21:42:32 +0000 [MT] Processing symbols for EssentialApp.app
+2024-06-03 21:42:32 +0000 [MT] Running /usr/bin/rsync '-8aPhhE' '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root/Payload/EssentialApp.app' '--link-dest' '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root/Payload' '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk'
+2024-06-03 21:42:32 +0000  building file list ... 
+ 0 files...2024-06-03 21:42:32 +0000  42 files to consider
+2024-06-03 21:42:32 +0000  EssentialApp.app/
+2024-06-03 21:42:33 +0000  EssentialApp.app/Base.lproj/
+EssentialApp.app/Base.lproj/LaunchScreen.storyboardc/
+EssentialApp.app/Frameworks/
+EssentialApp.app/Frameworks/EssentialFeediOS.framework/
+EssentialApp.app/Frameworks/EssentialFeediOS.framework/Feed.storyboardc/
+EssentialApp.app/Frameworks/EssentialFeediOS.framework/_CodeSignature/
+EssentialApp.app/Frameworks/essential_feed_case_study.framework/
+EssentialApp.app/Frameworks/essential_feed_case_study.framework/FeedStore.momd/
+EssentialApp.app/Frameworks/essential_feed_case_study.framework/_CodeSignature/
+EssentialApp.app/Frameworks/essential_feed_case_study.framework/el.lproj/
+EssentialApp.app/Frameworks/essential_feed_case_study.framework/en.lproj/
+EssentialApp.app/Frameworks/essential_feed_case_study.framework/pt-BR.lproj/
+EssentialApp.app/_CodeSignature/
+2024-06-03 21:42:33 +0000  
+sent 1.46K bytes  received 104 bytes  1.04K bytes/sec
+total size is 825.41K  speedup is 530.25
+2024-06-03 21:42:33 +0000 [MT] /usr/bin/rsync exited with 0
+2024-06-03 21:42:33 +0000 [MT] Running /usr/bin/rsync '-8aPhhE' '/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/dSYMs/' '--link-dest' '/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/dSYMs/' '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk'
+2024-06-03 21:42:33 +0000  building file list ... 
+ 0 files...2024-06-03 21:42:33 +0000  28 files to consider
+2024-06-03 21:42:33 +0000  ./
+2024-06-03 21:42:33 +0000  EssentialApp.app.dSYM/
+EssentialApp.app.dSYM/Contents/
+EssentialApp.app.dSYM/Contents/Resources/
+EssentialApp.app.dSYM/Contents/Resources/DWARF/
+EssentialApp.app.dSYM/Contents/Resources/Relocations/
+EssentialApp.app.dSYM/Contents/Resources/Relocations/aarch64/
+EssentialFeediOS.framework.dSYM/
+EssentialFeediOS.framework.dSYM/Contents/
+EssentialFeediOS.framework.dSYM/Contents/Resources/
+EssentialFeediOS.framework.dSYM/Contents/Resources/DWARF/
+2024-06-03 21:42:33 +0000  EssentialFeediOS.framework.dSYM/Contents/Resources/Relocations/
+EssentialFeediOS.framework.dSYM/Contents/Resources/Relocations/aarch64/
+essential_feed_case_study.framework.dSYM/
+essential_feed_case_study.framework.dSYM/Contents/
+essential_feed_case_study.framework.dSYM/Contents/Resources/
+essential_feed_case_study.framework.dSYM/Contents/Resources/DWARF/
+essential_feed_case_study.framework.dSYM/Contents/Resources/Relocations/
+essential_feed_case_study.framework.dSYM/Contents/Resources/Relocations/aarch64/
+2024-06-03 21:42:33 +0000  
+2024-06-03 21:42:33 +0000  sent 1.02K bytes  received 188 bytes  2.42K bytes/sec
+total size is 3.77M  speedup is 3199.49
+2024-06-03 21:42:33 +0000 [MT] /usr/bin/rsync exited with 0
+2024-06-03 21:42:33 +0000 [MT] Writing /var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Symbols/6A214BA7-30AC-3C69-900A-B3032883D49E.symbols
+2024-06-03 21:42:33 +0000 [MT] Processing step: IDEDistributionCopyAppleProvidedContentStep
+2024-06-03 21:42:33 +0000 [MT] Processing step: IDEDistributionAppThinningStep
+2024-06-03 21:42:33 +0000 [MT] Skipping step: IDEDistributionAppThinningStep because it said so
+2024-06-03 21:42:33 +0000 [MT] Processing step: IDEDistributionArchThinningStep
+2024-06-03 21:42:33 +0000 [MT] Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root/Payload/EssentialApp.app/Frameworks/EssentialFeediOS.framework/EssentialFeediOS' '-verify_arch' 'arm64e'
+2024-06-03 21:42:33 +0000 [MT] /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-06-03 21:42:33 +0000 [MT] Skipping architecture thinning for item "EssentialFeediOS" because arch "arm64e" wasn't found
+2024-06-03 21:42:33 +0000 [MT] Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root/Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework/essential_feed_case_study' '-verify_arch' 'arm64e'
+2024-06-03 21:42:33 +0000 [MT] /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-06-03 21:42:33 +0000 [MT] Skipping architecture thinning for item "essential_feed_case_study" because arch "arm64e" wasn't found
+2024-06-03 21:42:33 +0000 [MT] Running /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root/Payload/EssentialApp.app/EssentialApp' '-verify_arch' 'arm64e'
+2024-06-03 21:42:33 +0000 [MT] /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/lipo exited with 1
+2024-06-03 21:42:33 +0000 [MT] Skipping architecture thinning for item "EssentialApp" because arch "arm64e" wasn't found
+2024-06-03 21:42:33 +0000 [MT] Processing step: IDEDistributionODRStep
+2024-06-03 21:42:33 +0000 [MT] Processing step: IDEDistributionStripXattrsStep
+2024-06-03 21:42:33 +0000 [MT] Skipping stripping extended attributes of item: <IDEDistributionItem: 0x6000031e6a00; bundleID='gtsofa.com.EssentialFeediOS', path='<DVTFilePath:0x600003a0dc80:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/Frameworks/EssentialFeediOS.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000036a1fe0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000020140c0; name='Apple Development: Julius Nyule (BYPS945A69)', hash='61CFC2F156820963FBEB37D348E627AF37585EEC', serialNumber='77AA459CB260C45A20367F96ACFB30F9', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-30 13:51:22 +0000''>', entitlements='(null)', teamID='TJD4WCXHKT', identifier='gtsofa.com.EssentialFeediOS', executablePath='<DVTFilePath:0x600003e5c540:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/Frameworks/EssentialFeediOS.framework/EssentialFeediOS'>', hardenedRuntime='0'>'>
+2024-06-03 21:42:33 +0000 [MT] Skipping stripping extended attributes of item: <IDEDistributionItem: 0x6000031905a0; bundleID='gtsofa.com.essential-feed-case-study', path='<DVTFilePath:0x600003a02880:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/Frameworks/essential_feed_case_study.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60000355fde0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60000200c000; name='Apple Development: Julius Nyule (BYPS945A69)', hash='61CFC2F156820963FBEB37D348E627AF37585EEC', serialNumber='77AA459CB260C45A20367F96ACFB30F9', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-30 13:51:22 +0000''>', entitlements='(null)', teamID='TJD4WCXHKT', identifier='gtsofa.com.essential-feed-case-study', executablePath='<DVTFilePath:0x600003b50d80:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/Frameworks/essential_feed_case_study.framework/essential_feed_case_study'>', hardenedRuntime='0'>'>
+2024-06-03 21:42:33 +0000 [MT] Running /usr/bin/xattr '-crs' '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root/Payload/EssentialApp.app'
+2024-06-03 21:42:33 +0000 [MT] /usr/bin/xattr exited with 0
+2024-06-03 21:42:33 +0000 [MT] Processing step: IDEDistributionCodesignStep
+2024-06-03 21:42:33 +0000 [MT] Entitlements for <IDEDistributionItem: 0x6000031e6a00; bundleID='gtsofa.com.EssentialFeediOS', path='<DVTFilePath:0x600003a0dc80:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/Frameworks/EssentialFeediOS.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000036a1fe0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60000201d2c0; name='Apple Development: Julius Nyule (BYPS945A69)', hash='61CFC2F156820963FBEB37D348E627AF37585EEC', serialNumber='77AA459CB260C45A20367F96ACFB30F9', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-30 13:51:22 +0000''>', entitlements='(null)', teamID='TJD4WCXHKT', identifier='gtsofa.com.EssentialFeediOS', executablePath='<DVTFilePath:0x600003e5c540:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/Frameworks/EssentialFeediOS.framework/EssentialFeediOS'>', hardenedRuntime='0'>'>: {
+}
+2024-06-03 21:42:33 +0000 [MT] Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-06-03 21:42:33 +0000 [MT] Entitlements for <IDEDistributionItem: 0x6000031e6a00; bundleID='gtsofa.com.EssentialFeediOS', path='<DVTFilePath:0x600003a0dc80:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/Frameworks/EssentialFeediOS.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000036a1fe0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000020140c0; name='Apple Development: Julius Nyule (BYPS945A69)', hash='61CFC2F156820963FBEB37D348E627AF37585EEC', serialNumber='77AA459CB260C45A20367F96ACFB30F9', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-30 13:51:22 +0000''>', entitlements='(null)', teamID='TJD4WCXHKT', identifier='gtsofa.com.EssentialFeediOS', executablePath='<DVTFilePath:0x600003e5c540:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/Frameworks/EssentialFeediOS.framework/EssentialFeediOS'>', hardenedRuntime='0'>'> are: {
+}
+2024-06-03 21:42:33 +0000 [MT] Writing entitlements for <IDEDistributionItem: 0x6000031e6a00; bundleID='gtsofa.com.EssentialFeediOS', path='<DVTFilePath:0x600003a0dc80:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/Frameworks/EssentialFeediOS.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000036a1fe0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60000200c0c0; name='Apple Development: Julius Nyule (BYPS945A69)', hash='61CFC2F156820963FBEB37D348E627AF37585EEC', serialNumber='77AA459CB260C45A20367F96ACFB30F9', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-30 13:51:22 +0000''>', entitlements='(null)', teamID='TJD4WCXHKT', identifier='gtsofa.com.EssentialFeediOS', executablePath='<DVTFilePath:0x600003e5c540:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/Frameworks/EssentialFeediOS.framework/EssentialFeediOS'>', hardenedRuntime='0'>'> to: /var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/entitlements~~~FBJ1Iv
+2024-06-03 21:42:33 +0000 [MT] Running /usr/bin/codesign '-vvv' '--force' '--sign' '91C81337746504C5BAC7415F889AB2BD87DD03A3' '--entitlements' '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/entitlements~~~FBJ1Iv' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root/Payload/EssentialApp.app/Frameworks/EssentialFeediOS.framework'
+2024-06-03 21:42:33 +0000  /var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root/Payload/EssentialApp.app/Frameworks/EssentialFeediOS.framework: replacing existing signature
+2024-06-03 21:42:33 +0000  /var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root/Payload/EssentialApp.app/Frameworks/EssentialFeediOS.framework: signed bundle with Mach-O thin (arm64) [gtsofa.com.EssentialFeediOS]
+2024-06-03 21:42:33 +0000 [MT] /usr/bin/codesign exited with 0
+2024-06-03 21:42:33 +0000 [MT] Entitlements for <IDEDistributionItem: 0x6000031905a0; bundleID='gtsofa.com.essential-feed-case-study', path='<DVTFilePath:0x600003a02880:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/Frameworks/essential_feed_case_study.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60000355fde0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60000201d2c0; name='Apple Development: Julius Nyule (BYPS945A69)', hash='61CFC2F156820963FBEB37D348E627AF37585EEC', serialNumber='77AA459CB260C45A20367F96ACFB30F9', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-30 13:51:22 +0000''>', entitlements='(null)', teamID='TJD4WCXHKT', identifier='gtsofa.com.essential-feed-case-study', executablePath='<DVTFilePath:0x600003b50d80:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/Frameworks/essential_feed_case_study.framework/essential_feed_case_study'>', hardenedRuntime='0'>'>: {
+}
+2024-06-03 21:42:33 +0000 [MT] Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-06-03 21:42:33 +0000 [MT] Entitlements for <IDEDistributionItem: 0x6000031905a0; bundleID='gtsofa.com.essential-feed-case-study', path='<DVTFilePath:0x600003a02880:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/Frameworks/essential_feed_case_study.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60000355fde0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60000200c000; name='Apple Development: Julius Nyule (BYPS945A69)', hash='61CFC2F156820963FBEB37D348E627AF37585EEC', serialNumber='77AA459CB260C45A20367F96ACFB30F9', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-30 13:51:22 +0000''>', entitlements='(null)', teamID='TJD4WCXHKT', identifier='gtsofa.com.essential-feed-case-study', executablePath='<DVTFilePath:0x600003b50d80:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/Frameworks/essential_feed_case_study.framework/essential_feed_case_study'>', hardenedRuntime='0'>'> are: {
+}
+2024-06-03 21:42:33 +0000 [MT] Writing entitlements for <IDEDistributionItem: 0x6000031905a0; bundleID='gtsofa.com.essential-feed-case-study', path='<DVTFilePath:0x600003a02880:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/Frameworks/essential_feed_case_study.framework'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x60000355fde0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x600002014180; name='Apple Development: Julius Nyule (BYPS945A69)', hash='61CFC2F156820963FBEB37D348E627AF37585EEC', serialNumber='77AA459CB260C45A20367F96ACFB30F9', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-30 13:51:22 +0000''>', entitlements='(null)', teamID='TJD4WCXHKT', identifier='gtsofa.com.essential-feed-case-study', executablePath='<DVTFilePath:0x600003b50d80:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/Frameworks/essential_feed_case_study.framework/essential_feed_case_study'>', hardenedRuntime='0'>'> to: /var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/entitlements~~~CW02wh
+2024-06-03 21:42:33 +0000 [MT] Running /usr/bin/codesign '-vvv' '--force' '--sign' '91C81337746504C5BAC7415F889AB2BD87DD03A3' '--entitlements' '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/entitlements~~~CW02wh' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root/Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework'
+2024-06-03 21:42:33 +0000  /var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root/Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework: replacing existing signature
+2024-06-03 21:42:33 +0000  /var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root/Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework: signed bundle with Mach-O thin (arm64) [gtsofa.com.essential-feed-case-study]
+2024-06-03 21:42:33 +0000 [MT] /usr/bin/codesign exited with 0
+2024-06-03 21:42:33 +0000 [MT] Entitlements for <IDEDistributionItem: 0x600003190cc0; bundleID='gtsofa.com.EssentialAppCaseStudyG', path='<DVTFilePath:0x600003ee85b0:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000036a46e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60000200c000; name='Apple Development: Julius Nyule (BYPS945A69)', hash='61CFC2F156820963FBEB37D348E627AF37585EEC', serialNumber='77AA459CB260C45A20367F96ACFB30F9', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-30 13:51:22 +0000''>', entitlements='{
+    "application-identifier" = "TJD4WCXHKT.gtsofa.com.EssentialAppCaseStudyG";
+    "com.apple.developer.team-identifier" = TJD4WCXHKT;
+    "get-task-allow" = 1;
+}', teamID='TJD4WCXHKT', identifier='gtsofa.com.EssentialAppCaseStudyG', executablePath='<DVTFilePath:0x600003e5c930:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/EssentialApp'>', hardenedRuntime='0'>'>: {
+    "application-identifier" = "TJD4WCXHKT.gtsofa.com.EssentialAppCaseStudyG";
+    "beta-reports-active" = 1;
+    "com.apple.developer.team-identifier" = TJD4WCXHKT;
+    "get-task-allow" = 0;
+}
+2024-06-03 21:42:33 +0000 [MT] Associated App Clip Identifiers Filter: Skipping because "com.apple.developer.associated-appclip-app-identifiers" is not present
+2024-06-03 21:42:33 +0000 [MT] Entitlements for <IDEDistributionItem: 0x600003190cc0; bundleID='gtsofa.com.EssentialAppCaseStudyG', path='<DVTFilePath:0x600003ee85b0:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000036a46e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x6000020140c0; name='Apple Development: Julius Nyule (BYPS945A69)', hash='61CFC2F156820963FBEB37D348E627AF37585EEC', serialNumber='77AA459CB260C45A20367F96ACFB30F9', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-30 13:51:22 +0000''>', entitlements='{
+    "application-identifier" = "TJD4WCXHKT.gtsofa.com.EssentialAppCaseStudyG";
+    "com.apple.developer.team-identifier" = TJD4WCXHKT;
+    "get-task-allow" = 1;
+}', teamID='TJD4WCXHKT', identifier='gtsofa.com.EssentialAppCaseStudyG', executablePath='<DVTFilePath:0x600003e5c930:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/EssentialApp'>', hardenedRuntime='0'>'> are: {
+    "application-identifier" = "TJD4WCXHKT.gtsofa.com.EssentialAppCaseStudyG";
+    "beta-reports-active" = 1;
+    "com.apple.developer.team-identifier" = TJD4WCXHKT;
+    "get-task-allow" = 0;
+}
+2024-06-03 21:42:33 +0000 [MT] Writing entitlements for <IDEDistributionItem: 0x600003190cc0; bundleID='gtsofa.com.EssentialAppCaseStudyG', path='<DVTFilePath:0x600003ee85b0:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app'>', codeSigningInfo='<_DVTCodeSigningInformation_Path: 0x6000036a46e0; isSigned='1', isAdHocSigned='0', signingCertificate='<DVTSigningCertificate: 0x60000200c0c0; name='Apple Development: Julius Nyule (BYPS945A69)', hash='61CFC2F156820963FBEB37D348E627AF37585EEC', serialNumber='77AA459CB260C45A20367F96ACFB30F9', certificateKinds='(
+    "1.2.840.113635.100.6.1.12",
+    "1.2.840.113635.100.6.1.2"
+), issueDate='2024-05-30 13:51:22 +0000''>', entitlements='{
+    "application-identifier" = "TJD4WCXHKT.gtsofa.com.EssentialAppCaseStudyG";
+    "com.apple.developer.team-identifier" = TJD4WCXHKT;
+    "get-task-allow" = 1;
+}', teamID='TJD4WCXHKT', identifier='gtsofa.com.EssentialAppCaseStudyG', executablePath='<DVTFilePath:0x600003e5c930:'/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Archive/EssentialApp.xcarchive/Products/Applications/EssentialApp.app/EssentialApp'>', hardenedRuntime='0'>'> to: /var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/entitlements~~~e6sE7g
+2024-06-03 21:42:33 +0000 [MT] Running /usr/bin/codesign '-vvv' '--force' '--sign' '91C81337746504C5BAC7415F889AB2BD87DD03A3' '--entitlements' '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/entitlements~~~e6sE7g' '--generate-entitlement-der' '--preserve-metadata=identifier,flags,runtime' '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root/Payload/EssentialApp.app'
+2024-06-03 21:42:33 +0000  /var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root/Payload/EssentialApp.app: replacing existing signature
+2024-06-03 21:42:33 +0000  /var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root/Payload/EssentialApp.app: signed bundle with Mach-O thin (arm64) [gtsofa.com.EssentialAppCaseStudyG]
+2024-06-03 21:42:33 +0000 [MT] /usr/bin/codesign exited with 0
+2024-06-03 21:42:33 +0000 [MT] Processing step: IDEDistributionZipODRItemStep
+2024-06-03 21:42:33 +0000 [MT] Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-06-03 21:42:33 +0000 [MT] Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-06-03 21:42:33 +0000 [MT] Skipping step: IDEDistributionZipODRItemStep because it said so
+2024-06-03 21:42:33 +0000 [MT] Processing step: IDEDistributionCreateIPAStep
+2024-06-03 21:42:33 +0000 [MT] Running /usr/bin/rsync '-8aPhhE' '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Symbols' '--link-dest' '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk' '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root'
+2024-06-03 21:42:33 +0000  building file list ... 
+ 0 files...2024-06-03 21:42:33 +0000  4 files to consider
+2024-06-03 21:42:33 +0000  Symbols/
+2024-06-03 21:42:33 +0000  
+2024-06-03 21:42:33 +0000  sent 250 bytes  received 26 bytes  552.00 bytes/sec
+total size is 356.21K  speedup is 1321.58
+2024-06-03 21:42:33 +0000 [MT] /usr/bin/rsync exited with 0
+2024-06-03 21:42:33 +0000 [MT] Running /usr/bin/ditto '-V' '-c' '-k' '--norsrc' '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root' '/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Packages/EssentialApp.ipa'
+2024-06-03 21:42:33 +0000  >>> Copying /var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root 
+2024-06-03 21:42:33 +0000  copying file ./Payload/EssentialApp.app/_CodeSignature/CodeResources ... 
+2024-06-03 21:42:33 +0000  9540 bytes for ./Payload/EssentialApp.app/_CodeSignature/CodeResources
+2024-06-03 21:42:33 +0000  copying file ./Payload/EssentialApp.app/AppIcon60x60@2x.png ... 
+2024-06-03 21:42:33 +0000  5932 bytes for ./Payload/EssentialApp.app/AppIcon60x60@2x.png
+2024-06-03 21:42:33 +0000  copying file ./Payload/EssentialApp.app/Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib ... 
+2024-06-03 21:42:33 +0000  1225 bytes for ./Payload/EssentialApp.app/Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib
+copying file ./Payload/EssentialApp.app/Base.lproj/LaunchScreen.storyboardc/UINavigationController-THY-K6-9G0.nib ... 
+1653 bytes for ./Payload/EssentialApp.app/Base.lproj/LaunchScreen.storyboardc/UINavigationController-THY-K6-9G0.nib
+copying file ./Payload/EssentialApp.app/Base.lproj/LaunchScreen.storyboardc/Info.plist ... 
+276 bytes for ./Payload/EssentialApp.app/Base.lproj/LaunchScreen.storyboardc/Info.plist
+copying file ./Payload/EssentialApp.app/Assets.car ... 
+2024-06-03 21:42:33 +0000  296664 bytes for ./Payload/EssentialApp.app/Assets.car
+2024-06-03 21:42:33 +0000  copying file ./Payload/EssentialApp.app/AppIcon76x76@2x~ipad.png ... 
+2024-06-03 21:42:33 +0000  11345 bytes for ./Payload/EssentialApp.app/AppIcon76x76@2x~ipad.png
+2024-06-03 21:42:33 +0000  copying file ./Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework/_CodeSignature/CodeResources ... 
+2024-06-03 21:42:33 +0000  3803 bytes for ./Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework/_CodeSignature/CodeResources
+2024-06-03 21:42:33 +0000  copying file ./Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework/el.lproj/Feed.strings ... 
+2024-06-03 21:42:33 +0000  203 bytes for ./Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework/el.lproj/Feed.strings
+2024-06-03 21:42:33 +0000  copying file ./Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework/en.lproj/Feed.strings ... 
+2024-06-03 21:42:33 +0000  134 bytes for ./Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework/en.lproj/Feed.strings
+2024-06-03 21:42:33 +0000  copying file ./Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework/FeedStore.momd/FeedStore.omo ... 
+2024-06-03 21:42:33 +0000  4616 bytes for ./Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework/FeedStore.momd/FeedStore.omo
+2024-06-03 21:42:33 +0000  copying file ./Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework/FeedStore.momd/VersionInfo.plist ... 
+2024-06-03 21:42:33 +0000  584 bytes for ./Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework/FeedStore.momd/VersionInfo.plist
+copying file ./Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework/FeedStore.momd/FeedStore 2.mom ... 
+2024-06-03 21:42:33 +0000  2246 bytes for ./Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework/FeedStore.momd/FeedStore 2.mom
+2024-06-03 21:42:33 +0000  copying file ./Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework/FeedStore.momd/FeedStore.mom ... 
+2024-06-03 21:42:33 +0000  2336 bytes for ./Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework/FeedStore.momd/FeedStore.mom
+2024-06-03 21:42:33 +0000  copying file ./Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework/pt-BR.lproj/Feed.strings ... 
+2024-06-03 21:42:33 +0000  189 bytes for ./Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework/pt-BR.lproj/Feed.strings
+2024-06-03 21:42:33 +0000  copying file ./Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework/essential_feed_case_study ... 
+2024-06-03 21:42:33 +0000  186096 bytes for ./Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework/essential_feed_case_study
+2024-06-03 21:42:33 +0000  copying file ./Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework/Info.plist ... 
+2024-06-03 21:42:33 +0000  775 bytes for ./Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework/Info.plist
+2024-06-03 21:42:33 +0000  copying file ./Payload/EssentialApp.app/Frameworks/EssentialFeediOS.framework/_CodeSignature/CodeResources ... 
+2024-06-03 21:42:33 +0000  2824 bytes for ./Payload/EssentialApp.app/Frameworks/EssentialFeediOS.framework/_CodeSignature/CodeResources
+2024-06-03 21:42:33 +0000  copying file ./Payload/EssentialApp.app/Frameworks/EssentialFeediOS.framework/EssentialFeediOS ... 
+2024-06-03 21:42:33 +0000  119536 bytes for ./Payload/EssentialApp.app/Frameworks/EssentialFeediOS.framework/EssentialFeediOS
+2024-06-03 21:42:33 +0000  copying file ./Payload/EssentialApp.app/Frameworks/EssentialFeediOS.framework/Assets.car ... 
+2024-06-03 21:42:33 +0000  25663 bytes for ./Payload/EssentialApp.app/Frameworks/EssentialFeediOS.framework/Assets.car
+2024-06-03 21:42:33 +0000  copying file ./Payload/EssentialApp.app/Frameworks/EssentialFeediOS.framework/Info.plist ... 
+2024-06-03 21:42:33 +0000  762 bytes for ./Payload/EssentialApp.app/Frameworks/EssentialFeediOS.framework/Info.plist
+2024-06-03 21:42:33 +0000  copying file ./Payload/EssentialApp.app/Frameworks/EssentialFeediOS.framework/Feed.storyboardc/UITableViewController-2Zx-HA-86V.nib ... 
+2024-06-03 21:42:33 +0000  1402 bytes for ./Payload/EssentialApp.app/Frameworks/EssentialFeediOS.framework/Feed.storyboardc/UITableViewController-2Zx-HA-86V.nib
+2024-06-03 21:42:33 +0000  copying file ./Payload/EssentialApp.app/Frameworks/EssentialFeediOS.framework/Feed.storyboardc/2Zx-HA-86V-view-Z2H-yl-eS5.nib ... 
+2024-06-03 21:42:33 +0000  13879 bytes for ./Payload/EssentialApp.app/Frameworks/EssentialFeediOS.framework/Feed.storyboardc/2Zx-HA-86V-view-Z2H-yl-eS5.nib
+2024-06-03 21:42:33 +0000  copying file ./Payload/EssentialApp.app/Frameworks/EssentialFeediOS.framework/Feed.storyboardc/Info.plist ... 
+2024-06-03 21:42:33 +0000  273 bytes for ./Payload/EssentialApp.app/Frameworks/EssentialFeediOS.framework/Feed.storyboardc/Info.plist
+2024-06-03 21:42:33 +0000  copying file ./Payload/EssentialApp.app/embedded.mobileprovision ... 
+2024-06-03 21:42:33 +0000  12236 bytes for ./Payload/EssentialApp.app/embedded.mobileprovision
+2024-06-03 21:42:33 +0000  copying file ./Payload/EssentialApp.app/Info.plist ... 
+2024-06-03 21:42:33 +0000  1056 bytes for ./Payload/EssentialApp.app/Info.plist
+copying file ./Payload/EssentialApp.app/EssentialApp ... 
+2024-06-03 21:42:33 +0000  140576 bytes for ./Payload/EssentialApp.app/EssentialApp
+2024-06-03 21:42:33 +0000  copying file ./Payload/EssentialApp.app/PkgInfo ... 
+2024-06-03 21:42:33 +0000  8 bytes for ./Payload/EssentialApp.app/PkgInfo
+2024-06-03 21:42:33 +0000  copying file ./Symbols/6A214BA7-30AC-3C69-900A-B3032883D49E.symbols ... 
+2024-06-03 21:42:33 +0000  88852 bytes for ./Symbols/6A214BA7-30AC-3C69-900A-B3032883D49E.symbols
+2024-06-03 21:42:33 +0000  copying file ./Symbols/62EDCD37-4C4D-32C5-9C84-FF96E681CE10.symbols ... 
+2024-06-03 21:42:33 +0000  198828 bytes for ./Symbols/62EDCD37-4C4D-32C5-9C84-FF96E681CE10.symbols
+2024-06-03 21:42:33 +0000  copying file ./Symbols/75E0F3AE-D9A0-3A77-B200-4C8E4248F42C.symbols ... 
+2024-06-03 21:42:33 +0000  77076 bytes for ./Symbols/75E0F3AE-D9A0-3A77-B200-4C8E4248F42C.symbols
+2024-06-03 21:42:33 +0000 [MT] /usr/bin/ditto exited with 0
+2024-06-03 21:42:33 +0000 [MT] Processing step: IDEDistributionAppStoreInformationStep
+2024-06-03 21:42:33 +0000 [MT] Skipping step: IDEDistributionAppStoreInformationStep because it said so
+2024-06-03 21:42:33 +0000 [MT] Processing step: IDEDistributionGenerateProcessedDistributionItems
+2024-06-03 21:42:33 +0000 [MT] IDEDistributionItem init <DVTFilePath:0x600003a3dd00:'/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root/Payload/EssentialApp.app/Frameworks/EssentialFeediOS.framework'>
+2024-06-03 21:42:33 +0000 [MT] IDEDistributionItem init <DVTFilePath:0x600003a10f80:'/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root/Payload/EssentialApp.app/Frameworks/essential_feed_case_study.framework'>
+2024-06-03 21:42:33 +0000 [MT] IDEDistributionItem init <DVTFilePath:0x600003e952d0:'/var/folders/b5/xn4mm5093ll9dh3fvp7pskxc0000gn/T/XcodeDistPipeline.~~~LKrQdk/Root/Payload/EssentialApp.app'>
+2024-06-03 21:42:33 +0000 [MT] Processing step: IDEDistributionCreateManifestStep
+2024-06-03 21:42:33 +0000 [MT] Skipping step: IDEDistributionCreateManifestStep because it said so
