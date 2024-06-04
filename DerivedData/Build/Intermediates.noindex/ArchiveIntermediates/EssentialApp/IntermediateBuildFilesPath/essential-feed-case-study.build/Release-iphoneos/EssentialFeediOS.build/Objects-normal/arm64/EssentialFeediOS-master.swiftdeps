@@ -1,10 +1,10 @@
 version: "Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)"
 options: "ccb4ce51b201783601acae9c94ec6c40328a19e8d7b180d3a6a59ef59146abb6"
-build_start_time: [1717491926, 420558000]
-build_end_time: [1717492000, 162576000]
+build_start_time: [1717519406, 521185000]
+build_end_time: [1717519430, 396028000]
 inputs:
   ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/essential-feed-case-study.build/Release-iphoneos/EssentialFeediOS.build/DerivedSources/GeneratedAssetSymbols.swift"
-  : [1717491926, 307668552]
+  : [1717519406, 485879480]
   ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialFeediOS/Feed UI/Controllers/FeedImageCellController.swift"
   : [1717177951, 484112371]
   ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialFeediOS/Feed UI/Controllers/FeedViewController.swift"

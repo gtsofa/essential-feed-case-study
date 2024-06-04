@@ -6,90 +6,6 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>3C3BCAE8-B5E8-4214-B3BA-5BAE09B2A8C9</key>
-		<dict>
-			<key>className</key>
-			<string>IDECommandLineBuildLog</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>3C3BCAE8-B5E8-4214-B3BA-5BAE09B2A8C9.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-				<key>totalNumberOfAnalyzerIssues</key>
-				<integer>0</integer>
-				<key>totalNumberOfErrors</key>
-				<integer>0</integer>
-				<key>totalNumberOfTestFailures</key>
-				<integer>0</integer>
-				<key>totalNumberOfWarnings</key>
-				<integer>0</integer>
-			</dict>
-			<key>schemeIdentifier-containerName</key>
-			<string>EssentialApp project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>EssentialApp</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Cleaning workspace EssentialApp with scheme EssentialApp and configuration Release</string>
-			<key>timeStartedRecording</key>
-			<real>739184640.73253298</real>
-			<key>timeStoppedRecording</key>
-			<real>739184642.19746804</real>
-			<key>title</key>
-			<string>Cleaning workspace EssentialApp with scheme EssentialApp and configuration Release</string>
-			<key>uniqueIdentifier</key>
-			<string>3C3BCAE8-B5E8-4214-B3BA-5BAE09B2A8C9</string>
-		</dict>
-		<key>8CF97B0F-D0B7-4988-91F3-70DF0BA5B313</key>
-		<dict>
-			<key>className</key>
-			<string>IDECommandLineBuildLog</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>8CF97B0F-D0B7-4988-91F3-70DF0BA5B313.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>W</string>
-				<key>totalNumberOfAnalyzerIssues</key>
-				<integer>0</integer>
-				<key>totalNumberOfErrors</key>
-				<integer>0</integer>
-				<key>totalNumberOfTestFailures</key>
-				<integer>0</integer>
-				<key>totalNumberOfWarnings</key>
-				<integer>5</integer>
-			</dict>
-			<key>schemeIdentifier-containerName</key>
-			<string>EssentialApp project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>EssentialApp</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Archiving workspace EssentialApp with scheme EssentialApp</string>
-			<key>timeStartedRecording</key>
-			<real>739141101.56340504</real>
-			<key>timeStoppedRecording</key>
-			<real>739141223.76639795</real>
-			<key>title</key>
-			<string>Archiving workspace EssentialApp with scheme EssentialApp</string>
-			<key>uniqueIdentifier</key>
-			<string>8CF97B0F-D0B7-4988-91F3-70DF0BA5B313</string>
-		</dict>
 		<key>D8A9A6E4-6F41-4847-B427-61750B79BA64</key>
 		<dict>
 			<key>className</key>
@@ -131,6 +47,90 @@
 			<string>Archiving workspace EssentialApp with scheme EssentialApp</string>
 			<key>uniqueIdentifier</key>
 			<string>D8A9A6E4-6F41-4847-B427-61750B79BA64</string>
+		</dict>
+		<key>DDDD67A1-31FC-41FD-AB0D-9E64CA1B23D3</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>DDDD67A1-31FC-41FD-AB0D-9E64CA1B23D3.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>EssentialApp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>EssentialApp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Cleaning workspace EssentialApp with scheme EssentialApp and configuration Release</string>
+			<key>timeStartedRecording</key>
+			<real>739212169.92851698</real>
+			<key>timeStoppedRecording</key>
+			<real>739212170.71287203</real>
+			<key>title</key>
+			<string>Cleaning workspace EssentialApp with scheme EssentialApp and configuration Release</string>
+			<key>uniqueIdentifier</key>
+			<string>DDDD67A1-31FC-41FD-AB0D-9E64CA1B23D3</string>
+		</dict>
+		<key>FCF0C8DC-7BB7-4E59-9EAE-3F8EBA319352</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>FCF0C8DC-7BB7-4E59-9EAE-3F8EBA319352.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>5</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>EssentialApp project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>EssentialApp</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Archiving workspace EssentialApp with scheme EssentialApp</string>
+			<key>timeStartedRecording</key>
+			<real>739212170.72540498</real>
+			<key>timeStoppedRecording</key>
+			<real>739212232.97926497</real>
+			<key>title</key>
+			<string>Archiving workspace EssentialApp with scheme EssentialApp</string>
+			<key>uniqueIdentifier</key>
+			<string>FCF0C8DC-7BB7-4E59-9EAE-3F8EBA319352</string>
 		</dict>
 	</dict>
 </dict>
