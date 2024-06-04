@@ -1280,7 +1280,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Julius Nyule (TJD4WCXHKT)";
+				CODE_SIGN_IDENTITY = "Apple Development: Julius Nyule (BYPS945A69)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1315,7 +1315,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Julius Nyule (TJD4WCXHKT)";
+				CODE_SIGN_IDENTITY = "Apple Development: Julius Nyule (BYPS945A69)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
