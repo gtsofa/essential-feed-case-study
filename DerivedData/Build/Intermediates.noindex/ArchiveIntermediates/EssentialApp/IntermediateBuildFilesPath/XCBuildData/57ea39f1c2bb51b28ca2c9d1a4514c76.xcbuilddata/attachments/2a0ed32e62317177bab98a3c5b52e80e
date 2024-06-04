@@ -4,9 +4,11 @@
 <dict>
 	<key>application-identifier</key>
 	<string>TJD4WCXHKT.gtsofa.com.EssentialAppCaseStudyG</string>
+	<key>beta-reports-active</key>
+	<true/>
 	<key>com.apple.developer.team-identifier</key>
 	<string>TJD4WCXHKT</string>
 	<key>get-task-allow</key>
-	<true/>
+	<false/>
 </dict>
 </plist>

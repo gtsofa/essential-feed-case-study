@@ -1,7 +1,7 @@
 version: "Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)"
 options: "f89f75ed431f15ec97e952b15ea5309ef6c756e036e1f0551ba6494e16a44650"
-build_start_time: [1717491916, 12835000]
-build_end_time: [1717491973, 253542000]
+build_start_time: [1717519401, 771910000]
+build_end_time: [1717519421, 351058000]
 inputs:
   ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/essential-feed-case-study/Feed API/FeedItemsMapper.swift"
   : [1717177951, 597565838]
