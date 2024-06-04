@@ -1,10 +1,10 @@
 version: "Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)"
 options: "34362fa8b350eae6bd36824a60a5b041c019659b8e670e534bae1cc58c312e3b"
-build_start_time: [1717448377, 697185000]
-build_end_time: [1717448423, 708473000]
+build_start_time: [1717491973, 159434000]
+build_end_time: [1717492004, 141617000]
 inputs:
   ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/DerivedData/Build/Intermediates.noindex/ArchiveIntermediates/EssentialApp/IntermediateBuildFilesPath/EssentialApp.build/Release-iphoneos/EssentialApp.build/DerivedSources/GeneratedAssetSymbols.swift"
-  : [1717448375, 523441486]
+  : [1717491972, 599520045]
   "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialApp/EssentialApp/AppDelegate.swift": [1717177951, 446696306]
   ? "/Users/julius/Desktop/work/EssentialDev/learning/essential-feed-case-study/EssentialApp/EssentialApp/FeedImageDataLoaderCacheDecorator.swift"
   : [1717177951, 463484010]
