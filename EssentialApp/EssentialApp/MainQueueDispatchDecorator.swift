@@ -33,13 +33,3 @@ extension MainQueueDispatchDecorator: FeedImageDataLoader where T == FeedImageDa
         }
     }
 }
-
-extension MainQueueDispatchDecorator: FeedLoader where T == FeedLoader {
-    func load(completion: @escaping (FeedLoader.Result) -> Void) {
-        //forwarding the decorated message
-        decoratee.load { [weak self] result in
-            self?.dispatch {
-                completion(result)}
-        }
-    }
-}
