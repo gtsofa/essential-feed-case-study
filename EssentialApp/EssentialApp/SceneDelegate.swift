@@ -45,10 +45,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       
         let remoteFeedLoader = RemoteFeedLoader(url: remoteURL, client: httpClient)
         let remoteImageLoader = RemoteFeedImageDataLoader(client: httpClient)
-        
-       
         let localImageLoader = LocalFeedImageDataLoader(store: store)
-        
         
         window?.rootViewController = UINavigationController(
             rootViewController: FeedUIComposer.feedComposedWith(
@@ -64,13 +61,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                         cache: localImageLoader))))
         
         window?.makeKeyAndVisible()
-        
-
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
         localFeedLoader.validateCache { _ in }
-    
     }
 }
 
