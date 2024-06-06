@@ -27,6 +27,7 @@
 		C627D5722BFE8E4A00F52109 /* FeedAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C627D5712BFE8E4A00F52109 /* FeedAcceptanceTests.swift */; };
 		C62D8FE22BFFBECC0082FDBE /* HTTPClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62D8FE12BFFBECC0082FDBE /* HTTPClientStub.swift */; };
 		C62D8FE42BFFC00F0082FDBE /* InMemoryFeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62D8FE32BFFC00F0082FDBE /* InMemoryFeedStore.swift */; };
+		C63C1E072C1244B50088C329 /* CombineHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63C1E062C1244B50088C329 /* CombineHelpers.swift */; };
 		C68EBE912BF370BE0027569A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68EBE902BF370BE0027569A /* AppDelegate.swift */; };
 		C68EBE932BF370BE0027569A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68EBE922BF370BE0027569A /* SceneDelegate.swift */; };
 		C68EBE952BF370BE0027569A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68EBE942BF370BE0027569A /* ViewController.swift */; };
@@ -86,6 +87,7 @@
 		C627D5712BFE8E4A00F52109 /* FeedAcceptanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAcceptanceTests.swift; sourceTree = "<group>"; };
 		C62D8FE12BFFBECC0082FDBE /* HTTPClientStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientStub.swift; sourceTree = "<group>"; };
 		C62D8FE32BFFC00F0082FDBE /* InMemoryFeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryFeedStore.swift; sourceTree = "<group>"; };
+		C63C1E062C1244B50088C329 /* CombineHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineHelpers.swift; sourceTree = "<group>"; };
 		C68EBE8D2BF370BE0027569A /* EssentialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C68EBE902BF370BE0027569A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C68EBE922BF370BE0027569A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				C68EBE992BF370C10027569A /* Assets.xcassets */,
 				C68EBE9B2BF370C10027569A /* LaunchScreen.storyboard */,
 				C68EBE9E2BF370C10027569A /* Info.plist */,
+				C63C1E062C1244B50088C329 /* CombineHelpers.swift */,
 			);
 			path = EssentialApp;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 			files = (
 				C68EBE952BF370BE0027569A /* ViewController.swift in Sources */,
 				C627D55B2BFE88AE00F52109 /* FeedUIComposer.swift in Sources */,
+				C63C1E072C1244B50088C329 /* CombineHelpers.swift in Sources */,
 				C68EBE912BF370BE0027569A /* AppDelegate.swift in Sources */,
 				C627D5572BFE88AE00F52109 /* WeakRefVirtualProxy.swift in Sources */,
 				C627D5592BFE88AE00F52109 /* FeedViewAdapter.swift in Sources */,
