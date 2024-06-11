@@ -8,7 +8,7 @@
 import XCTest
 import essential_feed_case_study
 
-final class LoadImageCommentsFromRemoteUseCaseTests: XCTestCase {
+final class ImageCommentsMapperTests: XCTestCase {
     
     func test_load_deliversErrorOnNon2xxHTTPURLResponse() {
         let (sut, client) = makeSUT()
