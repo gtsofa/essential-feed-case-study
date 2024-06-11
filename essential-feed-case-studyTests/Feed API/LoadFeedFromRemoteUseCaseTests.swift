@@ -8,7 +8,7 @@
 import XCTest
 import essential_feed_case_study
 
-final class RemoteFeedLoaderTests: XCTestCase {
+final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     
     func test_load_deliversErrorOnNon200HTTPURLResponse() {
         let (sut, client) = makeSUT()
