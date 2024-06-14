@@ -6,29 +6,97 @@
 //
 
 import XCTest
+import essential_feed_case_study
 
 final class LoadResourcePresenterTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    func test_title_isLocalized() {
+        XCTAssertEqual(LoadResourcePresenter.title, localized("FEED_VIEW_TITLE"))
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func test_init_doesNotSendMessageToView() {
+        let(_, view) = makeSUT()
+       
+        XCTAssertTrue(view.messages.isEmpty, "Expected no view messages")
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    func test_didStartLoadingFeed_displaysNoErrorMessageAndStartsLoadingFeed() {
+        let (sut, view) = makeSUT()
+        
+        sut.didStartLoadingFeed()
+        
+        XCTAssertEqual(view.messages, [
+            .display(errorMessage: .none),
+            .display(isLoading: true)
+        ])
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func test_didFinishLoadingFeed_displaysFeedAndStopLoadingFeed() {
+        let (sut, view) = makeSUT()
+        
+        let feed = uniqueImageFeed().models
+        sut.didFinishLoadingFeed(with: feed)
+        
+        XCTAssertEqual(view.messages, [
+            .display(feed: feed),
+            .display(isLoading: false)
+        ])
+    }
+    
+    func test_didFinishLoadingFeedWithError_displaysLocalizedErrorMessageAndStopsLoading() {
+        let (sut, view) = makeSUT()
+        
+        sut.didFinishLoadingFeed(with: anyNSError())
+        
+        XCTAssertEqual(view.messages, [
+            .display(errorMessage: localized("FEED_VIEW_CONNECTION_ERROR")),
+            .display(isLoading: false)])
+    }
+    
+    // MARK:- Helpers
+    
+    private func makeSUT(file: StaticString = #filePath,
+                         line: UInt = #line) -> (sut: LoadResourcePresenter, view: ViewSpy) {
+        let view = ViewSpy()
+        let sut = LoadResourcePresenter(feedView: view, loadingView: view, errorView: view)
+        trackForMemoryLeaks(view, file: file, line: line)
+        trackForMemoryLeaks(sut, file: file, line: line)
+        
+        return (sut, view)
+    }
+    
+    private func localized(_ key: String, file: StaticString = #filePath,
+                           line: UInt = #line) -> String {
+        let table = "Feed"
+        let bundle = Bundle(for: LoadResourcePresenter.self)
+        let value = bundle.localizedString(forKey: key, value: nil, table: table)
+        
+        if value == key {
+            XCTFail("Missing localized string for key \(key)", file: file, line: line)
+        }
+        return value
+    }
+    
+    private class ViewSpy: FeedView, FeedLoadingView, FeedErrorView {
+        enum Message:Hashable {
+            case display(errorMessage: String?)
+            case display(isLoading: Bool)
+            case display(feed: [FeedImage])
+            //case display(error: String)
+        }
+        
+        private(set) var messages = Set<Message>()
+        
+        func display(_ viewModel: FeedErrorViewModel) {
+            messages.insert(.display(errorMessage: viewModel.message))
+        }
+        
+        func display(_ viewModel: FeedLoadingViewModel) {
+            messages.insert(.display(isLoading: viewModel.isLoading))
+        }
+        
+        func display(_ viewModel: FeedViewModel) {
+            messages.insert(.display(feed: viewModel.feed))
         }
     }
 
