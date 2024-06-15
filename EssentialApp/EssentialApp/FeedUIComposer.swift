@@ -19,12 +19,13 @@ public final class FeedUIComposer {
         
         let feedController = makeFeedViewController(delegate: presentationAdapter, title: FeedPresenter.title)
         
-        presentationAdapter.presenter = FeedPresenter(
-            feedView: FeedViewAdapter(
+        presentationAdapter.presenter = LoadResourcePresenter(
+            resourceView: FeedViewAdapter(
                 controller: feedController,
                 imageLoader: imageLoader),
             loadingView: WeakRefVirtualProxy(feedController),
-            errorView: WeakRefVirtualProxy(feedController))
+            errorView: WeakRefVirtualProxy(feedController), 
+            mapper: FeedPresenter.map)
         //presenter.loadingView = WeakRefVirtualProxy(refreshController)
         //resenter.feedView = FeedViewAdapter(controller: feedController, imageLoader: imageLoader)
         //on refresh -- we update the table model
