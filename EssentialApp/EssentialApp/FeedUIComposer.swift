@@ -14,8 +14,8 @@ public final class FeedUIComposer {
     public init() {}
     // object creation
     public static func feedComposedWith(feedLoader:  @escaping () -> AnyPublisher<[FeedImage], Error>, imageLoader: @escaping (URL) -> FeedImageDataLoader.Publisher) -> FeedViewController {
-        let presentationAdapter = FeedLoaderPresentationAdapter(
-            feedLoader: feedLoader)
+        let presentationAdapter = LoadResourcePresentationAdapter<[FeedImage], FeedViewAdapter>(
+            loader: feedLoader)
         
         let feedController = makeFeedViewController(delegate: presentationAdapter, title: FeedPresenter.title)
         

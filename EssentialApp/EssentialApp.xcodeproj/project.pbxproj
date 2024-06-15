@@ -13,7 +13,7 @@
 		C627D5592BFE88AE00F52109 /* FeedViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C627D5512BFE88A700F52109 /* FeedViewAdapter.swift */; };
 		C627D55A2BFE88AE00F52109 /* FeedImageDataLoaderPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C627D5542BFE88AC00F52109 /* FeedImageDataLoaderPresentationAdapter.swift */; };
 		C627D55B2BFE88AE00F52109 /* FeedUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C627D5532BFE88AC00F52109 /* FeedUIComposer.swift */; };
-		C627D55C2BFE88AE00F52109 /* FeedLoaderPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C627D5562BFE88AD00F52109 /* FeedLoaderPresentationAdapter.swift */; };
+		C627D55C2BFE88AE00F52109 /* LoadResourcePresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C627D5562BFE88AD00F52109 /* LoadResourcePresentationAdapter.swift */; };
 		C627D5662BFE88D500F52109 /* UIRefreshControl+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C627D55D2BFE88D000F52109 /* UIRefreshControl+TestHelpers.swift */; };
 		C627D5672BFE88D500F52109 /* FeedViewControllerTests+LoaderSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C627D5652BFE88D500F52109 /* FeedViewControllerTests+LoaderSpy.swift */; };
 		C627D5682BFE88D500F52109 /* FeedViewController+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C627D5642BFE88D400F52109 /* FeedViewController+TestHelpers.swift */; };
@@ -73,7 +73,7 @@
 		C627D5522BFE88AA00F52109 /* WeakRefVirtualProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRefVirtualProxy.swift; sourceTree = "<group>"; };
 		C627D5532BFE88AC00F52109 /* FeedUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIComposer.swift; sourceTree = "<group>"; };
 		C627D5542BFE88AC00F52109 /* FeedImageDataLoaderPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderPresentationAdapter.swift; sourceTree = "<group>"; };
-		C627D5562BFE88AD00F52109 /* FeedLoaderPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoaderPresentationAdapter.swift; sourceTree = "<group>"; };
+		C627D5562BFE88AD00F52109 /* LoadResourcePresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadResourcePresentationAdapter.swift; sourceTree = "<group>"; };
 		C627D55D2BFE88D000F52109 /* UIRefreshControl+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+TestHelpers.swift"; sourceTree = "<group>"; };
 		C627D55E2BFE88D100F52109 /* UIControl+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+TestHelpers.swift"; sourceTree = "<group>"; };
 		C627D55F2BFE88D200F52109 /* FeedViewControllerTests+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+Localization.swift"; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 				C627D5522BFE88AA00F52109 /* WeakRefVirtualProxy.swift */,
 				C627D5512BFE88A700F52109 /* FeedViewAdapter.swift */,
 				C627D5542BFE88AC00F52109 /* FeedImageDataLoaderPresentationAdapter.swift */,
-				C627D5562BFE88AD00F52109 /* FeedLoaderPresentationAdapter.swift */,
+				C627D5562BFE88AD00F52109 /* LoadResourcePresentationAdapter.swift */,
 				C68EBE902BF370BE0027569A /* AppDelegate.swift */,
 				C68EBE922BF370BE0027569A /* SceneDelegate.swift */,
 				C68EBE942BF370BE0027569A /* ViewController.swift */,
@@ -309,7 +309,7 @@
 				C627D5572BFE88AE00F52109 /* WeakRefVirtualProxy.swift in Sources */,
 				C627D5592BFE88AE00F52109 /* FeedViewAdapter.swift in Sources */,
 				C68EBE932BF370BE0027569A /* SceneDelegate.swift in Sources */,
-				C627D55C2BFE88AE00F52109 /* FeedLoaderPresentationAdapter.swift in Sources */,
+				C627D55C2BFE88AE00F52109 /* LoadResourcePresentationAdapter.swift in Sources */,
 				C627D55A2BFE88AE00F52109 /* FeedImageDataLoaderPresentationAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
