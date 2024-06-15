@@ -47,7 +47,7 @@ final class LoadResourcePresenterTests: XCTestCase {
         
         sut.didFinishLoading(with: "resource")
         XCTAssertEqual(view.messages, [
-            .display(errorMessage: localized("GENERIC_VIEW_CONNECTION_ERROR")),
+            .display(errorMessage: localized("GENERIC_CONNECTION_ERROR")),
             .display(isLoading: false)
         ])
     }
@@ -58,7 +58,7 @@ final class LoadResourcePresenterTests: XCTestCase {
         sut.didFinishLoading(with: anyNSError())
         
         XCTAssertEqual(view.messages, [
-            .display(errorMessage: localized("GENERIC_VIEW_CONNECTION_ERROR")),
+            .display(errorMessage: localized("GENERIC_CONNECTION_ERROR")),
             .display(isLoading: false)])
     }
     
