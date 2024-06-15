@@ -11,10 +11,6 @@ public protocol FeedView {
     func display(_ viewModel: FeedViewModel)
 }
 
-public protocol FeedLoadingView  {
-    func display(_ viewModel: FeedLoadingViewModel)
-}
-
 public protocol FeedErrorView {
     func display(_ viewModel: FeedErrorViewModel)
 }
@@ -22,9 +18,9 @@ public protocol FeedErrorView {
 public class FeedPresenter {
     private let feedView: FeedView
     private let errorView: FeedErrorView
-    private let loadingView: FeedLoadingView
+    private let loadingView: ResourceLoadingView
     
-    public init(feedView: FeedView, loadingView: FeedLoadingView, errorView: FeedErrorView) {
+    public init(feedView: FeedView, loadingView: ResourceLoadingView, errorView: FeedErrorView) {
         self.feedView = feedView
         self.loadingView = loadingView
         self.errorView = errorView
@@ -46,16 +42,16 @@ public class FeedPresenter {
     
     public func didStartLoadingFeed() {
         errorView.display(.noError) //not show errorview instead show loading spinner
-        loadingView.display(FeedLoadingViewModel(isLoading: true)) // start loading feed
+        loadingView.display(ResourceLoadingViewModel(isLoading: true)) // start loading feed
     }
     
     public func didFinishLoadingFeed(with feed: [FeedImage]) {
         feedView.display(FeedViewModel(feed: feed)) // loaded feed
-        loadingView.display(FeedLoadingViewModel(isLoading: false)) // finish loading feed
+        loadingView.display(ResourceLoadingViewModel(isLoading: false)) // finish loading feed
     }
     
     public func didFinishLoadingFeed(with error: Error) {
         errorView.display(FeedErrorViewModel(message: feedLoadError))
-        loadingView.display(FeedLoadingViewModel(isLoading: false))
+        loadingView.display(ResourceLoadingViewModel(isLoading: false))
     }
 }
