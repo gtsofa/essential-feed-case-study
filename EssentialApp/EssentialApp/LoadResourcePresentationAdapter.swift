@@ -9,7 +9,7 @@ import Combine
 import essential_feed_case_study
 import EssentialFeediOS
 
-final class FeedLoaderPresentationAdapter: FeedViewControllerDelegate {
+final class LoadResourcePresentationAdapter: FeedViewControllerDelegate {
     var presenter: LoadResourcePresenter<[FeedImage], FeedViewAdapter>?
     
     private let feedLoader: () -> AnyPublisher<[FeedImage], Error>
