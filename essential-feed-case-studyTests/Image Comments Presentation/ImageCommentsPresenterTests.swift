@@ -6,30 +6,31 @@
 //
 
 import XCTest
+import essential_feed_case_study
 
 final class ImageCommentsPresenterTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func test_title_isLocalized() {
+        XCTAssertEqual(ImageCommentsPresenter.title, localized("IMAGE_COMMENTS_VIEW_TITLE"))
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+//    func test_map_createsViewModels() {
+//        let feed = uniqueImageFeed().models
+//        let viewModel = FeedPresenter.map(feed)
+//        
+//        XCTAssertEqual(viewModel.feed, feed)
+//    }
+    
+    // MARK:- Helpers
+    
+    private func localized(_ key: String, file: StaticString = #filePath, line: UInt = #line) -> String {
+        let table = "ImageComments"
+        let bundle = Bundle(for: ImageCommentsPresenter.self)
+        let value = bundle.localizedString(forKey: key, value: nil, table: table)
+        
+        if value == key {
+            XCTFail("Missing localized string for key \(key)", file: file, line: line)
         }
+        return value
     }
 
 }
