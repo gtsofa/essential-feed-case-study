@@ -699,13 +699,13 @@
 		C6F1F5D52B68D4CB001DCC83 /* essential-feed-case-studyTests */ = {
 			isa = PBXGroup;
 			children = (
+				C6B32EF62B849760009A108D /* Helpers */,
 				C67B73F92C1F663A004B58F9 /* Image Comments Presentation */,
 				C6E21DB02C1CC9CB0050B3F0 /* Shared Presentation */,
 				C65C7DDF2C172DD800D5798D /* Image Comments API */,
 				C65C7DDC2C172B7800D5798D /* Shared API Infra */,
 				C65C7DDB2C172B6E00D5798D /* Shared API */,
 				C6A8541B2BE548BD00DF18BD /* Feed Presentation */,
-				C6B32EF62B849760009A108D /* Helpers */,
 				C6406D4B2B984E810028A925 /* Feed Cache */,
 				C639BE5E2B77D0DE00B63C28 /* Feed API */,
 			);
