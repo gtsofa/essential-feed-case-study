@@ -90,7 +90,60 @@ final class FeedSnapshotTests: XCTestCase {
 
 }
 
+private class ImageStub: FeedImageCellControllerDelegate {
+    let viewModel: FeedImageViewModel
+    let image: UIImage?
+    
+    weak var controller: FeedImageCellController?
+    
+    init(description: String?, location: String?, image: UIImage?) {
+        self.viewModel = FeedImageViewModel(
+            description: description,
+            location: location
+            )
+        self.image = image
+    }
+    
+    func didRequestImage() {
+        controller?.display(ResourceLoadingViewModel(isLoading: false))
+        if let image = image {
+            controller?.display(image)
+            controller?.display(ResourceErrorViewModel(message: .none))
+        } else {
+            controller?.display(ResourceErrorViewModel(message: "any"))
+        }
+    }
+    
+    func didCancelImageRequest() {}
+
+}
+
+class FakeRefreshControl: UIRefreshControl {
+    private var _isRefreshing = false
+    
+    override var isRefreshing: Bool { _isRefreshing }
+    
+    override func beginRefreshing() {
+        _isRefreshing = true
+    }
+    
+    override func endRefreshing() {
+        _isRefreshing = false
+    }
+}
+
 private extension FeedViewController {
+    func display(_ stubs: [ImageStub]) {
+        let cells: [FeedImageCellController] = stubs.map { stub in
+            let cellController = FeedImageCellController(viewModel: stub.viewModel, delegate: stub)
+            stub.controller = cellController
+            return cellController
+        }
+        display(cells)
+    }
+}
+
+/*private extension FeedViewController {
     func display(_ stubs: [ImageStub]) {
         let cells: [FeedImageCellController] = stubs.map { stub in
             let cellController = FeedImageCellController(viewModel: stub.viewModel, delegate: stub)
@@ -171,6 +224,6 @@ class FakeRefreshControl: UIRefreshControl {
     override func endRefreshing() {
         _isRefreshing = false
     }
-}
+}*/
 
 
