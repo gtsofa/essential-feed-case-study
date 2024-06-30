@@ -10,7 +10,7 @@ import essential_feed_case_study
 import EssentialFeediOS
 
 extension FeedUIIntegrationTests {
-    func assertThat(_ sut: FeedViewController, isRendering feed: [FeedImage], file: StaticString = #filePath, line: UInt = #line) {
+    func assertThat(_ sut: ListViewController, isRendering feed: [FeedImage], file: StaticString = #filePath, line: UInt = #line) {
         sut.view.enforceLayoutCycle() // force table view to layout
         
         guard sut.numberOfRenderedFeedImageViews() == feed.count else {
@@ -22,7 +22,7 @@ extension FeedUIIntegrationTests {
         }
     }
     
-    func assertThat(_ sut: FeedViewController, hasViewConfiguredFor image: FeedImage, at index: Int, file: StaticString = #filePath,
+    func assertThat(_ sut: ListViewController, hasViewConfiguredFor image: FeedImage, at index: Int, file: StaticString = #filePath,
                             line: UInt = #line) {
         let view = sut.feedImageView(at: index)
         // view is of FeedImageCell type
