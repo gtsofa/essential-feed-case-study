@@ -662,8 +662,8 @@
 		C67A3D8D2BC007F900C5627D /* EssentialFeediOS */ = {
 			isa = PBXGroup;
 			children = (
-				C667F8092C3204560097875C /* Image Comments UI */,
 				C667F7F92C31D1E50097875C /* Shared UI */,
+				C667F8092C3204560097875C /* Image Comments UI */,
 				C6381BA92BD39E4600C7D737 /* Feed UI */,
 			);
 			path = EssentialFeediOS;
@@ -672,9 +672,9 @@
 		C67A3D972BC0080000C5627D /* EssentialFeediOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				C667F8062C32008D0097875C /* Image Comments UI */,
 				C653EF622C01EEBF00640DC6 /* Helpers */,
 				C667F7FD2C31FB700097875C /* Shared UI */,
+				C667F8062C32008D0097875C /* Image Comments UI */,
 				C667F7E32C3156F90097875C /* Feed UI */,
 			);
 			path = EssentialFeediOSTests;
