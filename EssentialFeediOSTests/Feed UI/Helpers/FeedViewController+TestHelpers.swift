@@ -8,7 +8,7 @@
 import UIKit
 import EssentialFeediOS
 
-extension FeedViewController {
+extension ListViewController {
     
     var isShowingLoadingIndicator: Bool {
         refreshControl?.isRefreshing == true
@@ -23,7 +23,7 @@ extension FeedViewController {
     }
     
     var errorMessage: String? {
-        return errorView?.message
+        return errorView.message
     }
     
     func simulateFeedImageViewNearVisible(at row: Int = 0) {
@@ -82,7 +82,7 @@ extension FeedViewController {
     }
     
     private func setSmallFrameToPreventRenderingCells() {
-        tableView.frame = CGRect(x: 0, y: 0, width: 390, height: 1)
+        tableView.frame = CGRect(x: 0, y: 0, width: 1, height: 1)
     }
     
     func replaceRefreshControlWithFakeForiOS17Support() {
