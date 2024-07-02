@@ -11,18 +11,19 @@ import essential_feed_case_study
 public final class ListViewController: UITableViewController, UITableViewDataSourcePrefetching, ResourceLoadingView, ResourceErrorView {
     //@IBOutlet public var refreshController: FeedRefreshViewController?
     private(set) public var errorView = ErrorView()
-    private var loadingControllers = [IndexPath: CellController]()
     
     private var isViewAppeared = false
     private var onViewIsAppearing: ((ListViewController) -> Void)?
-    private var tableModel = [CellController]() {
-        // use property observer to relaod table view
-        // Since not every operation will dispatch work in the background queue
-        // eg inMemory-cache that returns immediately if something is in the cache
-        didSet {
-            tableView.reloadData()
+    
+    // use arraybased property observer to relaod table view
+    // now we use diffabledatasource
+    // Since not every operation will dispatch work in the background queue
+    // eg inMemory-cache that returns immediately if something is in the cache
+    private lazy var dataSource: UITableViewDiffableDataSource<Int, CellController> = {
+        .init(tableView: tableView) { (tableView, index, controller) in
+            controller.dataSource.tableView(tableView, cellForRowAt: index)
         }
-    }
+    }()
     
     public var onRefresh: (() -> Void )?
     
@@ -43,6 +44,7 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
             self.refresh()
         }
         
+        tableView.dataSource = dataSource
         configureErrorView()
     }
     
@@ -74,13 +76,21 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
         tableView.sizeTableHeaderToFit()
     }
     
+    public override func traitCollectionDidChange(_ previous: UITraitCollection?) {
+        if previous?.preferredContentSizeCategory != traitCollection.preferredContentSizeCategory {
+            tableView.reloadData()
+        }
+    }
+    
     @IBAction private func refresh() {
         onRefresh?()
     }
     
     public func display(_ cellControllers: [CellController]) {
-        loadingControllers = [:]
-        tableModel = cellControllers
+        var snapshot = NSDiffableDataSourceSnapshot<Int, CellController>()
+        snapshot.appendSections([0])
+        snapshot.appendItems(cellControllers, toSection: 0)
+        dataSource.apply(snapshot)
     }
     
     public func display(_ viewModel: ResourceErrorViewModel) {
@@ -97,47 +107,28 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
         onViewIsAppearing?(self)
     }
     
-    public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        tableModel.count
-    }
-    
-    // cell creation/configuration
-    public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let ds = cellController(forRowAt: indexPath).dataSource
-        return ds.tableView(tableView, cellForRowAt: indexPath)
-    }
-    
     public override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         // tells imageloader to cancel an image data load from a url
         // cancel a task for agiven indexpath
-        let dl = removeLoadingController(forRowAt: indexPath)?.delegate
+        let dl = cellController(at: indexPath)?.delegate
         dl?.tableView?(tableView, didEndDisplaying: cell, forRowAt: indexPath)
     }
     
     public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         indexPaths.forEach {indexPath in
-            let dsp = cellController(forRowAt: indexPath).dataSourcePrefetching
+            let dsp = cellController(at: indexPath)?.dataSourcePrefetching
             dsp?.tableView(tableView, prefetchRowsAt: [indexPath])
         }
     }
     
     public func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
         indexPaths.forEach { indexPath in
-            let dsp = removeLoadingController(forRowAt: indexPath)?.dataSourcePrefetching
+            let dsp = cellController(at: indexPath)?.dataSourcePrefetching
             dsp?.tableView?(tableView, cancelPrefetchingForRowsAt: [indexPath])
         }
     }
     
-    private func cellController(forRowAt indexPath: IndexPath) -> CellController {
-        let controller = tableModel[indexPath.row]
-        loadingControllers[indexPath] = controller
-        
-        return controller
-    }
-    
-    private func removeLoadingController(forRowAt indexPath: IndexPath) -> CellController? {
-        let controller = loadingControllers[indexPath]
-        loadingControllers[indexPath] = nil // if we cancel it we do not need it anymore
-        return controller
+    private func cellController(at indexPath: IndexPath) -> CellController? {
+        dataSource.itemIdentifier(for: indexPath)
     }
 }
