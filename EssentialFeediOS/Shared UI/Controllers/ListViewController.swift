@@ -37,7 +37,7 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
         //refreshController?.refresh() // do not show uirefresh control warnings
         
         onViewIsAppearing = { vc in
-            vc.refreshControl?.beginRefreshing()
+           // vc.refreshControl?.beginRefreshing() //3rdJuly2024
             vc.onViewIsAppearing = nil
             //vc.refresh()
             //self.refreshController?.refresh()
