@@ -42,8 +42,11 @@ extension FeedImageCellController: UITableViewDataSource, UITableViewDelegate, U
             self?.delegate.didRequestImage()
         }
         
-        delegate.didRequestImage()
+        cell?.onReuse = { [weak self] in
+            self?.releaseCellForReuse()
+        }
         
+        delegate.didRequestImage()
         return cell!
     }
     

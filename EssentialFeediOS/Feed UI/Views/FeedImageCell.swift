@@ -22,9 +22,15 @@ public final class FeedImageCell: UITableViewCell {
     
     // internal i.e not accessible to the outside
     var onRetry: (() -> Void)?
+    var onReuse: (() -> Void)?
     
     @IBAction private func retryButtonTapped() {
         onRetry?()
+    }
+    
+    public override func prepareForReuse() {
+        super.prepareForReuse()
+        onReuse?()
     }
     
 }
