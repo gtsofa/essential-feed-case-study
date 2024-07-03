@@ -37,13 +37,14 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
         //refreshController?.refresh() // do not show uirefresh control warnings
         
         onViewIsAppearing = { vc in
-            vc.refreshControl?.beginRefreshing()
+           // vc.refreshControl?.beginRefreshing() //3rdJuly2024
             vc.onViewIsAppearing = nil
             //vc.refresh()
             //self.refreshController?.refresh()
             self.refresh()
         }
 
+        configureTraitCollectionObservers()
         configureTableView()
     }
     
@@ -59,15 +60,17 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
         }
     }
     
+    private func configureTraitCollectionObservers() {
+        registerForTraitChanges(
+            [UITraitPreferredContentSizeCategory.self]
+        ) { (self: Self, previous: UITraitCollection) in
+            self.tableView.reloadData()
+        }
+    }
+    
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.sizeTableHeaderToFit()
-    }
-    
-    public override func traitCollectionDidChange(_ previous: UITraitCollection?) {
-        if previous?.preferredContentSizeCategory != traitCollection.preferredContentSizeCategory {
-            tableView.reloadData()
-        }
     }
     
     @IBAction private func refresh() {
