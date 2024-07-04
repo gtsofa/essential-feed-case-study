@@ -13,24 +13,22 @@ import EssentialFeediOS
 public final class CommentsUIComposer {
     public init() {}
     
-    private typealias FeedPresentationAdapter = LoadResourcePresentationAdapter<[FeedImage], FeedViewAdapter>
+    private typealias CommentsPresentationAdapter = LoadResourcePresentationAdapter<[ImageComment], CommentsViewAdapter>
     // object creation
     public static func commentsComposedWith(
-        commentsLoader:  @escaping () -> AnyPublisher<[FeedImage], Error>
+        commentsLoader:  @escaping () -> AnyPublisher<[ImageComment], Error>
     ) -> ListViewController {
             
-        let presentationAdapter = FeedPresentationAdapter(loader: commentsLoader)
+        let presentationAdapter = CommentsPresentationAdapter(loader: commentsLoader)
         
-        let feedController = makeFeedViewController(title: ImageCommentsPresenter.title)
-        feedController.onRefresh = presentationAdapter.loadResource
+        let commentsController = makeCommentsViewController(title: ImageCommentsPresenter.title)
+        commentsController.onRefresh = presentationAdapter.loadResource
         
         presentationAdapter.presenter = LoadResourcePresenter(
-            resourceView: FeedViewAdapter(
-                controller: feedController,
-                imageLoader: {_ in Empty<Data, Error>().eraseToAnyPublisher() }),
-            loadingView: WeakRefVirtualProxy(feedController),
-            errorView: WeakRefVirtualProxy(feedController),
-            mapper: FeedPresenter.map)
+            resourceView: CommentsViewAdapter(controller: commentsController),
+            loadingView: WeakRefVirtualProxy(commentsController),
+            errorView: WeakRefVirtualProxy(commentsController),
+            mapper: { ImageCommentsPresenter.map($0) })
         //presenter.loadingView = WeakRefVirtualProxy(refreshController)
         //resenter.feedView = FeedViewAdapter(controller: feedController, imageLoader: imageLoader)
         //on refresh -- we update the table model
@@ -38,17 +36,17 @@ public final class CommentsUIComposer {
         // we use the adapter pattern to help us compose unmatching apis
         // i.e transforms [FeedImage] -> Adapt -> [FeedImageCellController]
         
-        return feedController
+        return commentsController
     }
     
-    private static func makeFeedViewController(title: String) -> ListViewController {
+    private static func makeCommentsViewController(title: String) -> ListViewController {
         let bundle = Bundle(for: ListViewController.self)
-        let storyboard = UIStoryboard(name: "Feed", bundle: bundle)
-        let feedController = storyboard.instantiateInitialViewController() as! ListViewController
+        let storyboard = UIStoryboard(name: "ImageComments", bundle: bundle)
+        let controller = storyboard.instantiateInitialViewController() as! ListViewController
         //let refreshController = feedController.refreshController! // set direct in storyboard
         //eedController.refreshController = refreshController
-        feedController.title = title
+        controller.title = title
         
-        return feedController
+        return controller
     }
 }
