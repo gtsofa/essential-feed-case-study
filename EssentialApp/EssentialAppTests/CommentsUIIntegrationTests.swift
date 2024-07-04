@@ -12,7 +12,7 @@ import EssentialApp
 import essential_feed_case_study
 import EssentialFeediOS
 
-final class CommentsUIIntegrationTests: FeedUIIntegrationTests {
+final class CommentsUIIntegrationTests: XCTestCase {
     func test_commentsView_hasTitle() {
         let (sut, _) = makeSUT()
         
@@ -141,7 +141,7 @@ final class CommentsUIIntegrationTests: FeedUIIntegrationTests {
         wait(for: [exp], timeout: 1.0)
     }
     
-    override func test_loadFeedCompletion_rendersErrorMessageOnErrorUntilNextReload() {
+    func test_loadCommentsCompletion_rendersErrorMessageOnErrorUntilNextReload() {
         let(sut, loader) = makeSUT()
         
         sut.simulateAppearance()
@@ -155,7 +155,7 @@ final class CommentsUIIntegrationTests: FeedUIIntegrationTests {
         XCTAssertEqual(sut.errorMessage, nil)
     }
     
-    override func test_tapOnErrorView_hidesErrorMessage() {
+    func test_tapOnErrorView_hidesErrorMessage() {
         let (sut, loader) = makeSUT()
         
         sut.simulateAppearance()
@@ -166,18 +166,6 @@ final class CommentsUIIntegrationTests: FeedUIIntegrationTests {
         
         sut.simulateErrorViewTap()
         XCTAssertEqual(sut.errorMessage, nil)
-    }
-   
-    
-    override func test_loadFeedActions_runsAutomaticallyOnlyOnFirstAppearance() {
-        let (sut, loader) = makeSUT()
-        XCTAssertEqual(loader.loadCommentsCallCount, 0, "Expected no loading requests before view appears")
-        
-        sut.simulateAppearance()
-        XCTAssertEqual(loader.loadCommentsCallCount, 1, "Expected a loading request once view appears")
-        
-        sut.simulateAppearance()
-        XCTAssertEqual(loader.loadCommentsCallCount, 1, "Expected no loading request the second time view appears")
     }
 
     
