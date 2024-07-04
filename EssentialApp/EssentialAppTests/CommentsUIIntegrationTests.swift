@@ -17,7 +17,7 @@ final class CommentsUIIntegrationTests: FeedUIIntegrationTests {
         
         sut.simulateAppearance()
         
-        XCTAssertEqual(sut.title, commentTitle)
+        XCTAssertEqual(sut.title, commentsTitle)
     }
     
     // test load feed actions
