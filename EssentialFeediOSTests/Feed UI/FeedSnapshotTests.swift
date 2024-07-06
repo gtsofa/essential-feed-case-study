@@ -116,95 +116,12 @@ class FakeRefreshControl: UIRefreshControl {
 private extension ListViewController {
     func display(_ stubs: [ImageStub]) {
         let cells: [CellController] = stubs.map { stub in
-            let cellController = FeedImageCellController(viewModel: stub.viewModel, delegate: stub)
+            let cellController = FeedImageCellController(viewModel: stub.viewModel, delegate: stub, selection: {})
             stub.controller = cellController
             return CellController(id: UUID(), cellController)
         }
         display(cells)
     }
 }
-
-/*private extension FeedViewController {
-    func display(_ stubs: [ImageStub]) {
-        let cells: [FeedImageCellController] = stubs.map { stub in
-            let cellController = FeedImageCellController(viewModel: stub.viewModel, delegate: stub)
-            stub.controller = cellController
-            return cellController
-        }
-        display(cells)
-    }
-    
-    func simulateAppearance() {
-        if !isViewLoaded {
-            loadViewIfNeeded()
-            prepareForFirstAppearance()
-            //replaceRefreshControlWithFakeForiOS17Support()
-        }
-        beginAppearanceTransition(true, animated: false)
-        endAppearanceTransition()
-    }
-    
-    private func prepareForFirstAppearance() {
-        setSmallFrameToPreventRenderingCells()
-        replaceRefreshControlWithFakeForiOS17Support()
-    }
-    
-    private func setSmallFrameToPreventRenderingCells() {
-        tableView.frame = CGRect(x: 0, y: 0, width: 390, height: 1)
-    }
-    
-    func replaceRefreshControlWithFakeForiOS17Support() {
-        let fake = FakeRefreshControl()
-        refreshControl?.allTargets.forEach{ target in
-            refreshControl?.actions(forTarget: target, forControlEvent:
-                    .valueChanged)?.forEach { action in
-                        fake.addTarget(target, action: Selector(action), for: .valueChanged)
-                    }
-        }
-        refreshControl = fake
-    }
-}
-
-private class ImageStub: FeedImageCellControllerDelegate {
-    let viewModel: FeedImageViewModel
-    let image: UIImage?
-    
-    weak var controller: FeedImageCellController?
-    
-    init(description: String?, location: String?, image: UIImage?) {
-        self.viewModel = FeedImageViewModel(
-            description: description,
-            location: location
-            )
-        self.image = image
-    }
-    
-    func didRequestImage() {
-        controller?.display(ResourceLoadingViewModel(isLoading: false))
-        if let image = image {
-            controller?.display(image)
-            controller?.display(ResourceErrorViewModel(message: .none))
-        } else {
-            controller?.display(ResourceErrorViewModel(message: "any"))
-        }
-    }
-    
-    func didCancelImageRequest() {}
-
-}
-
-class FakeRefreshControl: UIRefreshControl {
-    private var _isRefreshing = false
-    
-    override var isRefreshing: Bool { _isRefreshing }
-    
-    override func beginRefreshing() {
-        _isRefreshing = true
-    }
-    
-    override func endRefreshing() {
-        _isRefreshing = false
-    }
-}*/
 
 

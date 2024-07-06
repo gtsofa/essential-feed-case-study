@@ -69,6 +69,47 @@ extension ListViewController {
         return errorView.message
     }
     
+    func numberOfRows(in section: Int) -> Int {
+        tableView.numberOfSections > section ? tableView.numberOfRows(inSection: section) : 0
+    }
+    
+    func cell(row: Int, section: Int) -> UITableViewCell? {
+        guard numberOfRows(in: section) > row else {
+            return nil
+        }
+        
+        let ds = tableView.dataSource// gets data source
+        let index = IndexPath(row: row, section: section)// create index path for a given row
+        return ds?.tableView(tableView, cellForRowAt: index)
+    }
+    
+}
+
+extension ListViewController {
+    func numberOfRenderedComments() -> Int {
+        numberOfRows(in: commentsSection)
+    }
+
+    func commentMessage(at row: Int) -> String? {
+        commentView(at: row)?.messageLabel.text
+    }
+    
+    func commentDate(at row: Int) -> String? {
+        commentView(at: row)?.dateLabel.text
+    }
+    
+    func commentUsername(at row: Int) -> String? {
+        commentView(at: row)?.usernameLabel.text
+    }
+    
+    func commentView(at row: Int) -> ImageCommentCell? {
+        cell(row: row, section: commentsSection) as? ImageCommentCell
+    }
+    
+    private var commentsSection: Int { return 0}
+}
+
+extension ListViewController {
     func simulateFeedImageViewNotNearVisible(at row: Int = 0) {
         simulateFeedImageViewVisible(at: row)
         let ds = tableView.prefetchDataSource
@@ -79,6 +120,12 @@ extension ListViewController {
     
     func renderedFeedImageData(at index: Int) -> Data? {
         return simulateFeedImageViewVisible(at: index)?.renderedImage
+    }
+    
+    func simulateTapOnFeedImage(at row: Int) {
+        let delegate = tableView.delegate
+        let index = IndexPath(row: row, section: feedImagesSection)
+        delegate?.tableView?(tableView, didSelectRowAt: index)
     }
     
     func simulateFeedImageViewNearVisible(at row: Int = 0) {
@@ -115,18 +162,12 @@ extension ListViewController {
     }
     
     func numberOfRenderedFeedImageViews() -> Int {
-        tableView.numberOfSections == 0 ? 0 : tableView.numberOfRows(inSection: feedImagesSection)
+        numberOfRows(in: feedImagesSection)
     }
     
     func feedImageView(at row: Int) -> UITableViewCell? {
-        guard numberOfRenderedFeedImageViews() > row else { return nil }
-        
-        let ds = tableView.dataSource// gets data source
-        let index = IndexPath(row: row, section: feedImagesSection)// create index path for a given row
-        return ds?.tableView(tableView, cellForRowAt: index) // ask for data source for the cell at that index
+        cell(row: row, section: feedImagesSection)
     }
     
-    private var feedImagesSection: Int {
-        return 0
-    }
+    private var feedImagesSection: Int { return 0}
 }
