@@ -69,11 +69,25 @@ extension ListViewController {
         return errorView.message
     }
     
+    func numberOfRows(in section: Int) -> Int {
+        tableView.numberOfSections > section ? tableView.numberOfRows(inSection: section) : 0
+    }
+    
+    func cell(row: Int, section: Int) -> UITableViewCell? {
+        guard numberOfRows(in: section) > row else {
+            return nil
+        }
+        
+        let ds = tableView.dataSource// gets data source
+        let index = IndexPath(row: row, section: section)// create index path for a given row
+        return ds?.tableView(tableView, cellForRowAt: index)
+    }
+    
 }
 
 extension ListViewController {
     func numberOfRenderedComments() -> Int {
-        tableView.numberOfSections == 0 ? 0 : tableView.numberOfRows(inSection: commentsSection)
+        numberOfRows(in: commentsSection)
     }
 
     func commentMessage(at row: Int) -> String? {
@@ -89,16 +103,10 @@ extension ListViewController {
     }
     
     func commentView(at row: Int) -> ImageCommentCell? {
-        guard numberOfRenderedComments() > row else { return nil }
-        
-        let ds = tableView.dataSource// gets data source
-        let index = IndexPath(row: row, section: commentsSection)// create index path for a given row
-        return ds?.tableView(tableView, cellForRowAt: index) as? ImageCommentCell // ask for data source for the cell at that index
+        cell(row: row, section: commentsSection) as? ImageCommentCell
     }
     
-    private var commentsSection: Int {
-        return 0
-    }
+    private var commentsSection: Int { return 0}
 }
 
 extension ListViewController {
@@ -154,18 +162,12 @@ extension ListViewController {
     }
     
     func numberOfRenderedFeedImageViews() -> Int {
-        tableView.numberOfSections == 0 ? 0 : tableView.numberOfRows(inSection: feedImagesSection)
+        numberOfRows(in: feedImagesSection)
     }
     
     func feedImageView(at row: Int) -> UITableViewCell? {
-        guard numberOfRenderedFeedImageViews() > row else { return nil }
-        
-        let ds = tableView.dataSource// gets data source
-        let index = IndexPath(row: row, section: feedImagesSection)// create index path for a given row
-        return ds?.tableView(tableView, cellForRowAt: index) // ask for data source for the cell at that index
+        cell(row: row, section: feedImagesSection)
     }
     
-    private var feedImagesSection: Int {
-        return 0
-    }
+    private var feedImagesSection: Int { return 0}
 }
