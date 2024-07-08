@@ -13,6 +13,19 @@ import essential_feed_case_study
 // this is the 'bridging' from the 'closure' to 'publisher' and vice versa
 // bridging is not needed if our modules are coupled with combine, otherwise we create a bridge and we decouple from Combine (it is a choice)
 public extension Paginated {
+    init(items: [Item], loadMorePublisher: (() -> AnyPublisher<Self, Error>)?) {
+        self.init(items: items, loadMore: loadMorePublisher.map { publisher in
+            return { completion in
+                publisher().subscribe(Subscribers.Sink(receiveCompletion: { result in
+                    if case let .failure(error) = result {
+                        completion(.failure(error))
+                    }
+                }, receiveValue: { result in
+                    completion(.success(result))
+                }))
+            }
+        })
+    }
     // 'converting' closure into 'publisher'
     var loadMorePublisher: (() -> AnyPublisher<Self, Error>)? {
         // but only if we have 'loadMore' closure

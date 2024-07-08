@@ -70,6 +70,24 @@ class FeedUIIntegrationTests: XCTestCase {
         //should only call the 'callback' when not loading to save battery/memory
         sut.simulateLoadMoreFeedAction() // calls viewDidLoad()
         XCTAssertEqual(loader.loadMoreCallCount, 1, "Expected no request while loading more")
+        
+        // need to complete the first request & should not be the last page koz it wont have something to load
+        loader.completeLoadMore(lastPage: false, at: 0)
+        // execute loadmoreaction again, count =2
+        sut.simulateLoadMoreFeedAction()
+        XCTAssertEqual(loader.loadMoreCallCount, 2, "Expected request after load more completed with more pages.")
+        
+        //completes with error
+        loader.completeLoadMoreWithError(at: 1)
+        // execute loadmoreaction again, count =2
+        sut.simulateLoadMoreFeedAction()
+        XCTAssertEqual(loader.loadMoreCallCount, 3, "Expected request after load more failure")
+        
+        // reach the last page?
+        loader.completeLoadMore(lastPage: true, at: 2)
+        // execute loadmoreaction again, count =2
+        sut.simulateLoadMoreFeedAction()
+        XCTAssertEqual(loader.loadMoreCallCount, 3, "Expected no request after loading all pages")
     }
     
     
