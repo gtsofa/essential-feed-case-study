@@ -22,7 +22,7 @@ final class FeedViewAdapter: ResourceView {
         self.selection = selection
     }
     
-    func display(_ viewModel: PaginatedFeed<FeedImage>) {
+    func display(_ viewModel: Paginated<FeedImage>) {
         //map feedimages to cellcontrollers
         // feedvc expects [FeedImageCellController]
         controller?.display(viewModel.items.map { model in
