@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct PaginatedFeed<Item> {
+public struct Paginated<Item> {
     public typealias LoadMoreCompletion = (Result<Self, Error>) -> Void
     
     public let items: [Item]
