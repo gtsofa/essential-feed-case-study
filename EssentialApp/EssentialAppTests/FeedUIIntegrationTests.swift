@@ -65,6 +65,11 @@ class FeedUIIntegrationTests: XCTestCase {
         
         sut.simulateLoadMoreFeedAction() // calls viewDidLoad()
         XCTAssertEqual(loader.loadMoreCallCount, 1, "Expected load more rquests")
+        
+        //user request a relaod while the previous request is still loading
+        //should only call the 'callback' when not loading to save battery/memory
+        sut.simulateLoadMoreFeedAction() // calls viewDidLoad()
+        XCTAssertEqual(loader.loadMoreCallCount, 1, "Expected no request while loading more")
     }
     
     

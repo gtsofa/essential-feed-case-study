@@ -9,6 +9,23 @@ import Foundation
 import Combine
 import essential_feed_case_study
 
+// this going to convert this closure type ('(Result<Self, Error>) -> Void') into a 'Publisher'
+// this is the 'bridging' from the 'closure' to 'publisher' and vice versa
+// bridging is not needed if our modules are coupled with combine, otherwise we create a bridge and we decouple from Combine (it is a choice)
+public extension Paginated {
+    // 'converting' closure into 'publisher'
+    var loadMorePublisher: (() -> AnyPublisher<Self, Error>)? {
+        // but only if we have 'loadMore' closure
+        guard let loadMore = loadMore else { return nil }
+        
+        return {
+            Deferred {
+                Future(loadMore)
+            }.eraseToAnyPublisher()
+        }
+    }
+}
+
 public extension HTTPClient {
     typealias Publisher = AnyPublisher<(Data, HTTPURLResponse), Error>
     
