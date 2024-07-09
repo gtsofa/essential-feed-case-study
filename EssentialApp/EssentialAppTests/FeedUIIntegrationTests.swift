@@ -151,17 +151,22 @@ class FeedUIIntegrationTests: XCTestCase {
         
         // loader completes loading 1 image
         /// 1 element
-        loader.completeFeedLoading(with: [image0], at: 0)
+        loader.completeFeedLoading(with: [image0, image1], at: 0)
         //XCTAssertEqual(sut.numberOfRenderedFeedImageViews(), 1)
         //assertThat(sut, hasViewConfiguredFor: image0, at: 0)
-        assertThat(sut, isRendering: [image0])
+        assertThat(sut, isRendering: [image0, image1])
+        
+        //loadmore
+        sut.simulateLoadMoreFeedAction()
+        loader.completeLoadMore(with: [image0, image1, image2, image3], at: 0)
+        assertThat(sut, isRendering: [image0, image1, image2, image3])
 
         
         // everytime you test collection; test: 1)zero case 2) 1 element case 3)many elements case
         /// many element case
         sut.simulateUserInitiatedReload()
-        loader.completeFeedLoading(with: [image0, image1, image2, image3], at: 1)
-        assertThat(sut, isRendering: [image0, image1, image2, image3])
+        loader.completeFeedLoading(with: [image0, image1], at: 1)
+        assertThat(sut, isRendering: [image0, image1])
         
         // check count
         // check the values pattern :)
@@ -175,7 +180,12 @@ class FeedUIIntegrationTests: XCTestCase {
         let (sut, loader) = makeSUT()
         
         sut.simulateAppearance()//loadViewIfNeeded()
-        loader.completeFeedLoading(with: [image0, image1], at: 0)
+        loader.completeFeedLoading(with: [image0], at: 0)
+        assertThat(sut, isRendering: [image0])
+        
+        //loadmore
+        sut.simulateLoadMoreFeedAction()
+        loader.completeLoadMore(with: [image0, image1], at: 0)
         assertThat(sut, isRendering: [image0, image1])
 
         //if load again but we receive empty array of images
@@ -202,6 +212,11 @@ class FeedUIIntegrationTests: XCTestCase {
         loader.completeFeedLoadingWithError(at: 1)
         assertThat(sut, isRendering: [image0])
         
+        //loadmore with error; should not change the rendering state
+        sut.simulateLoadMoreFeedAction()
+        loader.completeLoadMoreWithError(at: 0)
+        assertThat(sut, isRendering: [image0])
+        
     }
     
     // dispatch FeedLoader results to the MainThread
@@ -213,6 +228,22 @@ class FeedUIIntegrationTests: XCTestCase {
         // make it complete loading in the global queue
         DispatchQueue.global().async {
             loader.completeFeedLoading(at: 0)
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
+    }
+    
+    // dispatch Loadmore results to the MainThread
+    func test_loadLoadMoreCompletion_dispatchesFromBackgroundToMainThread() {
+        let (sut, loader) = makeSUT()
+        sut.simulateAppearance()
+        loader.completeFeedLoading(at: 0)
+        sut.simulateLoadMoreFeedAction()
+        
+        let exp = expectation(description: "Wait for background queue")
+        // make it complete loading in the global queue
+        DispatchQueue.global().async {
+            loader.completeLoadMore()
             exp.fulfill()
         }
         wait(for: [exp], timeout: 1.0)
