@@ -109,6 +109,30 @@ class FeedUIIntegrationTests: XCTestCase {
         
     }
     
+    // test load more indicator
+    func test_loadingMoreIndicator_isVisibleWhileLoadingMore() {
+        let (sut, loader) = makeSUT()
+        
+        sut.simulateAppearance() // viewDidLoad
+        XCTAssertFalse(sut.isShowingLoadMoreIndicator, "")
+        
+        loader.completeFeedLoading(at: 0)
+        XCTAssertFalse(sut.isShowingLoadMoreIndicator, "")
+        
+        sut.simulateLoadMoreFeedAction()
+        XCTAssertTrue(sut.isShowingLoadMoreIndicator, "")
+        
+        loader.completeLoadMore(at: 0)
+        XCTAssertFalse(sut.isShowingLoadMoreIndicator, "")
+        
+        sut.simulateLoadMoreFeedAction()
+        XCTAssertTrue(sut.isShowingLoadMoreIndicator, "")
+        
+        loader.completeLoadMoreWithError(at: 1)
+        XCTAssertFalse(sut.isShowingLoadMoreIndicator, "")
+        
+    }
+    
     func test_loadFeedCompletion_rendersSuccessfullyLoadedFeed() {
         // create feed image (location, description, imageURL)
         // we want to render a cell for a given model
