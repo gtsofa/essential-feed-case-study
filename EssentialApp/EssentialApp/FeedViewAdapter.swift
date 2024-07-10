@@ -14,6 +14,9 @@ final class FeedViewAdapter: ResourceView {
     private weak var controller: ListViewController?
     private let imageLoader: (URL) -> FeedImageDataLoader.Publisher
     private typealias ImageDataPresentationAdapter = LoadResourcePresentationAdapter<Data, WeakRefVirtualProxy<FeedImageCellController>>
+    
+    private typealias LoadMorePresentationAdapter = LoadResourcePresentationAdapter<Paginated<FeedImage>, FeedViewAdapter>
+    
     private let selection: (FeedImage) -> Void
     
     init(controller: ListViewController, imageLoader: @escaping (URL) -> FeedImageDataLoader.Publisher, selection: @escaping (FeedImage) -> Void) {
@@ -22,10 +25,10 @@ final class FeedViewAdapter: ResourceView {
         self.selection = selection
     }
     
-    func display(_ viewModel: FeedViewModel) {
+    func display(_ viewModel: Paginated<FeedImage>) {
         //map feedimages to cellcontrollers
         // feedvc expects [FeedImageCellController]
-        controller?.display(viewModel.feed.map { model in
+        let feed: [CellController] = viewModel.items.map { model in
             let adapter = ImageDataPresentationAdapter(loader: { [imageLoader] in
                 
                 imageLoader(model.url)
@@ -36,8 +39,7 @@ final class FeedViewAdapter: ResourceView {
                 delegate: adapter,
                 selection: { [selection] in
                     selection(model)
-                }
-            )
+                })
             
             adapter.presenter = LoadResourcePresenter(
                 resourceView: WeakRefVirtualProxy(view),
@@ -46,7 +48,29 @@ final class FeedViewAdapter: ResourceView {
                 mapper: UIImage.tryMake)
             
             return CellController(id: model, view)
-        })
+        }
+        
+        guard let loadMorePublisher = viewModel.loadMorePublisher else {
+            controller?.display(feed)
+            return 
+        }
+        // in case confusing worth to re-watch live#002
+        let loadMoreAdapter = LoadMorePresentationAdapter(loader: loadMorePublisher)
+        
+        // here we need to 'create' a new 'section' into the cell controllers
+        // now here we should use the adapter 'loadResource' method instead of calling 'loadMore' every time
+        // because the 'loadResource' in the adapter is the one that we will call the 'loadMorePublisher' and handle all the state transitions with the presenter
+        let loadMore = LoadMoreCellController(callback: loadMoreAdapter.loadResource)
+        
+        loadMoreAdapter.presenter = LoadResourcePresenter(
+            resourceView: self,
+            loadingView: WeakRefVirtualProxy(loadMore),
+            errorView: WeakRefVirtualProxy(loadMore),
+            mapper: { $0 })
+        
+        let loadMoreSection = [CellController(id: UUID(), loadMore)]
+        
+        controller?.display(feed, loadMoreSection)
     }
 }
 

@@ -118,6 +118,10 @@ extension ListViewController {
         
     }
     
+    var canLoadMoreFeed: Bool {
+        loadMoreFeedCell() != nil 
+    }
+    
     func renderedFeedImageData(at index: Int) -> Data? {
         return simulateFeedImageViewVisible(at: index)?.renderedImage
     }
@@ -150,6 +154,34 @@ extension ListViewController {
         return view
     }
     
+    func simulateLoadMoreFeedAction() {
+        guard let view = loadMoreFeedCell() else { return }
+        
+        let delegate = tableView.delegate
+        let index = IndexPath(row: 0, section: feedLoadMoreSection)
+        delegate?.tableView?(tableView, willDisplay: view, forRowAt: index)
+    }
+    
+    // simple tapping on a view
+    func simulateTapOnLoadMoreFeedError() {
+        let delegate = tableView.delegate
+        let index = IndexPath(row: 0, section: feedLoadMoreSection)
+        delegate?.tableView?(tableView, didSelectRowAt: index)
+    }
+    
+    var loadMoreFeedErrorMessage: String? {
+        return loadMoreFeedCell()?.message
+    }
+    
+    var isShowingLoadMoreIndicator: Bool {
+        //we are showing loadmore indicator when view/cell is visible and it's loading
+        return loadMoreFeedCell()?.isLoading == true
+    }
+    
+    private func loadMoreFeedCell() -> LoadMoreCell? {
+        cell(row: 0, section: feedLoadMoreSection) as? LoadMoreCell
+    }
+    
     @discardableResult
     func simulateFeedImageViewNotVisible(at row: Int) -> FeedImageCell? {
         let view = simulateFeedImageViewVisible(at: row) // simulate the view as visible
@@ -170,4 +202,5 @@ extension ListViewController {
     }
     
     private var feedImagesSection: Int { return 0}
+    private var feedLoadMoreSection: Int { 1}
 }
