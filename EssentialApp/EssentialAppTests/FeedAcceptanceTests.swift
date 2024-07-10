@@ -34,7 +34,7 @@ final class FeedAcceptanceTests: XCTestCase {
         XCTAssertFalse(feed.canLoadMoreFeed)
     }
     
-    func test_onLaunch_displaysCacheRemoteFeedWhenCustomerHasNoConnectivity() {
+    func test_onLaunch_displaysCachedRemoteFeedWhenCustomerHasNoConnectivity() {
         let sharedStore = InMemoryFeedStore.empty
         let onlineFeed = launch(httpClient: .online(response), store: sharedStore)
         onlineFeed.simulateFeedImageViewVisible(at: 0)
