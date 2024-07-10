@@ -28,8 +28,8 @@ public struct CellController {
     public init(id: AnyHashable, _ dataSource: UITableViewDataSource) {
         self.id = id
         self.dataSource = dataSource
-        self.delegate = nil
-        self.dataSourcePrefetching = nil
+        self.delegate = dataSource as? UITableViewDelegate
+        self.dataSourcePrefetching = dataSource as? UITableViewDataSourcePrefetching
     }
     
     // for case where 'dataSource' & 'delegate' used (like 'LoadMoreCellController')
@@ -37,7 +37,7 @@ public struct CellController {
         self.id = id
         self.dataSource = dataSource
         self.delegate = dataSource
-        self.dataSourcePrefetching = nil
+        self.dataSourcePrefetching = dataSource as? UITableViewDataSourcePrefetching
     }
 }
 
