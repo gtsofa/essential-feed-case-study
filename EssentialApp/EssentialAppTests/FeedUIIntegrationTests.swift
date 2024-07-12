@@ -47,12 +47,17 @@ class FeedUIIntegrationTests: XCTestCase {
         
         // trigger the refreshcontrol action which happens on a .valueChanged event
         sut.simulateUserInitiatedReload()
-        XCTAssertEqual(loader.loadFeedCallCount, 2, "Expected another loading request once a user initiates a load")
+        XCTAssertEqual(loader.loadFeedCallCount, 1, "Expected no request until previous completes")
+        
+        loader.completeFeedLoading(at: 0)
+        sut.simulateUserInitiatedReload()
+        XCTAssertEqual(loader.loadFeedCallCount, 2, "Expected another loading request once user initiates a reload")
         
         // view is loaded only once
         // pull to refresh can be done more than once
+        loader.completeFeedLoading(at: 1)
         sut.simulateUserInitiatedReload()
-        XCTAssertEqual(loader.loadFeedCallCount, 3, "Expected a third loading request once a user initiates another load")
+        XCTAssertEqual(loader.loadFeedCallCount, 3, "Expected yet another loading request once user initiates another reload")
     }
     
     // test loading indicator
@@ -622,6 +627,33 @@ class FeedUIIntegrationTests: XCTestCase {
         loader.completeImageLoading(with: imageData, at: 1)
         
         XCTAssertEqual(newView.renderedImage, imageData)
+    }
+    
+    // If we already start loading coz we are prefetching an image
+    //we don't want to load the same image again when cell becomes visible
+    func test_feedImageView_doesNotLoadImageAgainUntilPreviousRequestCompletes() {
+        let image = makeImage(url: URL(string: "https://url-0.com")!)
+        let (sut, loader) = makeSUT()
+        
+        sut.simulateAppearance()
+        loader.completeFeedLoading( with: [image])
+        
+        sut.simulateFeedImageViewNearVisible(at: 0)
+        XCTAssertEqual(loader.loadedImageURLs, [image.url], "Expected first request when near visible")
+        
+        sut.simulateFeedImageViewVisible(at: 0)
+        XCTAssertEqual(loader.loadedImageURLs, [image.url], "Expected no request until previous completes")
+        
+        loader.completeImageLoading()
+        sut.simulateFeedImageViewVisible(at: 0)
+        XCTAssertEqual(loader.loadedImageURLs, [image.url, image.url], "Expected second request when near visible after previous complete")
+        
+        //image can become invisible/not visible
+        //what happens : we canncel the request
+        sut.simulateFeedImageViewNotNearVisible(at: 0)
+        //becomes visible again: load request again coz its visible
+        sut.simulateFeedImageViewVisible(at: 0)
+        XCTAssertEqual(loader.loadedImageURLs, [image.url, image.url, image.url], "Expected third request when visible after cancelling previous request complete")
     }
     
 
