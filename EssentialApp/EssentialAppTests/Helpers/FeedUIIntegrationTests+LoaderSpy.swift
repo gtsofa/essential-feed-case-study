@@ -1,5 +1,5 @@
 //
-//  FeedViewControllerTests+LoaderSpy.swift
+//  FeedUIIntegrationTests+LoaderSpy.swift
 //  EssentialFeediOSTests
 //
 //  Created by Julius on 19/04/2024.
@@ -36,6 +36,7 @@ class LoaderSpy: FeedImageDataLoader {
             self?.loadMoreRequests.append(publisher)
             return publisher.eraseToAnyPublisher()
         }))
+        feedRequests[index].send(completion: .finished)
     }
     
     func completeFeedLoadingWithError(at index: Int = 0) {
