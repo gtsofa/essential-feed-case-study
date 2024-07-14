@@ -30,45 +30,25 @@ extension LocalFeedImageDataLoader: FeedImageDataCache {
 }
 
 extension LocalFeedImageDataLoader: FeedImageDataLoader {
-    public typealias LoadResult = FeedImageDataLoader.Result
+    // we dont need a result
     
     public enum LoadError: Swift.Error {
         case failed
         case notFound
     }
     
-    private final class LoadImageDataTask: FeedImageDataLoaderTask {
-        private var completion: ((FeedImageDataLoader.Result) -> Void)?
-        
-        init(_ completion: @escaping (FeedImageDataLoader.Result) -> Void) {
-            self.completion = completion
-        }
-        
-        func complete(with result: FeedImageDataLoader.Result) {
-            completion?(result)
-        }
-        
-        func cancel() {
-            preventFurtherCompletions()
-        }
-        
-        private func preventFurtherCompletions() {
-            completion = nil
-        }
-    }
+    // we don't need a task 'LoadImageDataTask:FeedImageDataLoaderTask'
     
-    public func loadImageData(from url: URL, completion: @escaping (LoadResult) -> Void) -> FeedImageDataLoaderTask {
-        let task = LoadImageDataTask(completion)
-        //pass msg `retrieve(dataForURL: url)` to the store
-        task.complete(
-            with: Swift.Result {
-                try store.retrieve(dataForURL: url)
+    // sync no completion blocks
+    public func loadImageData(from url: URL) throws -> Data {
+        // transform it to a docatch
+        do {
+            if let imageData = try store.retrieve(dataForURL: url) {
+                return imageData
             }
-            .mapError { _ in LoadError.failed }
-            .flatMap { data in data.map { .success($0) } ?? .failure(LoadError.notFound)
-                    
-            })
-        
-        return task
+        } catch {
+            throw LoadError.failed
+        }
+        throw LoadError.notFound
     }
 }
