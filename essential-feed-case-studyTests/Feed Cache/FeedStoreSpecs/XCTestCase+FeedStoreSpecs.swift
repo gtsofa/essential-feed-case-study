@@ -73,12 +73,8 @@ extension FeedStoreSpecs where Self: XCTestCase {
     }
     
     func assertThatDeleteDeliversNoErrorOnNonEmptyCache(on sut: FeedStore, file: StaticString = #file, line: UInt = #line) {
-        let feed = uniqueImageFeed().local
-        let timestamp = Date()
-        
-        sut.insert(feed, timestamp: timestamp) { insertionError in
-            XCTAssertNil(insertionError, "Expected cache insertion successfully")
-        }
+       
+        insert((uniqueImageFeed().local, Date()), to: sut)
         
         let deletionError = deleteCache(from: sut)
         
@@ -86,18 +82,13 @@ extension FeedStoreSpecs where Self: XCTestCase {
     }
     
     func assertThatDeleteEmptiesPreviouslyInsertedCache(on sut: FeedStore, file: StaticString = #file, line: UInt = #line) {
-        let feed = uniqueImageFeed().local
-        let timestamp = Date()
-        
-        sut.insert(feed, timestamp: timestamp) { insertionError in
-            XCTAssertNil(insertionError, "Expected cache insertion successfully")
-        }
+        insert((uniqueImageFeed().local, Date()), to: sut)
         
         deleteCache(from: sut)
         
-        expect(sut, toRetrieve: .success(.none))
+        expect(sut, toRetrieve: .success(.none), file: file, line: line)
     }
-
+    
 }
 
 // we constrain the protocol extension to XCTestCase subclasses
@@ -124,13 +115,13 @@ extension FeedStoreSpecs where Self: XCTestCase {
         }
     }
     
-    func expect(_ sut: FeedStore, toRetrieveTwice expectedResult: FeedStore.RetrievalResult, file: StaticString = #filePath,
+    func expect(_ sut: FeedStore, toRetrieveTwice expectedResult: Result<CachedFeed?, Error>, file: StaticString = #filePath,
                         line: UInt = #line) {
         expect(sut, toRetrieve: expectedResult, file: file, line: line)
         expect(sut, toRetrieve: expectedResult, file: file, line: line)
     }
     
-    func expect(_ sut: FeedStore, toRetrieve expectedResult: FeedStore.RetrievalResult, file: StaticString = #filePath,
+    func expect(_ sut: FeedStore, toRetrieve expectedResult: Result<CachedFeed?, Error>, file: StaticString = #filePath,
                 line: UInt = #line) {
         let retrievedResult = Result { try sut.retrieve()}
         
