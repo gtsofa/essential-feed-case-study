@@ -20,18 +20,13 @@ public final class LocalFeedLoader {
 extension LocalFeedLoader {
     public typealias LoadResult = Swift.Result<[FeedImage], Error>
     
-    public func load(completion: @escaping (LoadResult) -> Void) {
-        // invoke a method i.e message passing to an object
-        // load command need to trigger a retrieve
-        
-        //sync
-        completion(LoadResult {
-            if let cache = try store.retrieve(),
-               FeedCachePolicy.validate(cache.timestamp, against: self.currentDate()) {
-                return cache.feed.toModels()
-            }
-            return []
-        })
+    //sync mtd
+    public func load() throws -> [FeedImage] {
+        if let cache = try store.retrieve(),
+           FeedCachePolicy.validate(cache.timestamp, against: self.currentDate()) {
+            return cache.feed.toModels()
+        }
+        return []
     }
 }
 
