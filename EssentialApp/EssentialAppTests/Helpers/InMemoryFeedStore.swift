@@ -8,7 +8,7 @@
 import Foundation
 import essential_feed_case_study
 
-class InMemoryFeedStore: FeedStore, FeedImageDataStore {
+class InMemoryFeedStore: FeedStore {
     private(set) var feedCache: CachedFeed?
     private var feedImageDataCache: [URL: Data] = [:]
     
@@ -16,27 +16,16 @@ class InMemoryFeedStore: FeedStore, FeedImageDataStore {
         self.feedCache = feedCache
     }
     
-    func deleteCachedFeed(completion: @escaping FeedStore.DeletionCompletion) {
+    func deleteCachedFeed() throws {
         feedCache = nil
-        completion(.success(()))
     }
     
-    func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping FeedStore.InsertionCompletion) {
+    func insert(_ feed: [LocalFeedImage], timestamp: Date) throws {
         feedCache = CachedFeed(feed: feed, timestamp: timestamp)
-        completion(.success(()))
     }
     
-    func retrieve(completion: @escaping FeedStore.RetrievalCompletion) {
-        completion(.success(feedCache))
-    }
-    
-    func retrieve(dataForURL url: URL, completion: @escaping (FeedImageDataStore.RetrievalResult) -> Void) {
-        completion(.success(feedImageDataCache[url]))
-    }
-    
-    func insert(_ data: Data, for url: URL, completion: @escaping (FeedImageDataStore.InsertionResult) -> Void) {
-        feedImageDataCache[url] = data
-        completion(.success(()))
+    func retrieve() throws -> CachedFeed? {
+        feedCache
     }
     
     static var empty: InMemoryFeedStore {
@@ -49,5 +38,17 @@ class InMemoryFeedStore: FeedStore, FeedImageDataStore {
     
     static var withNonExpiredFeedCache: InMemoryFeedStore {
         InMemoryFeedStore(feedCache: CachedFeed(feed: [], timestamp: Date()))
+    }
+}
+
+extension InMemoryFeedStore: FeedImageDataStore {
+    func insert(_ data: Data, for url: URL) throws {
+        //insert data in the dictionary
+        feedImageDataCache[url] = data
+    }
+    
+    func retrieve(dataForURL url: URL) throws -> Data? {
+        //retrieve data from the dict synchronously
+        feedImageDataCache[url]
     }
 }

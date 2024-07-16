@@ -15,37 +15,45 @@ class FeedImageDataStoreSpy: FeedImageDataStore {
         case insert(data: Data, for: URL)
     }
     
-    private var retrievalCompletions = [(FeedImageDataStore.RetrievalResult) -> Void]()
-    private var insertionCompletions = [(FeedImageDataStore.InsertionResult) -> Void]()
+    private var retrievalResult: Result<Data?, Error>?//= [(FeedImageDataStore.RetrievalResult) -> Void]()
+    // Stub
+    private var insertionResult: Result<Void, Error>? //[(FeedImageDataStore.InsertionResult) -> Void]()
+    // spy can also be a stub; as it still capture receivedmsgs
     private(set) var receivedMsgs = [Message]()
     
     var requestedURLs = [URL]()
     
-    func retrieve(dataForURL url: URL, completion: @escaping (FeedImageDataStore.RetrievalResult) -> Void) {
+    // all methods are sync :)
+    //implement sync version
+    func retrieve(dataForURL url: URL) throws -> Data? {
         //capture msgs for use in our test
+        // stub msgs
         receivedMsgs.append(.retrieve(dataFor: url))
-        retrievalCompletions.append(completion)
+        return try retrievalResult?.get()
     }
     
     func completeRetrieval(with error: Error, at index: Int = 0) {
-        retrievalCompletions[index](.failure(error))
+        retrievalResult = .failure(error)
     }
     
     func completeRetrieval(with data: Data?, at index: Int = 0) {
-        retrievalCompletions[index](.success(data))
+        //capture stub
+        retrievalResult = .success(data)
     }
     
-    func insert(_ data: Data, for url: URL, completion: @escaping (InsertionResult) -> Void) {
+    func insert(_ data: Data, for url: URL) throws {
         receivedMsgs.append(.insert(data: data, for: url))
-        insertionCompletions.append(completion)
+        try insertionResult?.get()
     }
     
     func completeInsertion(with error: Error, at index: Int = 0) {
-        insertionCompletions[index](.failure(error))
+        //capture stub instead of complete insertion completion
+        insertionResult = .failure(error)
     }
     
     func completeInsertionSuccessfully(at index: Int = 0) {
-        insertionCompletions[index](.success(()))
+        //capture stub
+        insertionResult = .success(())
     }
     
 }

@@ -18,38 +18,35 @@ class FeedStoreSpy: FeedStore {
     // combine all msgs
     private(set) var receivedMessages = [ReceivedMessage]()
     
-    private var deletionCompletions = [DeletionCompletion]()
-    private var insertionCompletions = [InsertionCompletion]()
-    private var retrievalCompletions = [RetrievalCompletion]()
+    private var deletionResult: Result<Void, Error>?
+    private var insertionResult: Result<Void, Error>?
+    private var retrievalResult: Result<CachedFeed?, Error>?
     // mtd to be invoked in sut
     // implements the behavior we expect
-    func deleteCachedFeed(completion: @escaping DeletionCompletion) {
-        // then we capture the completions
-        deletionCompletions.append(completion)
-        //incase of the above
+    func deleteCachedFeed() throws {
         receivedMessages.append(.deleteCachedFeed)
+        try deletionResult?.get()
     }
     
     func completeDeletion(with error: NSError, at index: Int = 0) {
-        deletionCompletions[index](.failure(error))
+        deletionResult = .failure(error)
     }
     
     func completeDeletionSuccessfully(at index: Int = 0) {
-        deletionCompletions[index](.success(()))
+        deletionResult = .success(())
     }
     
-    func insert(_ feed: [LocalFeedImage], timestamp: Date, completion: @escaping InsertionCompletion) {
-        insertionCompletions.append(completion)
-        // we capture items and timestam msgs :)
+    func insert(_ feed: [LocalFeedImage], timestamp: Date) throws {
         receivedMessages.append(.insert(feed, timestamp))
+        try insertionResult?.get()
     }
     
     func completeInsertion(with error: NSError, at index: Int = 0) {
-        insertionCompletions[index](.failure(error))
+        insertionResult = .failure(error)
     }
     
     func completeInsertionSuccessfully(at index: Int = 0) {
-        insertionCompletions[index](.success(()))
+        insertionResult = .success(())
     }
     
     // spy needs to implement the retrieve mtd
@@ -60,21 +57,21 @@ class FeedStoreSpy: FeedStore {
         receivedMessages.append(.retrieve)
     }*/
     
-    func retrieve(completion: @escaping RetrievalCompletion) {
-        retrievalCompletions.append(completion)
+    func retrieve() throws -> CachedFeed? {
         receivedMessages.append(.retrieve)
+        return try retrievalResult?.get()
     }
     
     func completeRetrieval(with error: NSError, at index: Int = 0) {
-        retrievalCompletions[index](.failure(error))
+        retrievalResult = .failure(error)
     }
     
     func completeRetrievalWithEmptyCache(at index: Int = 0) {
-        retrievalCompletions[index](.success(.none))
+        retrievalResult = .success(.none)
     }
     
     func completeRetrieval(with feed: [LocalFeedImage], timestamp: Date, at index: Int = 0) {
-        retrievalCompletions[index](.success(CachedFeed(feed: feed, timestamp: timestamp )))
+        retrievalResult = .success(CachedFeed(feed: feed, timestamp: timestamp ))
     }
     
     func validateCache() {
