@@ -37,9 +37,13 @@ extension LocalFeedLoader {
 
     
 extension LocalFeedLoader: FeedCache {
-    // a litle abstraction
-    public typealias SaveResult = FeedCache.Result
+    //sync
+    public func save(_ feed: [FeedImage]) throws {
+        try store.deleteCachedFeed()
+        try store.insert(feed.toLocal(), timestamp: currentDate())
+    }
     
+    /* remove async in favour of sync apis
     public func save(_ feed: [FeedImage], completion: @escaping (SaveResult) -> Void) {
         /*//need to invoke a mtd
         //deleteCachedFeed needs to tell us if it succeeded or not
@@ -71,7 +75,7 @@ extension LocalFeedLoader: FeedCache {
             try store.deleteCachedFeed()
             try store.insert(feed.toLocal(), timestamp: currentDate())
         })
-    }
+    }*/
     
 }
 
