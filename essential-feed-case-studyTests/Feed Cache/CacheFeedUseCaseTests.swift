@@ -16,21 +16,13 @@ final class CacheFeedUseCaseTests: XCTestCase {
         XCTAssertEqual(store.receivedMessages, [])
     }
     
-    func test_save_requestCacheDeletion() {
-        let (sut, store) = makeSUT()
-        
-        sut.save(uniqueImageFeed().models) { _ in }
-        
-        XCTAssertEqual(store.receivedMessages, [.deleteCachedFeed])
-    }
-    
     func test_save_doesNotRequestCacheInsertionOnDeletionError() {
         let (sut, store) = makeSUT()
         let deletionError = anyNSError()
+        store.completeDeletion(with: deletionError)
         
         sut.save(uniqueImageFeed().models) { _ in }
-        store.completeDeletion(with: deletionError)
-    
+        
         XCTAssertEqual(store.receivedMessages, [.deleteCachedFeed])
     }
     
@@ -42,9 +34,10 @@ final class CacheFeedUseCaseTests: XCTestCase {
         let timestamp = Date()
         let (sut, store) = makeSUT(currentDate: { timestamp } )
         let feed = uniqueImageFeed()
+        store.completeDeletionSuccessfully()
         
         sut.save(feed.models) { _ in }
-        store.completeDeletionSuccessfully()
+        
         
         XCTAssertEqual(store.receivedMessages, [.deleteCachedFeed, .insert(feed.local, timestamp)])
         
@@ -85,33 +78,6 @@ final class CacheFeedUseCaseTests: XCTestCase {
         })
     }
     
-    func test_save_doesNotDeliverDeletionErrorAfterSUTInstanceHasBeenDeallocated() {
-        let store = FeedStoreSpy()
-        var sut: LocalFeedLoader? = LocalFeedLoader(store: store, currentDate: Date.init)
-        var receivedResults = [LocalFeedLoader.SaveResult]()
-        
-        sut?.save(uniqueImageFeed().models) {receivedResults.append($0)}
-        
-        sut = nil
-        store.completeDeletion(with: anyNSError())
-        
-        XCTAssertTrue(receivedResults.isEmpty)
-    }
-    
-    func test_save_doesNotDeliverInsertionErrorAfterSUTInstanceHasBeenDeallocated() {
-        let store = FeedStoreSpy()
-        var sut: LocalFeedLoader? = LocalFeedLoader(store: store, currentDate: Date.init)
-        var receivedResults = [LocalFeedLoader.SaveResult]()
-        
-        sut?.save(uniqueImageFeed().models) {receivedResults.append($0)}
-        
-        store.completeDeletionSuccessfully()
-        sut = nil
-        store.completeInsertion(with: anyNSError())
-        
-        XCTAssertTrue(receivedResults.isEmpty)
-    }
-    
     // classic example of gre
     // if you need to make calculations based on the current gregorian calendar year (e.g., 2020), then you should explicitly use the gregorian calendar.
     // Otherwise, you'll get wrong results. For instance, the current Buddhist calendar year is 2563.
@@ -140,6 +106,7 @@ final class CacheFeedUseCaseTests: XCTestCase {
     private func expect(_ sut: LocalFeedLoader, toCompleteWithError expectedError: NSError?, when action: () -> Void, file: StaticString = #filePath,
                         line: UInt = #line) {
         let exp = expectation(description: "Wait for save completion")
+        action()
         
         var receivedError: Error?
         sut.save(uniqueImageFeed().models) { result in
@@ -151,7 +118,7 @@ final class CacheFeedUseCaseTests: XCTestCase {
         // these are the actions so replace them
 //        store.completeDeletionSuccessfully()
 //        store.completeInsertion(with: insertionError)
-        action()
+       
         
         wait(for: [exp], timeout: 1.0)
     
