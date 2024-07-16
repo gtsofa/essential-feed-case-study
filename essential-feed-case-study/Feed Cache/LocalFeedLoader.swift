@@ -75,9 +75,21 @@ extension LocalFeedLoader: FeedCache {
 }
 
 extension LocalFeedLoader {
-    public typealias ValidationResult = Result<Void, Error>
     private struct InvalidCache: Error {}
     
+    //sync api
+    public func validateCache() throws {
+        do {
+            if let cache = try store.retrieve(),
+               !FeedCachePolicy.validate(cache.timestamp, against: self.currentDate()) {
+                throw InvalidCache()
+            }
+        } catch {
+            try store.deleteCachedFeed()
+        }
+    }
+    
+    /*//async
     public func validateCache(completion: @escaping(ValidationResult) -> Void) {
         /*// remember we only need to delete cached feed
         // only when there is error/failure(i.e cache is not valid)
@@ -111,7 +123,7 @@ extension LocalFeedLoader {
             }
         })
         
-    }
+    }*/
 }
 
 // map [FeedItem] to [LocalFeedItem] to be used on the store
