@@ -79,11 +79,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
-        
-        do {
-            try localFeedLoader.validateCache()
-        } catch {
-            logger.error("Failed to validate cache with error: \(error.localizedDescription)")
+        scheduler.schedule { [localFeedLoader, logger] in
+            do {
+                try localFeedLoader.validateCache()
+            } catch {
+                logger.error("Failed to validate cache with error: \(error.localizedDescription)")
+            }
         }
     }
     
