@@ -38,6 +38,11 @@ public final class CoreDataFeedStore {
         return try result.get()
     }
     
+    public func perform(_ action: @escaping () -> Void) {
+        // will run in the context queue
+        context.perform(action)
+    }
+    
     private func cleanUpReferencesToPersistentStores() {
         context.performAndWait {
             let coordinator = self.container.persistentStoreCoordinator
