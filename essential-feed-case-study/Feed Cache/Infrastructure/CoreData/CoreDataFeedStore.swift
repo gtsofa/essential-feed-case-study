@@ -34,7 +34,7 @@ public final class CoreDataFeedStore {
     func performSync<R>(_ action: (NSManagedObjectContext) -> Result<R, Error>) throws -> R {
         let context = self.context
         var result: Result<R, Error>!
-        context.performAndWait { result = action(context) }
+        result = action(context)//context.performAndWait { result = action(context) }
         return try result.get()
     }
     
