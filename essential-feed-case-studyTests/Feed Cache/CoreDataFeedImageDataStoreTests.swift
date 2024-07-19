@@ -9,14 +9,14 @@ import XCTest
 import essential_feed_case_study
 
 final class CoreDataFeedImageDataStoreTests: XCTestCase {
-    func test_retrieveImageData_deliversNotFoundOnEmptyCache() {
-        let sut = makeSUT()
+    func test_retrieveImageData_deliversNotFoundOnEmptyCache() throws {
+        let sut = try makeSUT()
         
         expect(sut, toCompleteRetrievalWith: notFound(), for: anyURL())
     }
     
-    func test_retrieveImageData_deliversNotFoundWhenStoreDataURLDoesNotMatch() {
-        let sut = makeSUT()
+    func test_retrieveImageData_deliversNotFoundWhenStoreDataURLDoesNotMatch() throws {
+        let sut = try makeSUT()
         let url = URL(string: "https://a-url.com")!
         let nonMatchingURL = URL(string: "https://another-url.com")!
         
@@ -25,8 +25,8 @@ final class CoreDataFeedImageDataStoreTests: XCTestCase {
         expect(sut, toCompleteRetrievalWith: notFound(), for: nonMatchingURL)
     }
     
-    func test_retrieveImageData_deliversFoundDataWhenThereIsAStoredImageDataMatchingURL() {
-        let sut = makeSUT()
+    func test_retrieveImageData_deliversFoundDataWhenThereIsAStoredImageDataMatchingURL() throws {
+        let sut = try makeSUT()
         let matchingURL = URL(string: "https://a-url.com")!
         let storedData = anyData()
         
@@ -35,8 +35,8 @@ final class CoreDataFeedImageDataStoreTests: XCTestCase {
         expect(sut, toCompleteRetrievalWith: found(storedData), for: matchingURL)
     }
     
-    func test_retrieveImageData_deliversLastInsertedValue() {
-        let sut = makeSUT()
+    func test_retrieveImageData_deliversLastInsertedValue() throws {
+        let sut = try makeSUT()
         let url = anyURL()
         let firstStoredData = Data("first".utf8)
         let lastStoredData = Data("last".utf8)
@@ -50,9 +50,9 @@ final class CoreDataFeedImageDataStoreTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> CoreDataFeedStore {
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) throws -> CoreDataFeedStore {
         let storeURL = URL(fileURLWithPath: "/dev/null")
-        let sut = try! CoreDataFeedStore(storeURL: storeURL)
+        let sut = try CoreDataFeedStore(storeURL: storeURL)
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
     }
