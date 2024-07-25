@@ -265,6 +265,55 @@ Given the customer doesn't have connectivity
 #### No connectivity – error course (sad path):
 1. System delivers connectivity error.
 
+--- 
+
+## Model Specs
+
+### Image Comment
+
+| Property          | Type                    |
+|-------------------|-------------------------|
+| `id`              | `UUID`                  |
+| `message` 	    | `String`			      |
+| `created_at`      | `Date` (ISO8601 String) |
+| `author` 			| `CommentAuthorObject`   |
+
+### Image Comment Author
+
+| Property          | Type                |
+|-------------------|---------------------|
+| `username` 	    | `String`			  |
+
+### Payload contract
+
+```
+GET /image/{image-id}/comments
+
+2xx RESPONSE
+
+{
+	"items": [
+		{
+			"id": "a UUID",
+			"message": "a message",
+			"created_at": "2020-05-20T11:24:59+0000",
+			"author": {
+				"username": "a username"
+			}
+		},
+		{
+			"id": "another UUID",
+			"message": "another message",
+			"created_at": "2020-05-19T14:23:53+0000",
+			"author": {
+				"username": "another username"
+			}
+		},
+		...
+	]
+}
+```
+
 
 
 
